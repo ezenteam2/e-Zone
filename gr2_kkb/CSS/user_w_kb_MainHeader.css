@@ -1,0 +1,61 @@
+body{
+    
+    padding:0;
+    margin:0;
+}
+*{
+    box-sizing: border-box;
+}
+
+#top_Div{
+    width:100%;
+    height:80px;
+    border:solid;
+    display:inline-block;
+}
+
+#logo_div{
+    width:250px;
+    height:100%;
+    float:left;
+}
+
+.logo_Img{
+    width:250px;
+    height:80px;
+}
+
+#Seach_Form_Div{
+    width:650px;
+    height:80px;
+    margin-left:3%;
+    float:left;
+}
+
+#inputKeword{
+    width:80%;
+    height:60px;
+    border:0;
+    border-bottom: 2px solid yellow;
+    font-size:12pt;
+    padding-left:2.5%;
+    display: inline-block;
+    position: relative;
+    z-index: 0;
+}
+
+#inputKeword:focus{
+    outline: none;
+}
+
+.nav_Search{
+    z-index: 1;
+}
+.Search_logo{
+    width:30px;
+    height:30px;
+    margin-left:-7%;
+    margin-top:1%;
+    cursor: pointer;
+    z-index: 1;
+}
