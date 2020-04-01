@@ -1,5 +1,4 @@
 body{
-    
     padding:0;
     margin:0;
 }
@@ -10,7 +9,7 @@ body{
 #top_Div{
     width:100%;
     height:80px;
-    border:solid;
+    border-bottom:0.5px solid black;
     display:inline-block;
 }
 
@@ -28,12 +27,12 @@ body{
 #Seach_Form_Div{
     width:650px;
     height:80px;
-    margin-left:3%;
+    margin-left:8%;
     float:left;
 }
 
 #inputKeword{
-    width:80%;
+    width:100%;
     height:60px;
     border:0;
     border-bottom: 2px solid yellow;
@@ -49,13 +48,73 @@ body{
 }
 
 .nav_Search{
-    z-index: 1;
+    position: absolute;
+    margin-top: 1%;
+    margin-left:-2%;
 }
 .Search_logo{
     width:30px;
     height:30px;
-    margin-left:-7%;
+
+    margin-top:2%;
+    cursor: pointer;
+
+}
+
+.nav_top_Btn_Div{
+    width:130px;
+    height:55px;
+    float:right;
     margin-top:1%;
     cursor: pointer;
-    z-index: 1;
+    text-align: center;
+    
+
+}
+
+.nav_Top_Span{
+    width:100%;
+    font-size:16pt;
+    font-weight: bold;
+
+}
+
+#nav_menu{
+    width:100%;
+    height:50px;
+    border-bottom:0.5px solid black;
+    display: inline-block;
+    margin-top:-5px;
+}
+
+.nav_menu_Div{
+    width:25%;
+    height:100%;
+    float:left;
+    text-align: center;
+    position: relative;
+    background-color: #FFE6E6;
+}
+
+.nav_menu_Div .hide{
+    width:100%;
+    display:none;
+    background-color: #FFE6E6;
+    margin-top:5px;
+}
+
+.nav_menu_Div>a{
+    width:100%;
+    height:100%;
+    font-size:22pt;
+    font-weight: bold;
+
+}
+
+li{
+	width:100%;
+    list-style: none;
+    font-size:12pt;
+    padding:2.5%
+
 }
