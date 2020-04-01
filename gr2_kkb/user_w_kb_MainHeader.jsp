@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +11,15 @@
         $(document).ready(function(){
             $(".nav_menu_Div>a").mouseover(function(){
                 var submenu = $(this).next("ul");
-
+				console.log(submenu);
                submenu.slideDown();
             })
-            $(".nav_menu_Div>a").click(function(){
-                var submenu = $(this).next("ul");
-                submenu.slideDown();
-                submenu.hide();
-            });
+         	$(".hide").mouseleave(function(){
+         		$(this).slideUp();
+         	})
+           
+            
+            
         });
     </script>
     <title> e-Zone</title>
@@ -32,9 +35,10 @@
                 <img src="Image/Search_Img.PNG" class="Search_logo">
             </a>
         </div>
+        <div class="nav_top_Btn_Div"><span class="nav_Top_Span">세미나등록</span></div>
         <div class="nav_top_Btn_Div"><span class="nav_Top_Span">마이페이지</span></div>
-        <div class="nav_top_Btn_Div"><span class="nav_Top_Span">회원가입</span></div>
         <div class="nav_top_Btn_Div"><span class="nav_Top_Span">로그인</span></div>
+        
     </div>
     <div id="nav_menu">
         <div class="nav_menu_Div">
@@ -65,8 +69,15 @@
         <div class="nav_menu_Div">
             <a>Meetup</a>
             <ul class="hide">
-                <li>모임등록</li>
-                <li>모임참가</li>
+                <li>IT기술</li>
+                <li>스포츠</li>
+                <li>건강</li>
+                <li>음식</li>
+                <li>음악</li>
+                <li>가족</li>
+                <li>언어문화</li>
+                <li>영상제작</li>
+                <li>기타</li>
             </ul>
         </div>
         <div class="nav_menu_Div">
