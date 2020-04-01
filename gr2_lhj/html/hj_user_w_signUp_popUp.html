@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>사용할 ID를 입력해주세요</h2>
+    <form>
+    <input type="text" name="id">
+    <button type="button">확인</button>
+    </form>
+
+    <div id="message">
+        <h3></h3>
+    </div>
+
+    <div id="call-back" hidden="true">
+        <button onclick="closeChild()">사용하기</button>
+    </div>
+
+<script>
+    var input=document.querySelector('input[name=id]');
+    var message=document.querySelector('#message h3');
+    var submitBtn=document.querySelector('button');
+    var callbackBtn=document.querySelector('#call-back');
+
+    function changeMsg(){
+        message.innerHTML=input.value+'는(은) 사용가능한 ID입니다.'
+        callbackBtn.hidden=false;
+    }
+    
+
+    function closeChild(){
+        opener.idCallBack(input.value);
+        self.close();
+    }
+
+    submitBtn.addEventListener('click', changeMsg);
+</script>
+</body>
+</html>

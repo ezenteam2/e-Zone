@@ -38,8 +38,19 @@ body #form-wrap form {
 body #form-wrap form input {
   width: 548px;
   height: 48px;
+  border: solid 1px #ddd;
+  padding: 0 15px 0 15px;
+  margin: 0 0 10px 0;
 }
 
 body #form-wrap form h1 {
   font-size: 34px;
+}
+
+body #form-wrap form h2 {
+  width: 100%;
+  text-align: left;
+  padding: 0 0 0 33px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
