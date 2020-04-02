@@ -70,15 +70,27 @@ body #form-wrap form .profile-wrap input[type=file] {
 
 body #form-wrap form .category-wrap {
   width: 100%;
-  border: solid;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 body #form-wrap form .category-wrap select {
   margin: 10px;
+  border: solid #ddd 1px;
+  width: 150px;
+  height: 35px;
+  font-size: 16px;
+}
+
+body #form-wrap form button[type=submit] {
+  width: 580px;
+  height: 35px;
+  margin: 30px 0 0 0;
+  font-size: 15px;
+  border: none;
+  background-color: #6d3afb;
+  color: white;
 }

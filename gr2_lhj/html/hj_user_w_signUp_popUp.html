@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-    <h2>사용할 ID를 입력해주세요</h2>
+    <h2 style="color:#666">사용할 ID를 입력해주세요</h2>
     <form>
     <input type="text" name="id" style="padding:0 16px; width:270px; height:28px; border:1px #ddd solid">
     <button type="button" style="border:none; background-color: #999; height:28px; width:50px;
@@ -35,7 +35,7 @@
     var callbackBtn=document.querySelector('#call-back');
 
     function changeMsg(){
-        message.innerHTML=input.value+'는(은) 사용가능한 ID입니다.'
+        message.innerHTML=`<span style="color:green;">${input.value}</span>는(은) 사용가능한 ID입니다.`;
         callbackBtn.hidden=false;
     }
     
