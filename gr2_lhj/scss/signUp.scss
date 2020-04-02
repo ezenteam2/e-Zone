@@ -32,6 +32,26 @@ body{
                 padding : 0 0 0 33px;
                 box-sizing: border-box;
             }
+            .profile-wrap{
+                padding:0 0 0 33px;
+                img{
+                    width:128px;
+                    height:128px
+                }
+                input[type=file]{
+                    border:none;
+                }
+            }
+
+            .category-wrap{
+                width:100%;
+                border:solid;
+                display: flex;
+                justify-content: center;
+                select{
+                    margin:10px;
+                }
+            }
         }
     }
 }
