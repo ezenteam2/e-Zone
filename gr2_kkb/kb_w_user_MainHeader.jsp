@@ -44,48 +44,48 @@
         <div class="nav_menu_Div">
             <a>세미나</a>
             <ul class="hide">
-                <li>IT기술</li>
-                <li>스포츠</li>
-                <li>건강</li>
-                <li>음식</li>
-                <li>음악</li>
-                <li>가족</li>
-                <li>언어문화</li>
-                <li>영상제작</li>
-                <li>기타</li>
+                <li class="header_li">IT기술</li>
+                <li class="header_li">스포츠</li>
+                <li class="header_li">건강</li>
+                <li class="header_li">음식</li>
+                <li class="header_li">음악</li>
+                <li class="header_li">가족</li>
+                <li class="header_li">언어문화</li>
+                <li class="header_li">영상제작</li>
+                <li class="header_li">기타</li>
             </ul>
         </div>
         <div class="nav_menu_Div">
             <a>세미나존</a>
             <ul class="hide">
-                <li>다이아몬드존</li>
-                <li>프리미엄존</li>
-                <li>골드존</li>
-                <li>실버존</li>
-                <li>세미나존 후기</li>
+                <li class="header_li">다이아몬드존</li>
+                <li class="header_li">프리미엄존</li>
+                <li class="header_li">골드존</li>
+                <li class="header_li">실버존</li>
+                <li class="header_li">세미나존 후기</li>
 
             </ul>
         </div>
         <div class="nav_menu_Div">
             <a>Meetup</a>
             <ul class="hide">
-                <li>IT기술</li>
-                <li>스포츠</li>
-                <li>건강</li>
-                <li>음식</li>
-                <li>음악</li>
-                <li>가족</li>
-                <li>언어문화</li>
-                <li>영상제작</li>
-                <li>기타</li>
+                <li class="header_li">IT기술</li>
+                <li class="header_li">스포츠</li>
+                <li class="header_li">건강</li>
+                <li class="header_li">음식</li>
+                <li class="header_li">음악</li>
+                <li class="header_li">가족</li>
+                <li class="header_li">언어문화</li>
+                <li class="header_li">영상제작</li>
+                <li class="header_li">기타</li>
             </ul>
         </div>
         <div class="nav_menu_Div">
             <a>커뮤니티</a>
             <ul class="hide">
-                <li>공지사항</li>
-                <li>Q & A</li>
-                <li>F A Q</li>
+                <li class="header_li">공지사항</li>
+                <li class="header_li">Q & A</li>
+                <li class="header_li">F A Q</li>
                
             </ul>
         </div>
