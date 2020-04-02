@@ -54,3 +54,31 @@ body #form-wrap form h2 {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+body #form-wrap form .profile-wrap {
+  padding: 0 0 0 33px;
+}
+
+body #form-wrap form .profile-wrap img {
+  width: 128px;
+  height: 128px;
+}
+
+body #form-wrap form .profile-wrap input[type=file] {
+  border: none;
+}
+
+body #form-wrap form .category-wrap {
+  width: 100%;
+  border: solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body #form-wrap form .category-wrap select {
+  margin: 10px;
+}
