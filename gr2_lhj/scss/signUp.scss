@@ -1,3 +1,5 @@
+$buttonColor:#6d3afb;
+
 body{
     background-color: #f6f6f6;
 
@@ -45,12 +47,25 @@ body{
 
             .category-wrap{
                 width:100%;
-                border:solid;
                 display: flex;
-                justify-content: center;
+                justify-content: space-around;
                 select{
                     margin:10px;
+                    border:solid #ddd 1px;
+                    width:150px;
+                    height:35px;
+                    font-size: 16px;
                 }
+            }
+
+            button[type=submit]{
+                width:580px;
+                height:35px;
+                margin:30px 0 0 0;
+                font-size: 15px;
+                border:none;
+                background-color: $buttonColor;
+                color:white;
             }
         }
     }
