@@ -1,4 +1,5 @@
 var inputId = document.querySelector('#input-id');
+var inputFile=document.querySelector('#img-upload');
 
 function callPopUp(){
         var url = 'hj_user_w_signUp_popUp.html';
@@ -12,5 +13,6 @@ function idCallBack(id){
 }
 
 inputId.addEventListener('click', callPopUp);
+inputFile.addEventListener('change', )
 
 
