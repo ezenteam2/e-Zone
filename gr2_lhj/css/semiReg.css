@@ -1,0 +1,266 @@
+* {
+  font-family: 'NanumBarunGothic', sans-serif;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+.reg-wrap {
+  padding: 100px 0 0 0;
+  margin: 0 auto 0 auto;
+  width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.reg-wrap h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0 auto 0 0;
+}
+
+.reg-wrap .header-line {
+  width: 100%;
+  margin: 10px 0 15px 0;
+  height: 4px;
+  background-color: #704de4;
+}
+
+.reg-wrap p {
+  margin: 0 auto 30px 0;
+  color: #666;
+}
+
+.reg-wrap h2 {
+  margin: 0 auto 0 0;
+}
+
+.reg-wrap #zone-sel {
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+
+.reg-wrap #zone-sel ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.reg-wrap #zone-sel ul li {
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 64px;
+  border: 1px #eee solid;
+  overflow: hidden;
+}
+
+.reg-wrap #zone-sel ul li span {
+  display: inline-block;
+  line-height: 64px;
+  width: 100%;
+  text-align: center;
+  color: #656565;
+  font-size: 25px;
+  background-color: white;
+}
+
+.reg-wrap #zone-sel ul li :hover {
+  background-color: #704de4;
+  color: white;
+}
+
+.reg-wrap #reg-form {
+  width: 100%;
+  margin: 20px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: initial;
+      -ms-flex-align: initial;
+          align-items: initial;
+}
+
+.reg-wrap #reg-form h2 {
+  font-size: 18px;
+  margin: 10px auto 0 0;
+  padding: 0;
+}
+
+.reg-wrap #reg-form input {
+  border: 1px #999 solid;
+}
+
+.reg-wrap #reg-form input.two-line {
+  width: 70%;
+  margin: 15px 0 10px 0;
+  padding: 0 15px 0 15px;
+  height: 35px;
+}
+
+.reg-wrap #reg-form #time-sel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.reg-wrap #reg-form #time-sel li {
+  height: 50px;
+  width: 50px;
+  border: 1px solid #999;
+  overflow: hidden;
+  margin: 0 0 0 -1px;
+  cursor: pointer;
+}
+
+.reg-wrap #reg-form #time-sel li span {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.reg-wrap #reg-form #time-sel li :hover {
+  background-color: #704de4;
+  color: white;
+}
+
+.reg-wrap #reg-form .date-sel {
+  margin: 30px 0 30px 0;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.reg-wrap #reg-form .date-sel h4 {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 15px 0 0;
+  padding: 0;
+}
+
+.reg-wrap #reg-form .date-sel #date-picker {
+  height: 50px;
+  width: 200px;
+  border: solid 1px;
+}
+
+.reg-wrap #reg-form .cate-wrap {
+  width: 750px;
+  margin: 15px 0 15px 0;
+}
+
+.reg-wrap #reg-form .cate-wrap ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 750px;
+}
+
+.reg-wrap #reg-form .cate-wrap ul li {
+  width: 250px;
+  height: 40px;
+  overflow: hidden;
+  border: solid #999 1px;
+  margin: -1px 0 0 -1px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: white;
+  cursor: pointer;
+}
+
+.reg-wrap #reg-form .cate-wrap ul li span {
+  display: inline-block;
+  width: 250px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.reg-wrap #reg-form .cate-wrap ul li :hover {
+  background-color: #704de4;
+  color: white;
+}
+
+.reg-wrap #reg-form textarea {
+  margin: 15px 0 0 0;
+  width: 880px;
+}
+
+.reg-wrap #reg-form .join {
+  margin: 20px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 35px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.reg-wrap #reg-form .join h4 {
+  margin: 0 15px 0 0;
+}
+
+.reg-wrap #reg-form .join input {
+  height: 35px;
+  widows: 150px;
+  margin: 0 30px 0 0;
+  padding: 0 16px 0 16px;
+}
+
+.reg-wrap #reg-form button {
+  width: 100%;
+  height: 50px;
+  margin: 30px 0 0 0;
+  border: none;
+  color: white;
+  background-color: #704de4;
+  font-size: 20px;
+  cursor: pointer;
+}

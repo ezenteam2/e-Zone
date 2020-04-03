@@ -1,0 +1,199 @@
+$color1:#704de4;
+
+*{
+    font-family: 'NanumBarunGothic', sans-serif;
+}
+
+body{
+    background-color: #f6f6f6;
+}
+.reg-wrap{
+    padding:100px 0 0 0;
+    margin:0 auto 0 auto;
+    width:1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1{
+        font-size: 26px;
+        font-weight: 600;
+        margin:0 auto 0 0;
+    }
+    .header-line{
+        width:100%;
+        margin:10px 0 15px 0;
+        height:4px;
+        background-color: $color1;
+    }
+    p{
+        margin:0 auto 30px 0;
+        color:#666;
+    }
+    h2{
+        margin:0 auto 0 0;
+    }
+    #zone-sel{
+        width:100%;
+        margin:10px 0 0 0;
+        ul{
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            padding:0;
+            margin:0;
+            width:100%;
+           li{
+               cursor: pointer;
+               flex-grow: 1;
+               height:64px;
+               border:1px #eee solid;
+               overflow: hidden;
+               span{
+                   display: inline-block;
+                   line-height: 64px;
+                   width:100%;
+                   text-align: center;
+                   color:#656565;
+                   font-size: 25px;
+                   background-color: white;
+               }
+               :hover{
+                   background-color: $color1;
+                   color:white;
+               }
+           }
+        }
+    }
+    #reg-form{
+        width:100%;
+        margin:20px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: initial;
+        h2{
+            font-size: 18px;
+            margin:10px auto 0 0;
+            padding:0;
+        }
+        input{
+            border:1px #999 solid;
+        }
+        input.two-line{
+            width:70%;
+            margin:15px 0 10px 0;
+            padding:0 15px 0 15px;
+            height:35px;
+        }
+        #time-sel{
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            margin: 10px 0 0 0;
+            li{
+                height:50px;
+                width:50px;
+                border:1px solid #999;
+                overflow: hidden;
+                margin: 0 0 0 -1px;
+                cursor: pointer;
+                span{
+                    display: inline-block;
+                    width:50px;
+                    height:50px;
+                    line-height: 50px;
+                    font-size: 20px;
+                    text-align: center;
+                    background-color: white;
+                }
+                :hover{
+                    background-color: $color1;
+                    color:white;
+                }
+            }
+        }
+        .date-sel{
+            margin:30px 0 30px 0;
+            height: 50px;
+            display: flex;
+            justify-content: start;
+            h4{
+                display: inline-block;
+                height: 50px;
+                line-height: 50px;
+                margin:0 15px 0 0;
+                padding:0;
+            }
+            #date-picker{
+                height:50px;
+                width:200px;
+                border:solid 1px;
+            }
+        }
+        .cate-wrap{
+            width:750px;
+            margin:15px 0 15px 0;
+            ul{
+                list-style: none;
+                padding:0;
+                margin:0;
+                display: flex;
+                flex-wrap: wrap;
+                width:750px;
+                li{
+                    width:250px;
+                    height:40px;
+                    overflow: hidden;
+                    border:solid #999 1px;
+                    margin: -1px 0 0 -1px;
+                    box-sizing: border-box;
+                    background-color: white;
+                    cursor: pointer;
+                    span{
+                        display: inline-block;
+                        width:250px;
+                        height: 40px;
+                        font-size: 20px;
+                        line-height: 40px;
+                        text-align: center;
+                    }
+                    :hover{
+                        background-color: $color1;
+                        color:white
+                    }
+                }
+            }
+        }
+        textarea{
+            margin:15px 0 0 0;
+            width:880px;
+        }
+        .join{
+            margin:20px 0 0 0;
+            display: flex;
+            height:35px;
+            align-items: center;
+            justify-content: start;
+            h4{
+                margin:0 15px 0 0;
+
+            }
+            input{
+                height: 35px;
+                widows: 150px;
+                margin:0 30px 0 0;
+                padding:0 16px 0 16px;
+            }
+        }
+        button{
+            width:100%;
+            height:50px;
+            margin:30px 0 0 0;
+            border:none;
+            color:white;
+            background-color: $color1;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+}

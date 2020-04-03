@@ -6,6 +6,26 @@ var inputPassVal=document.getElementById('pass-valid');
 var inputEmail=document.getElementById('e-mail');
 
 
+
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-center",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+
 function callPopUp(){
         var url = 'hj_user_w_signUp_popUp.html';
 		var name= '아이디 중복 확인';
@@ -33,8 +53,8 @@ function previewFile(file){
 
 function chkPassVal(event){
 	if(inputPass.value!==inputPassVal.value){
-		alert('비밀번호가 일치하지 않습니다.');
 		inputPassVal.value=null;
+		Command: toastr["error"]("비밀번호를 확인해주세요!");
 	}
 }
 
@@ -45,8 +65,8 @@ function chkEmailVal(event){
 
 	
 	if(!emailVal.match(mailRegExp)){
-		alert('올바른 이메일 형식이 아닙니다.');
 		event.target.value=null;
+		Command: toastr["error"]("올바른 이메일 형식이 아닙니다!");
 	}
 }
 

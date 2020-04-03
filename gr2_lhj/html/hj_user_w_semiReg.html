@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/semiReg.css">
+    <title>세미나등록</title>
+</head>
+<body>
+    <div class="reg-wrap">
+    <h1>어떤 모임을 계획하세요?</h1>
+    <div class="header-line"></div>
+    <p>모든 장소의 최소 사용시간은 2시간이며, 1시간 단위로 사용 가능합니다.</p>
+    <h2>모임장소</h2>
+    <form id="zone-sel">
+        <ul>
+            <li><span>Zone1</span><input type="radio" name="zone" value="1"></li>
+            <li><span>Zone2</span><input type="radio" name="zone" value="2"></li>
+            <li><span>Zone3</span><input type="radio" name="zone" value="3"></li>
+            <li><span>Zone4</span><input type="radio" name="zone" value="4"></li>
+        </ul>
+    </form>
+    <form id="reg-form">
+    <h2>세미나명</h2>
+    <input class="two-line" type="text" name="title" maxlength="40" required>
+    <h2>부제</h2>
+    <input class="two-line" type="text" name="subtitle" maxlength="60" required>
+    <h2>시간선택</h2>
+    <input type="hidden" name="start-time">
+    <input type="hidden" name="end-time">
+    <ul id='time-sel'>
+        <li><span>9</span><input type="checkbox"></li>
+        <li><span>10</span><input type="checkbox"></li>
+        <li><span>11</span><input type="checkbox"></li>
+        <li><span>12</span><input type="checkbox"></li>
+        <li><span>13</span><input type="checkbox"></li>
+        <li><span>14</span><input type="checkbox"></li>
+        <li><span>15</span><input type="checkbox"></li>
+        <li><span>16</span><input type="checkbox"></li>
+        <li><span>17</span><input type="checkbox"></li>
+        <li><span>18</span><input type="checkbox"></li>
+        <li><span>19</span><input type="checkbox"></li>
+        <li><span>20</span><input type="checkbox"></li>
+        <li><span>21</span><input type="checkbox"></li>
+    </ul>
+
+    <div class="date-sel">
+        <h4>세미나 날짜 선택</h4>
+        <div id="date-picker"></div>
+    </div>
+    
+    <h2>카테고리선택</h2>
+    <div class="cate-wrap">
+        <ul>
+            <li><span>IT기술</span><input type="radio" name="cate" value="1"></li>
+            <li><span>스포츠</span><input type="radio" name="cate" value="2"></li>
+            <li><span>건강</span><input type="radio" name="cate" value="3"></li>
+            <li><span>음식</span><input type="radio" name="cate" value="4"></li>
+            <li><span>음악</span><input type="radio" name="cate" value="5"></li>
+            <li><span>가족</span><input type="radio" name="cate" value="6"></li>
+            <li><span>언어문화</span><input type="radio" name="cate" value="7"></li>
+            <li><span>영상제작</span><input type="radio" name="cate" value="8"></li>
+            <li><span>기타</span><input type="radio" name="cate" value="9"></li>
+        </ul>
+    </div>
+
+    <h2>세미나소개</h2>
+    <textarea name="detail" id="" cols="10" rows="10"></textarea>
+    <div class="join">
+        <h4>최대 인원수</h4><input type="text" name="max-join">
+        <h4>참가비 설정(원)</h4><input type="text" name="fee-join">
+    </div>
+    <button type="submit">등록하기</button>
+    </form>
+    </div>
+
+    <script src="../js/semiReg.js"></script>
+</body>
+</html>
