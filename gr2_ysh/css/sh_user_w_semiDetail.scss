@@ -1,27 +1,32 @@
+*{
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
 body{
     background-color: #f6f6f6;
 }
 article{
     width : 1158px;
     margin : 0 auto;
+    display: flex;
 }
 .content{
     &__title{
         font-size: 42px;
         font-weight: bold;
-        padding-bottom : 5px;
+        padding-bottom : 10px;
     }
     &__sub-title{
         font-size : 22px;
         color : gray;
     }
     &__tag{
-        padding : 21px 0;
+        padding : 24px 0;
         &--inner{
             height : 29px;
             border : 1px solid #e0e0e0;
             color : #656565;
-            font-size: 14px;
+            font-size: 13px;
             padding : 4px 12px;
             border-radius: 29px;
             background-color: white;
@@ -29,22 +34,30 @@ article{
     }
     &__img{
         width : 700px;
-        padding : 25px 0;
+        padding : 25px 0 35px 0;
     }
     &__inner-title{
         font-size: 35px;
         color : gray;
     }
     &__introduce{
-        &-semina--title{
-            font-weight: bold;
-            color : black;
-            padding : 15px 0 0 0;
-        }
+       
         &--underline{
             background-color : #ffd014;
-            height : 3px;
-            width : 50px;
-        }
+            height : 4px;
+            width : 18px;
+        }    
+    }
+    &--same{
+        font-size: 14px;
+        line-height: 27px;
+        color : #1C1C1C;
+        width : 700px;
+    }
+    &--title{
+        font-weight: bold;
+        color : black;
+        margin : 50px 0 -3px 0;
+        font-size: 15px;
     }
 }
