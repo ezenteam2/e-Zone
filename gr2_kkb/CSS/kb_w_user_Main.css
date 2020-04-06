@@ -1,0 +1,74 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    width:100%;
+    padding:0;
+    margin:0;
+}
+
+#Mainpage_Main{
+    width:1200px;
+    height:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#carousel_Div{
+    width:1200px;
+    height:200px;
+    border:solid;
+}
+
+#SeminaZone_main_Div{
+    width:1200px;
+    height:300px;
+    background-color: #E6E6E6;
+    margin-top:2%;
+    padding:0 100px 0 100px;
+    display: block;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+#Recom_Semina_Div{
+    width:100%;
+    height:300px;
+    background-color: #E6E6E6;
+    margin-top:2%;
+}
+
+.SeminaZone_Info_Div{
+    width:225px;
+    height:300px;
+    float:left;
+    margin-left:20px;
+    background-color: white;
+    position: relative;
+}
+
+.SeminaZone_Image_div{
+    width:100%;
+    height:170px;
+}
+.SeminaZone_Image{
+    width:100%;
+    height:100%;
+}
+
+.SeminaZoneinfo{
+    width:100%;
+    height:50px;
+}
+
+.SeminaZone_name_Span{
+    width:100%;
+    height:100%;
+    text-align: center;
+    font-size:12pt;
+}
+
+#SeminaZone_Div_First{
+    margin-left:1%;
+}

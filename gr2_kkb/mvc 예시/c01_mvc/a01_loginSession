@@ -1,0 +1,48 @@
+# login 후, session 처리(MVC)
+1. 진행 프로세스
+	1) 초기 초기인 화면 로딩
+	2) id, pass 입력 시, 데이터 베이스 확인
+		- 없으면 : 인증된 계정이 아닙니다.
+		- 있으면 : 세션bean객체 할당, 메인화면에
+			@@@ 로그인 중 (auth, point)
+	3) auth에 따른 페이지 접근 확인,		
+		- 메뉴를 클릭시, session권한에 따른 이동처리.
+	4) logout session 삭제 및 다시 로그인..
+			
+			
+			
+2. 생성 파일..
+	1) A03_MemberCtrl.java(controller)
+	2) A03_MemberService.java - 조건에 따른 DAO처리 핵심 Model
+	3) a11_mvc/a03_login.jsp 로그인페이지
+	4) a11_mvc/a03_main.jsp 메뉴가 있는 메인페이지
+	5) DAO : A04_MemberDao.login(Member mem) 로그인과 해당 데이터
+		가져오기..
+3. 핵심 코드..
+	0) 페이지 이동 처리 요청 : name=proc
+	1) 초기 로그인 화면 처리..
+		- controller(A03_MemberCtrl.java)을 통해
+			초기 화면 a03_login.jsp 호출..
+		- 화면 구현 a03_login.jsp(login)
+			form name=id  name=pass name=proc(login)
+	2) 아이디와 패스워드 입력 후, 
+		Controller 요청 처리
+		- 요청값 : proc(login) id, pass	
+		- DB모듈 처리(Model) :
+			A04_MemberDao.login(Member mem)에 데이터가 있을 때만,
+			return되는 Member객체가 있을 때,
+				Member m =  service.login(new Member(id,pass);
+				if(m!=null)
+				Session 처리 HttpSession session = request.getSession();
+				session.setAttribute("mem", m)
+				
+		- 화면 호출  a03_login.jsp
+			session값이 있을 때는 로그인 성공 $("[name=proc]").val("main");
+								submit();
+			session값이 없을 때 로그인 실패 focus()
+			 	
+				
+
+
+
+

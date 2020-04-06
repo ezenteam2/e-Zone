@@ -1,0 +1,117 @@
+# MVC 패턴을 활용한 emp(사원정보) 처리..
+1. 수행할 파일
+	1) controller(servlet)
+		A02_EmpController.java
+	2) model: 핵심 데이터 처리
+		- DAO
+			jspexp.b01_database.A01_Database.java 하위에 있는
+			메서드 
+			- 전체 조회(*) getEmpList(Emp)
+			- 등록 insertEmp(Emp)
+			- 상세정보(*) getEmp(int)
+			- 수정 updateEmp(Emp)
+			- 삭제 deleteEmp(int)
+		- Service
+			A02_EmpService.java : 
+				proc별로 요청내용과 dao처리
+			
+			 
+	3) view(화면단 처리)
+		a11_mvc\a02_empList.jsp
+			사원정보 전체 조회
+		a11_mvc\a02_empInsert.jsp
+			사원등록
+		a11_mvc\a02_empDetail.jsp
+			상세화면
+
+2. 흐름 정리..	
+	1) http://localhost:5080/jspexp/emp
+		- 초기 화면이 로딩 : a02_empList.jsp
+			전체 Database list확인.	
+	2) 검색 처리..
+		검색값 : 사원명, 직책을 검색으로 요청값을 보내면
+		- 컨트롤러 호출되어
+		- 해당 내용만 검색된다.
+	3) 등록 처리.
+		- 메인 화면에서 등록 버튼을 클릭시, 등록화면 로딩
+			controller호출 되면서 조건에 따라 등록화면 호출
+		- 등록 화면에서 등록할 내용 입력 후,
+			controller호출 조건에 따라 등록 dao메서드 호출
+			등록화면 호출.
+	4) 상세화면
+		- 리스트된 데이터에서 더블클릭시, key값을 요청값으로
+			넘기면서 controller 호출.
+		- 조건에 따라 단일 조회 dao메서드 호출, model 데이터 
+			mapping
+		- 조건에 따른 상세화면 호출..
+		- 수정 처리 -> controller -> 수정 dao --> 상세화면			
+		- 삭제 처리 -> controller -> 삭제 dao 
+			--> 조회 dao -->  전체화면	
+3. 핵심 코드 
+	0) controller는 선택적 dao의 메서드, 화면(jsp)를 하기위해서
+		process 구분하는 구분자인 proc를 가지고 있어야 한다.
+		화면단 <input type="hidden" name="proc" />
+		String proc = request.getParamter("proc");
+		if(proc==null) proc="sch"; // default로 검색시..
+	1) 초기 화면  http://localhost:5080/jspexp/emp
+		- controller - A02_EmpController.java
+		- 요청값 (X)
+		- 데이터 처리(모델) - 전체 조회(*) getEmpList(Emp)
+				request.setAttribute("list",dao.getEmpList(sch));
+		- 화면 호출 - WebContent\a11_mvc\a02_empList.jsp
+	2) 검색 화면
+		- 검색 :사원명, 직책  입력 후, 검색 버튼 클릭
+				name="ename"  name="job"  proc="sch"
+		- 요청값  : proc, ename, job 
+		- 데이터 처리(모델) -전체 조회(*) getEmpList(Emp) 
+		
+			request.setAttribute("list",dao.getEmpList(sch));
+		- 화면 호출 - WebContent\a11_mvc\a02_empList.jsp
+		
+	3) 등록 화면
+		- 초기 리스트 화면에 등록화면 proc를 표기하고, controller을 호출
+			처리.
+			<input type="hidden" name="proc"/>
+			$("[name=proc]").val("insFrm"); //등록 화면을 호출하기 위하여
+		- controller - A02_EmpController.java
+		- 요청값 : proc - insFrm
+		- 데이터 처리(모델) - X
+		- 화면 호출 - WebContent\a11_mvc\a02_empInsert.jsp
+	4) 등록 처리.
+		- 화면에서 	
+			<input type="hidden" name="proc" value="ins"/>
+			전체 데이터를 form으로 전달 
+		- controller요청값 proc - ins
+			- 요청값을 Emp객체로 할당..
+			- 데이터 처리 - 등록 insertEmp(Emp)  
+		- 화면 호출 - WebContent\a11_mvc\a02_empInsert.jsp	 	
+			- confirm으로 등록화면처리할지 , 메인화면으로 갈지 결정..
+				메인화면으로 으로 가기 위해서는 $("[name=proc]").val("sch")
+				로 변경.
+	5) 상세 처리..
+		- 전체 리스트 화면에서  list된 데이터를 클릭시, key인 empno를 
+			요청값으로 넘겨준다. 	$("[name=proc]").val("detail")
+		- controller요청값 proc - detail
+			- 데이터 처리 : 상세정보(*) dao.getEmp(int) 
+				모델데이터 request.setAttribute("emp", dao.getEmp(empno))
+			- 화면 호출 - a11_mvc\a02_empDetail.jsp	
+	6) 수정 처리
+		- 수정 버튼 클릭시,$("[name=proc]").val("update")
+		- controller요청값 proc - update
+			- form하위에 있는 모든 요청값 처리..
+			- 데이터 처리 :  수정 updateEmp(Emp)
+			- 데이터 처리(모델) 상세정보(*) getEmp(int)
+			- 화면 호출 - a11_mvc\a02_empDetail.jsp	 
+				- confirm으로 상세화면할지 , 메인화면으로 갈지 결정..
+					메인화면으로 으로 가기 위해서는 $("[name=proc]").val("sch")
+					로 변경.				
+	7) 삭제 처리
+		- 수정 버튼 클릭시,$("[name=proc]").val("delete")
+						  empno 키값 전달
+		- controller요청값 proc - delete
+			- 요청값으로 empno 받기
+			- 데이터 처리 :  삭제 deleteEmp(int)
+			- 데이터 처리(모델) : - 전체 조회(*) getEmpList(Emp)
+			- 화면 호출 : a11_mvc\a02_empList.jsp
+			
+	
