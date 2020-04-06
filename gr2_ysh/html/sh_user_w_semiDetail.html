@@ -85,7 +85,7 @@
                 </tr>
                 <tr>
                     <td>시간</td>
-                    <td>2020년 5월 20일 13:00:00(2시간)</td>
+                    <td>2020년 5월 20일<br>13:00:00(2시간)</td>
                 </tr>
                 <tr>
                     <td>카테고리</td>
@@ -109,8 +109,39 @@
             <p class="choice-num">인원 선택</p>
             <hr class="decoration--puple-line">        
             <form class="choice-result--form" action="">
-                <input  class="choice-num--ch1" type="radio" name="num">1명
-                <input  class="choice-num--ch2" type="radio" name="num">인원선택
+                
+                <input id="radio1"  type="radio" name="num">
+
+                <label for="radio1" class="nonclick1"> <!-- 클릭전 -->
+                    <div  class="choice-num--ch1">
+                    </div>
+                </label>
+
+                <label for="radio1" class="clicked1"><!-- 클릭후 -->
+                    <div  class="choice-num--ch1">
+                        <div class="choice-num--circle-inner">
+                        </div>
+                    </div>
+                </label>
+
+                <label for="radio2">1명</label><br>
+        <!-- --> 
+                <input id="radio2"  type="radio" name="num">
+
+                <label for="radio2" class="nonclick2"> <!-- 클릭전 -->
+                    <div  class="choice-num--ch2">
+                    </div>
+                </label>
+
+                <label for="radio2" class="clicked2"><!-- 클릭후 -->
+                    <div  class="choice-num--ch2">
+                        <div class="choice-num--circle-inner">
+                        </div>
+                    </div>
+                </label>
+
+                <label for="radio2">인원선택</label><br>
+
                 <table  class="choice-num__count" class="">
                     <tr>
                         <td class="choice-num__count--minus">-</td> <!-- 선택 인원 1씩 감소 버튼 -->
@@ -125,6 +156,7 @@
                 <input type="submit" value="바로 예약하기">
             </form>
         </div>
-    </article>    
+    </article>
+    <script src="../js/sh_user_w_semiDetail.js"></script>    
 </body>
 </html>
