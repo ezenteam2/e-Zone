@@ -133,6 +133,7 @@ body {
 }
 
 .reg-wrap #reg-form #time-sel li {
+  position: relative;
   height: 50px;
   width: 50px;
   border: 1px solid #999;
@@ -152,8 +153,8 @@ body {
 }
 
 .reg-wrap #reg-form #time-sel li :hover {
-  background-color: #704de4;
   color: white;
+  background-color: #704de4;
 }
 
 .reg-wrap #reg-form .date-sel {
