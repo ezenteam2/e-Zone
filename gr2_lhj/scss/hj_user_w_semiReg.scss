@@ -55,7 +55,7 @@ body{
                    width:100%;
                    text-align: center;
                    color:#656565;
-                   font-size: 25px;
+                   font-size: 20px;
                    background-color: white;
                }
                :hover{
@@ -77,32 +77,33 @@ body{
             padding:0;
         }
         input{
-            border:1px #999 solid;
+            border:1px #ddd solid;
         }
         input.two-line{
-            width:70%;
+            width:97%;
             margin:15px 0 10px 0;
             padding:0 15px 0 15px;
-            height:35px;
+            height:45px;
         }
         #time-sel{
             display: flex;
             flex-direction: row;
             padding: 0;
             margin: 10px 0 0 0;
+            width:1200px;
             li{
                 position: relative;
-                height:50px;
-                width:50px;
-                border:1px solid #999;
+                height:35px;
+                width:92px;
+                border:1px solid #ddd;
                 overflow: hidden;
                 margin: 0 0 0 -1px;
                 cursor: pointer;
                 span{
                     display: inline-block;
-                    width:50px;
-                    height:50px;
-                    line-height: 50px;
+                    width:92px;
+                    height:35px;
+                    line-height: 35px;
                     font-size: 20px;
                     text-align: center;
                     background-color: white;
@@ -140,19 +141,19 @@ body{
                 margin:0;
                 display: flex;
                 flex-wrap: wrap;
-                width:750px;
+                width:1200px;
                 li{
-                    width:250px;
+                    width:400px;
                     height:40px;
                     overflow: hidden;
-                    border:solid #999 1px;
+                    border:solid #ddd 1px;
                     margin: -1px 0 0 -1px;
                     box-sizing: border-box;
                     background-color: white;
                     cursor: pointer;
                     span{
                         display: inline-block;
-                        width:250px;
+                        width:400px;
                         height: 40px;
                         font-size: 20px;
                         line-height: 40px;
@@ -168,7 +169,9 @@ body{
         }
         textarea{
             margin:15px 0 0 0;
-            width:880px;
+            padding:10px;
+            width:97%;
+            border:#ddd 1px solid;
         }
         .join{
             margin:20px 0 0 0;
