@@ -51,8 +51,9 @@ article{
     &--same{
         font-size: 14px;
         line-height: 27px;
-        color : #1C1C1C;
+        color : #656565;
         width : 700px;
+
     }
     &--title{
         font-weight: bold;
@@ -60,4 +61,91 @@ article{
         margin : 50px 0 -3px 0;
         font-size: 15px;
     }
+}
+.payment-info{
+    width : 330px;
+    height : 500px;
+    margin  : 180px 0 0 40px;
+    border-top : 3px solid rgb(112,77,228);
+    background-color: white;
+    font-size : 13px;
+    &__infomation--table{
+        margin : 25px;
+        width : 280px;
+        border : 1px solid #A4A4A4;
+        border-collapse: collapse;
+        td{
+            border : 2px solid #D8D8D8;
+            padding : 15px 10px;
+            line-height: 25px;
+        }
+        td:nth-child(2n+1){
+            text-align: center;
+            font-weight: 700;
+        }
+    }
+}
+
+.decoration--puple-line{
+    width : 100%;
+    height : 3px;
+    background-color: rgb(112,77,228);
+}
+@mixin checkbox-design {
+        width : 16px;
+        height : 16px;
+        border-radius: 20px;
+        border : 3px solid gray;
+}
+.choice-num{
+    font-size: 13px;
+    font-weight: bold;
+    
+    &--ch1{
+        @include checkbox-design;    
+    }
+    &--ch2{
+        @include checkbox-design;
+    }
+    &--circle-inner{
+        width : 10px;
+        height : 10px;
+        margin : 3px auto;
+        background-color: rgb(112,77,228);
+        border-radius: 20px;
+    }
+}
+[type=radio]{
+    visibility: hidden;
+}
+@mixin click {
+    position: relative;
+    left : 22px;
+    bottom : 10px;
+    cursor: pointer;
+}
+.nonclick1{
+    @include click;
+    visibility: visible;
+}
+.clicked1{
+    @include click;
+    bottom : 32px;
+    visibility: hidden;
+}
+@mixin click2 {
+    position: relative;
+    left : 22px;
+    bottom : 55px;
+    cursor: pointer;
+}
+.nonclick2{
+    @include click2;
+    visibility: visible;
+}
+.clicked2{
+    @include click2;
+    bottom : 77px;
+    visibility: hidden;
+
 }
