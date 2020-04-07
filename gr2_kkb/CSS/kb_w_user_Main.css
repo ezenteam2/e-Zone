@@ -18,7 +18,6 @@ body{
 #carousel_Div{
     width:1200px;
     height:200px;
-    border:solid;
 }
 
 #SeminaZone_main_Div{
@@ -33,10 +32,14 @@ body{
 }
 
 #Recom_Semina_Div{
-    width:100%;
+    width:1200px;
     height:300px;
     background-color: #E6E6E6;
     margin-top:2%;
+    padding:0 100px 0 100px;
+    display: block;
+    margin-right:auto;
+    margin-left:auto;
 }
 
 .SeminaZone_Info_Div{
@@ -71,4 +74,47 @@ body{
 
 #SeminaZone_Div_First{
     margin-left:1%;
+}
+
+#carousel_Img{
+    width:100%;
+    height:100%;
+}
+
+.SeminaZonenumber{
+    font-size:8pt;
+}
+
+.RecomSemina_Info_Div{
+    width:225px;
+    height:300px;
+    float:left;
+    margin-left:20px;
+    background-color: white;
+    position: relative;
+}
+.RecomSemina_Img_Div{
+    width:100%;
+    height:170px;
+}
+.RecomSemina_Img{
+    width:100%;
+    height:170px;
+}
+
+.RecomSemina_Date{
+    font-size:9pt;
+    margin-top:-10px;
+    position:flex;
+}
+
+.RecomSemina_SeminaZone{
+    position:flex;
+    margin-top:-10px;
+}
+
+.RecomSeminanumber{
+    font-size:8pt;
+    position:flex;
+    margin-top:-10px;
 }
