@@ -183,15 +183,15 @@ CREATE TABLE P5SEMIBOOK (
 	semi_ftime    DATE           NOT NULL, -- 세미나 종료 시간
 	semi_cate     VARCHAR2(20)   NOT NULL
 	CHECK (semi_cate IN ('IT기술','스포츠'
-	,'건강','음식','음악','가족','언어 문화', '영상제작')), -- 세미나 카테고리
+	,'건강','음식','음악','가족','언어 문화', '영상제작', '기타')), -- 세미나 카테고리
 	semi_img      VARCHAR2(100)  NOT NULL , -- 세미나 소개 이미지
 	semi_detail   VARCHAR2(1000) NOT NULL, -- 세미나 소개
 	semi_capa     NUMBER         NOT NULL, -- 세미나 제한 인원
 	semi_parno    NUMBER         NOT NULL, -- 세미나 참가 인원
 	semi_price    NUMBER         NOT NULL, -- 세미나 참가비
 	semi_curr     VARCHAR2(20)   NOT NULL CHECK (semi_curr IN ('입금대기','입금완료')),     -- 세미나존 결제 상태
-	semi_comm     VARCHAR2(1000) NULL,     -- 세미나존 후기
-	COL           DATE           NULL      -- 세미나존 후기 등록날짜
+	zone_comm     VARCHAR2(1000) NULL,     -- 세미나존 후기
+	zone_commDate DATE           NULL      -- 세미나존 후기 등록날짜
 );	
 
 -- 세미나존 예약 및 세미나 등록 기본키
