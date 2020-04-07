@@ -1,0 +1,40 @@
+*{box-sizing: border-box;}
+body{
+    margin:0;
+    padding:0;
+    background-color: #EAEAEA;
+}
+
+#Upt_Pass_Main{
+    width:1200px;
+    height:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#Upt_Pass_Form_Div{
+    width:600px;
+    height:350px;
+    background-color: white;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:20%;
+    padding:1%;
+}
+
+.input_Upt{
+    width:100%;
+    height:50px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:30px;
+    padding-left:10px;
+}
+
+#UptBtn{
+    width:100%;
+    height:60px;
+    border:0;
+    background-color: #EDD200;
+    margin-top:30px;
+}

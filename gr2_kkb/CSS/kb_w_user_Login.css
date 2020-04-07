@@ -19,7 +19,7 @@ body{
 
 #Login_Form_Div{
     width:600px;
-    height:600px;
+    height:550px;
     background-color: white;
     margin-left:auto;
     margin-right:auto;
@@ -70,4 +70,20 @@ body{
     top:-15px;
     position: relative;
     font-size:10pt;
+}
+
+.find_a{
+    width:600px;
+    position: relative;
+    margin-top:1%;
+    text-align:center
+}
+
+#Reg_A{
+    text-decoration: underline;
+    font-size:15pt;
+}
+
+#Find_A{
+    text-decoration: none;
 }

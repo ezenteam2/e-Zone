@@ -1,0 +1,61 @@
+*{box-sizing: border-box;}
+
+body{
+    margin:0;
+    padding:0;
+    background-color: #EAEAEA;
+}
+
+#finded_Id_Main{
+    width:1200px;
+    height:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+ #finded_Div{
+     width:600px;
+     height:350px;
+     background-color: white;
+     margin-left:auto;
+     margin-right:auto;
+     margin-top:25%;
+     padding:1%;
+ }
+
+ #find_Name_Span{
+     font-weight: bold;
+     text-decoration: underline;
+ }
+ #find_id{
+     font-weight: bold;
+     text-decoration: underline;
+
+ }
+
+ #Result_Div{
+    width:600px;
+    height:40px;
+    position: fixed;
+    text-align: center;
+    font-size:18pt;
+    margin-top:5%;
+ }
+
+ #moveLogin_Btn{
+    width:100%;
+    height:60px;
+    border:0;
+    background-color: #EDD200;
+    margin-top:27%;
+    font-size:14pt;
+ }
+
+ #moveFind_PassBtn{
+    width:100%;
+    height:60px;
+    border:0;
+    background-color: #EDD200;
+    margin-top:20px;
+    font-size:14pt;
+ }
