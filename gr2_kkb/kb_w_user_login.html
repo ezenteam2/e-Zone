@@ -9,7 +9,25 @@
 <body>
     <main id="kb_Login_Main">
         <h1 style="text-align: center;" class="login_Title">로그인</h1>
-        <div id="Login_Form_Div"></div>
+        <div id="Login_Form_Div">
+            <form method="post">
+                <input type="text" name="login_id" class="input_login" placeholder="아이디">
+                <input type="text" name="login_Pw" class="input_login" placeholder="비밀번호">
+                <button type="button" id="LoginBtn">로그인</button><br>
+
+                <button class="SNS_Login"><img src="Image/naver_logo.png" class="Sns_Logo">
+                    <span class="logo_span">네이버로 로그인</span></button>
+                    
+                <button class="SNS_Login"><img src="Image/kakao_logo.jpg" class="Sns_Logo">
+                    <span class="logo_span">카카오로 로그인</span></button>
+
+                <br>
+                <a><h3 style="text-align: center;">아이디/비밀번호 찾기</h3></a>
+                <a><h3 style="text-align: center;">회 원 가 입</h3></a>
+            </form>
+        </div>
+
+        
     </main>
 </body>
 </html>
