@@ -7,7 +7,6 @@ var nonclick1 = document.querySelector('.nonclick1');
 var nonclick2 = document.querySelector('.nonclick2');
 
 if(radio1.checked==true){
-    console.log(213123);
     clicked1.style.visibility='visible';
     nonclick1.style.visibility='hidden';
 }else{

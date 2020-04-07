@@ -100,6 +100,7 @@ article{
 .choice-num{
     font-size: 13px;
     font-weight: bold;
+    margin-left : 15px;
     
     &--ch1{
         @include checkbox-design;    
@@ -148,4 +149,22 @@ article{
     bottom : 77px;
     visibility: hidden;
 
+}
+.radio1{
+    &__title{
+        position: relative;
+        bottom : 53px;
+        left : 60px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
+.radio2{
+    &__title{
+        position: relative;
+        bottom : 97px;
+        left : 60px;
+        font-size: 14px;
+        font-weight: bold;
+    }
 }

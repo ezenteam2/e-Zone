@@ -105,6 +105,7 @@ article {
 .choice-num {
   font-size: 13px;
   font-weight: bold;
+  margin-left: 15px;
 }
 
 .choice-num--ch1 {
@@ -138,6 +139,7 @@ article {
   left: 22px;
   bottom: 10px;
   cursor: pointer;
+  visibility: visible;
 }
 
 .clicked1 {
@@ -154,6 +156,7 @@ article {
   left: 22px;
   bottom: 55px;
   cursor: pointer;
+  visibility: visible;
 }
 
 .clicked2 {
@@ -163,5 +166,21 @@ article {
   cursor: pointer;
   bottom: 77px;
   visibility: hidden;
+}
+
+.radio1__title {
+  position: relative;
+  bottom: 53px;
+  left: 60px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.radio2__title {
+  position: relative;
+  bottom: 97px;
+  left: 60px;
+  font-size: 14px;
+  font-weight: bold;
 }
 /*# sourceMappingURL=sh_user_w_semiDetail.css.map */
