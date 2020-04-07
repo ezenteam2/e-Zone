@@ -64,7 +64,7 @@ article{
 }
 .payment-info{
     width : 330px;
-    height : 500px;
+    height : 800px;
     margin  : 180px 0 0 40px;
     border-top : 3px solid rgb(112,77,228);
     background-color: white;
@@ -114,6 +114,38 @@ article{
         margin : 3px auto;
         background-color: rgb(112,77,228);
         border-radius: 20px;
+    }
+    @mixin numchoice{
+        height : 50px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid #BDBDBD ;
+        color : #A4A4A4;
+    }
+    &__count{
+        position: relative;
+        bottom : 55px;
+        width  : 90%;
+        margin: auto;
+        border-collapse: collapse;;
+        &--minus{
+            width : 20%;
+            @include numchoice();
+            background-color: #D8D8D8 ;
+            cursor: pointer;
+        }
+        &--number{
+            width : 60%;
+            @include numchoice();
+            background-color: #f6f6f6 ;
+        }
+        &--plus{
+            width : 20%;
+            @include numchoice();
+            background-color: #D8D8D8 ;
+            cursor: pointer;
+        }
     }
 }
 [type=radio]{
@@ -166,5 +198,24 @@ article{
         left : 60px;
         font-size: 14px;
         font-weight: bold;
+    }
+}
+@mixin result {
+        font-size : 20px;
+        font-weight: bold;
+        padding : 20px 25px;
+}
+.result{
+    &__title{
+        @include result();
+    }
+    &__sum{
+        @include result();
+        float: right;
+    }
+    &__submit{
+        width : 70%;
+        height : 55px;
+        background-color: ;
     }
 }
