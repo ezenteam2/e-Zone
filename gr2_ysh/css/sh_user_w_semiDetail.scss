@@ -1,7 +1,6 @@
 *{
     font-family: 'Nanum Gothic', sans-serif;
 }
-
 body{
     background-color: #f6f6f6;
 }
@@ -41,7 +40,16 @@ article{
         color : gray;
     }
     &__introduce{
-       
+        &-place--main{
+            line-height: 25px;
+        }
+        &-booking{
+
+            &--num{
+                margin-top : 20px;
+                color : rgb(112,77,228);
+            }
+        }
         &--underline{
             background-color : #ffd014;
             height : 4px;
@@ -57,7 +65,6 @@ article{
     }
     &--title{
         font-weight: bold;
-        color : black;
         margin : 50px 0 -3px 0;
         font-size: 15px;
     }
@@ -65,10 +72,17 @@ article{
 .payment-info{
     width : 330px;
     height : 800px;
-    margin  : 180px 0 0 40px;
+    margin  : 200px 0 0 40px;
     border-top : 3px solid rgb(112,77,228);
     background-color: white;
     font-size : 13px;
+    &__title{
+        position: relative;
+        top: 160px;
+        left : 100px;
+        font-size : 15px;
+        font-weight: bold;
+    }
     &__infomation--table{
         margin : 25px;
         width : 280px;
@@ -87,9 +101,11 @@ article{
 }
 
 .decoration--puple-line{
-    width : 100%;
+    width : 90%;
     height : 3px;
+    margin: auto;
     background-color: rgb(112,77,228);
+    margin-bottom : 15px;
 }
 @mixin checkbox-design {
         width : 16px;
@@ -98,7 +114,7 @@ article{
         border : 3px solid gray;
 }
 .choice-num{
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bold;
     margin-left : 15px;
     
@@ -203,11 +219,13 @@ article{
 @mixin result {
         font-size : 20px;
         font-weight: bold;
-        padding : 20px 25px;
+        padding : 30px 25px;
 }
 .result{
     &__title{
         @include result();
+        position: relative;
+        top : 20px;
     }
     &__sum{
         @include result();
@@ -216,6 +234,73 @@ article{
     &__submit{
         width : 70%;
         height : 55px;
-        background-color: ;
+        background-color: rgb(112,77,228);
+        border: none;
+        color : rgb(251,202,74);
+        font-size: 15px;
+        font-weight: bold;
+        width : 100%;
+    }
+}
+.semi{
+    &__ask{
+        width : 828px;
+        margin-top: 30px;
+        line-height: 20px;
+        &--img{
+            width : 80px;
+            height : 80px;
+            border-radius: 350px;
+            margin-right : 20px;
+        }
+        &--td2{
+            font-size: 16px;
+            font-weight: bold;
+        }
+        &--td3{
+            font-size: 14px;
+        }
+        &--td4{
+            font-size: 12px;
+        }
+        &--button{
+            background-color: rgb(112,77,228);
+            width : 120px;
+            height : 28px;
+            color : rgb(251,202,74);
+            border : none;
+            border-radius: 20px;
+            float : right;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+        }
+    }
+}
+.table--hr{
+    border: 0.5px solid #e6e6e6;
+    margin : 15px 0;
+}
+tr:nth-child(4n){
+    height : 20px;
+}
+td{
+    line-height: 27px;
+}
+.modal{
+        background-color: rgba(0,0,0,0.5);
+        position: absolute;
+        top:1px;
+        left : 1px;
+        height : 3500px;
+        width : 1900px;
+        color : black;
+    &__inner{
+    width : 500px;
+    height : 30%;
+    background-color: white;
+    margin : auto;
+    margin-top : 200px;
     }
 }
