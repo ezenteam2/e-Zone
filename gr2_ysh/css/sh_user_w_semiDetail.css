@@ -14,6 +14,10 @@ article {
   display: flex;
 }
 
+.content {
+  width: 700px;
+}
+
 .content__title {
   font-size: 42px;
   font-weight: bold;
@@ -79,8 +83,8 @@ article {
 
 .payment-info {
   width: 330px;
-  height: 800px;
-  margin: 200px 0 0 40px;
+  height: 720px;
+  margin: 180px 0 0 50px;
   border-top: 3px solid #704de4;
   background-color: white;
   font-size: 13px;
@@ -269,10 +273,11 @@ article {
   font-size: 15px;
   font-weight: bold;
   width: 100%;
+  cursor: pointer;
 }
 
 .semi__ask {
-  width: 828px;
+  width: 700px;
   margin-top: 30px;
   line-height: 20px;
 }

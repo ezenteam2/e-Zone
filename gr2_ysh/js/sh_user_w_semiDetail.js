@@ -6,6 +6,8 @@ var clicked2 = document.querySelector('.clicked2');
 var nonclick1 = document.querySelector('.nonclick1');
 var nonclick2 = document.querySelector('.nonclick2');
 
+var countTable =  document.querySelector('.choice-num__count');
+
 if(radio1.checked==true){
     clicked1.style.visibility='visible';
     nonclick1.style.visibility='hidden';
@@ -34,3 +36,24 @@ reviewButton.addEventListener('click',function(event){
 reviewExit.addEventListener('click',function(event){
     review.style.display = 'none';
 })
+
+var minus =  document.querySelector('.choice-num__count--minus');
+var number = document.querySelector('.choice-num__count--number');
+var plus = document.querySelector('.choice-num__count--plus');
+
+var first = number.innerHTML;
+plus.addEventListener('click',function(event){
+    if(Number(first)+1<=50){
+        number.innerHTML = Number(first)+1;
+        first = number.innerHTML;
+    }
+})
+minus.addEventListener('click',function(event){
+    if(Number(first)-1>0){
+        number.innerHTML = Number(first)-1;
+        first = number.innerHTML;
+    }
+})
+
+
+
