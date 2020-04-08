@@ -72,10 +72,18 @@ article {
 .payment-info {
   width: 330px;
   height: 800px;
-  margin: 180px 0 0 40px;
+  margin: 200px 0 0 40px;
   border-top: 3px solid #704de4;
   background-color: white;
   font-size: 13px;
+}
+
+.payment-info__title {
+  position: relative;
+  top: 160px;
+  left: 100px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .payment-info__infomation--table {
@@ -97,13 +105,15 @@ article {
 }
 
 .decoration--puple-line {
-  width: 100%;
+  width: 90%;
   height: 3px;
+  margin: auto;
   background-color: #704de4;
+  margin-bottom: 15px;
 }
 
 .choice-num {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: bold;
   margin-left: 15px;
 }
@@ -230,19 +240,26 @@ article {
 .result__title {
   font-size: 20px;
   font-weight: bold;
-  padding: 20px 25px;
+  padding: 30px 25px;
+  position: relative;
+  top: 20px;
 }
 
 .result__sum {
   font-size: 20px;
   font-weight: bold;
-  padding: 20px 25px;
+  padding: 30px 25px;
   float: right;
 }
 
 .result__submit {
   width: 70%;
   height: 55px;
-  margin: auto;
+  background-color: #704de4;
+  border: none;
+  color: #fbca4a;
+  font-size: 15px;
+  font-weight: bold;
+  width: 100%;
 }
 /*# sourceMappingURL=sh_user_w_semiDetail.css.map */

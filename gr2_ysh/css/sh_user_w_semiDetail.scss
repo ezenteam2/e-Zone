@@ -65,10 +65,17 @@ article{
 .payment-info{
     width : 330px;
     height : 800px;
-    margin  : 180px 0 0 40px;
+    margin  : 200px 0 0 40px;
     border-top : 3px solid rgb(112,77,228);
     background-color: white;
     font-size : 13px;
+    &__title{
+        position: relative;
+        top: 160px;
+        left : 100px;
+        font-size : 15px;
+        font-weight: bold;
+    }
     &__infomation--table{
         margin : 25px;
         width : 280px;
@@ -87,9 +94,11 @@ article{
 }
 
 .decoration--puple-line{
-    width : 100%;
+    width : 90%;
     height : 3px;
+    margin: auto;
     background-color: rgb(112,77,228);
+    margin-bottom : 15px;
 }
 @mixin checkbox-design {
         width : 16px;
@@ -98,7 +107,7 @@ article{
         border : 3px solid gray;
 }
 .choice-num{
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bold;
     margin-left : 15px;
     
@@ -203,11 +212,13 @@ article{
 @mixin result {
         font-size : 20px;
         font-weight: bold;
-        padding : 20px 25px;
+        padding : 30px 25px;
 }
 .result{
     &__title{
         @include result();
+        position: relative;
+        top : 20px;
     }
     &__sum{
         @include result();
@@ -216,6 +227,11 @@ article{
     &__submit{
         width : 70%;
         height : 55px;
-        background-color: ;
+        background-color: rgb(112,77,228);
+        border: none;
+        color : rgb(251,202,74);
+        font-size: 15px;
+        font-weight: bold;
+        width : 100%;
     }
 }
