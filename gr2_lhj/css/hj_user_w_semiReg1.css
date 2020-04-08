@@ -1,0 +1,115 @@
+* {
+  font-family: 'NanumBarunGothic', sans-serif;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+.reg-wrap {
+  padding: 100px 0 0 0;
+  margin: 0 auto 0 auto;
+  width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.reg-wrap h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0 auto 0 0;
+}
+
+.reg-wrap .header-line {
+  width: 100%;
+  margin: 10px 0 15px 0;
+  height: 4px;
+  background-color: #704de4;
+}
+
+.reg-wrap p {
+  margin: 0 auto 30px 0;
+  color: #666;
+}
+
+.reg-wrap h2 {
+  margin: 0 auto 0 0;
+}
+
+.reg-wrap #zone-sel {
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+
+.reg-wrap #zone-sel ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.reg-wrap #zone-sel ul li {
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 64px;
+  border: 1px #eee solid;
+  overflow: hidden;
+}
+
+.reg-wrap #zone-sel ul li span {
+  display: inline-block;
+  line-height: 64px;
+  width: 100%;
+  text-align: center;
+  color: #656565;
+  font-size: 20px;
+  background-color: white;
+}
+
+.reg-wrap #zone-sel ul li :hover {
+  background-color: #704de4;
+  color: white;
+}
+
+.reg-wrap .date-sel {
+  width: 100%;
+  margin: 30px 0 30px 0;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.reg-wrap .date-sel h4 {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 15px 0 0;
+  padding: 0;
+}
+
+.reg-wrap .date-sel #date-picker {
+  height: 50px;
+  width: 200px;
+  border: solid 1px;
+}
