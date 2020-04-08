@@ -1,0 +1,20 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    padding:0;
+    background-color: #EAEAEA;
+}
+
+#SeminaZone_Intro_Main{
+    width:1200px;
+    height:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#SeminaZone_Name_H1{
+    text-align: center;
+}
