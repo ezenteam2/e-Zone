@@ -15,7 +15,7 @@ article {
 }
 
 .content {
-  width: 700px;
+  width: 750px;
 }
 
 .content__title {
@@ -41,10 +41,11 @@ article {
   padding: 4px 12px;
   border-radius: 29px;
   background-color: white;
+  cursor: pointer;
 }
 
 .content__img {
-  width: 700px;
+  width: 750px;
   padding: 25px 0 35px 0;
 }
 
@@ -85,7 +86,6 @@ article {
   width: 330px;
   height: 720px;
   margin: 180px 0 0 50px;
-  border-top: 3px solid #704de4;
   background-color: white;
   font-size: 13px;
 }
@@ -99,21 +99,23 @@ article {
 }
 
 .payment-info__infomation--table {
-  margin: 25px;
+  margin: 35px 25px 45px;
   width: 280px;
-  border: 1px solid #A4A4A4;
+  border-top: 1px solid #ebebeb;
   border-collapse: collapse;
 }
 
 .payment-info__infomation--table td {
-  border: 2px solid #D8D8D8;
-  padding: 15px 10px;
+  border-bottom: 1px solid #ebebeb;
+  padding: 10px 10px;
   line-height: 25px;
+  color: black;
+  font-weight: 700;
 }
 
 .payment-info__infomation--table td:nth-child(2n+1) {
-  text-align: center;
   font-weight: 700;
+  color: gray;
 }
 
 .decoration--puple-line {
@@ -390,7 +392,6 @@ td {
   width: 82%;
   min-height: 120px;
   border: 1px solid #a4a4a4;
-  padding: 10px;
 }
 
 .modal__inner--alert {
@@ -543,5 +544,15 @@ td {
   height: 35px;
   padding-top: 15px;
   text-align: center;
+}
+
+.number {
+  border: none;
+  background: rgba(255, 255, 255, 0);
+  outline: none;
+  text-align: center;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
 }
 /*# sourceMappingURL=sh_user_w_semiDetail.css.map */

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/sh_user_w_semiDetail.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <title>e-Zone | 지식 공유 플랫폼</title>
+    <title>e-Zone :: 지식 공유 플랫폼</title>
+    <link href="../img/icon.png" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
     <article>
@@ -140,7 +141,12 @@
 
 
     <!-- 우측 결제정보 사이드바 -->
+    
         <div class="payment-info">
+            <div style="background-color: #f6f6f6;width : 400px; height : 28px; margin : -20px 0 -6px -11px;">
+                <p class="choice-num">세미나 정보</p>
+            </div>
+            <hr style="width:99%; border : 1.5px solid rgb(112,77,228)">
             <table class="payment-info__infomation--table">
                 <tr>
                     <td>주최자</td>
@@ -208,7 +214,9 @@
                 <table  class="choice-num__count" class="">
                     <tr>
                         <td class="choice-num__count--minus">-</td> <!-- 선택 인원 1씩 감소 버튼 -->
-                        <td class="choice-num__count--number">25</td> <!-- 현재 선택 인원 표시 -->
+                        <td class="choice-num__count--number">
+                            <input class="number" value="1">
+                        </td> <!-- 현재 선택 인원 표시 -->
                         <td class="choice-num__count--plus">+</td></tr> <!-- 선택 인원 1씩 증가 버튼 -->
                 </table>
                 <input class="result__submit" type="submit" value="바로 예약하기">
