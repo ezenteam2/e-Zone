@@ -74,7 +74,7 @@ article{
 }
 .payment-info{
     width : 330px;
-    height : 720px;
+    height : 600px;  //차후 수정
     margin  : 180px 0 0 50px;
     background-color: white;
     font-size : 13px;
@@ -122,7 +122,6 @@ article{
     font-size: 15px;
     font-weight: bold;
     margin-left : 15px;
-    
     &--ch1{
         @include checkbox-design;    
     }
@@ -147,9 +146,9 @@ article{
     &__count{
         position: relative;
         bottom : 55px;
-        width  : 90%;
+        width  : 91%;
         margin: auto;
-        border-collapse: collapse;;
+        border-collapse: collapse;
         &--minus{
             width : 20%;
             @include numchoice();
@@ -169,9 +168,7 @@ article{
         }
     }
 }
-[type=radio]{
-    visibility: hidden;
-}
+
 @mixin click {
     position: relative;
     left : 22px;
@@ -180,12 +177,12 @@ article{
 }
 .nonclick1{
     @include click;
-    visibility: visible;
+
 }
 .clicked1{
     @include click;
     bottom : 32px;
-    visibility: hidden;
+
 }
 @mixin click2 {
     position: relative;
@@ -195,12 +192,12 @@ article{
 }
 .nonclick2{
     @include click2;
-    visibility: visible;
+
 }
 .clicked2{
     @include click2;
     bottom : 77px;
-    visibility: hidden;
+
 
 }
 .radio1{
@@ -344,8 +341,8 @@ td{
             position: relative;
             top : 45px;
             left : 25px;
-            width : 82%;
-            min-height: 120px;
+            width : 85%;
+            height: 120px;
             border: 1px solid #a4a4a4;
         }
         &--alert{

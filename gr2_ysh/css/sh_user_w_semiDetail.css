@@ -84,7 +84,7 @@ article {
 
 .payment-info {
   width: 330px;
-  height: 720px;
+  height: 600px;
   margin: 180px 0 0 50px;
   background-color: white;
   font-size: 13px;
@@ -157,7 +157,7 @@ article {
 .choice-num__count {
   position: relative;
   bottom: 55px;
-  width: 90%;
+  width: 91%;
   margin: auto;
   border-collapse: collapse;
 }
@@ -197,16 +197,11 @@ article {
   cursor: pointer;
 }
 
-[type=radio] {
-  visibility: hidden;
-}
-
 .nonclick1 {
   position: relative;
   left: 22px;
   bottom: 10px;
   cursor: pointer;
-  visibility: visible;
 }
 
 .clicked1 {
@@ -215,7 +210,6 @@ article {
   bottom: 10px;
   cursor: pointer;
   bottom: 32px;
-  visibility: hidden;
 }
 
 .nonclick2 {
@@ -223,7 +217,6 @@ article {
   left: 22px;
   bottom: 55px;
   cursor: pointer;
-  visibility: visible;
 }
 
 .clicked2 {
@@ -232,7 +225,6 @@ article {
   bottom: 55px;
   cursor: pointer;
   bottom: 77px;
-  visibility: hidden;
 }
 
 .radio1__title {
@@ -389,8 +381,8 @@ td {
   position: relative;
   top: 45px;
   left: 25px;
-  width: 82%;
-  min-height: 120px;
+  width: 85%;
+  height: 120px;
   border: 1px solid #a4a4a4;
 }
 
