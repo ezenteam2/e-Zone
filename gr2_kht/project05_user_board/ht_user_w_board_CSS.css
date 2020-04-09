@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+*{
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+body{
+	background-color:#F6F6F6;
+}
+
+.boardTitle{
+	text-align:center;
+}
+
+.schContainer{
+	width:1150px;
+	margin-right:auto;
+	margin-left:auto;
+	margin-top:50px;
+	margin-bottom:50px;
+	padding:25px;
+	border: solid 3px #704DE4;
+}
+
+.schTitle{
+	font-size:18px;
+	margin-bottom:10px;
+	font-weight:bold;
+}
+
+.schInputContainer{
+	width:960px;
+	margin-right:15px;
+	display:inline-block;	
+}
+
+.schBtnContainer{
+	width:150px;
+	display:inline-block;
+	background-color:yellow;
+	
+}
+
+.schInput{
+	width:930px;
+	height:50px;
+	padding-left:20px;
+	border:solid 2px #E0E0E0;
+	font-size:18px;
+}
+
+.schBtnC{
+	width:150px;
+	height:50px;
+	padding-top:6px;
+	background: url("ht_img/schBtn.png");
+	border:none;
+	cursor: pointer;
+}
+
+.accordionContainer{
+	width:1200px;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+.accordionTitleContainer:nth-child(2n){
+	background-color:#F1F1F1;
+}
+.accordionTitleContainer:nth-child(2n+1){
+	background-color:#F6F6F6;
+}
+
+.accordionTitleContainer{
+	border:solid 2px #E0E0E0;
+	height:30px;
+	padding-left:20px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.accordionTitleType{
+	width:100px;
+	display:inline-block;
+	font-weight:bold;
+	font-size:17px;
+	text-align:center;
+	margin-right:50px;
+	vertical-align:middle;
+}
+
+.accordionTitle{
+	width:800px;
+	display:inline-block;
+	font-size:17px;
+	font-weight:bold;
+	vertical-align:middle;
+}
+
+.accordionContent{
+	margin-top:-2px;
+	margin-bottom:-2px;
+	background-color:white;
+	border:solid 2px #E0E0E0;
+	padding-left:200px;
+	padding-right:200px;
+}
