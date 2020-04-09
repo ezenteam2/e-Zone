@@ -14,30 +14,11 @@ body{
 
 #find_pass_Div{
     width:600px;
-    height:500px;
+    height:450px;
     background-color: white;
     margin-left:auto;
     margin-right:auto;
     margin-top:15%;
-}
-
-#find_Cate_Div{
-    width:100%;
-    height:60px;
-
-}
-.find_cate_Btn_Div{
-    width:50%;
-    height:100%;
-    float:left;
-}
-
-.cate_Btn{
-    width:100%;
-    height:100%;
-    background-color: #EDD200;
-    border:0;
-    border-left:1px solid gray;
 }
 
 .input_find{
@@ -60,6 +41,6 @@ body{
     width:100%;
     height:60px;
     border:0;
-    background-color: #EDD200;
-    margin-top:30px;
+    background-color:rgba(255,208,20,.85);
+    margin-top:40px;
 }

@@ -1,0 +1,130 @@
+@import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);
+#header_Body{
+    padding:0;
+    margin:0;
+    
+}
+*{
+    box-sizing: border-box;
+}
+
+#Header_Main_Div{
+	background-color:white;
+}
+
+#top_Div{
+    width:100%;
+    height:80px;
+    border-bottom:0.5px solid black;
+    display:inline-block;
+}
+
+#logo_div{
+    width:250px;
+    height:100%;
+    float:left;
+}
+
+.logo_Img{
+    width:250px;
+    height:80px;
+}
+
+#Seach_Form_Div{
+    width:650px;
+    height:80px;
+    margin-left:8%;
+    float:left;
+}
+
+#inputKeword{
+    width:100%;
+    height:60px;
+    border:0;
+    border-bottom: 2px solid rgba(255,208,20,.85);
+    font-size:12pt;
+    padding-left:2.5%;
+    display: inline-block;
+    position: relative;
+    z-index: 0;
+}
+
+#inputKeword:focus{
+    outline: none;
+}
+
+.nav_Search{
+    position: absolute;
+    margin-top: 1%;
+    margin-left:-2%;
+}
+.Search_logo{
+    width:30px;
+    height:30px;
+
+    margin-top:2%;
+    cursor: pointer;
+
+}
+
+.nav_top_Btn_Div{
+    width:130px;
+    height:55px;
+    float:right;
+    margin-top:1%;
+    cursor: pointer;
+    text-align: center;
+    
+
+}
+
+.nav_Top_Span{
+    width:100%;
+    font-size:16pt;
+    font-weight: bold;
+
+}
+
+#nav_menu{
+    width:100%;
+    height:50px;
+    border-bottom:0.5px solid black;
+    display: inline-block;
+    margin-top:-5px;
+}
+
+.nav_menu_Div{
+    width:25%;
+    height:100%;
+    float:left;
+    text-align: center;
+    position: relative;
+    background-color: #FFE6E6;
+    z-index:1;
+}
+
+.nav_menu_Div .hide{
+    width:100%;
+    display:none;
+    background-color: #FFE6E6;
+    margin-top:5px;
+    z-index:1;
+}
+
+.nav_menu_Div>a{
+    width:100%;
+    height:100%;
+    font-size:22pt;
+    font-weight: bold;
+
+}
+
+.header_li{
+	width:100%;
+    list-style: none;
+    font-size:12pt;
+    padding:2.5%;
+    font-family: 'Nanum Barun Gothic', sans-serif;
+    z-index:1;
+
+}
