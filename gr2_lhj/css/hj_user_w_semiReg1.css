@@ -88,6 +88,11 @@ body {
   color: white;
 }
 
+.reg-wrap #zone-sel .spacedetail img {
+  width: 700px;
+  height: 450px;
+}
+
 .reg-wrap .date-sel {
   width: 100%;
   margin: 30px 0 30px 0;
@@ -108,8 +113,22 @@ body {
   padding: 0;
 }
 
-.reg-wrap .date-sel #date-picker {
+.reg-wrap #nextBtn {
+  width: 400px;
   height: 50px;
-  width: 200px;
-  border: solid 1px;
+  font-size: 15px;
+  cursor: pointer;
+  outline: none;
+  margin: 0 auto 0 auto;
+  border: none;
+  background-color: #704de4;
+  color: white;
+}
+
+.reg-wrap #datepicker {
+  width: 100px;
+  height: 30px;
+  padding: 0 16px;
+  font-size: 15px;
+  border: solid 1px #ccc;
 }
