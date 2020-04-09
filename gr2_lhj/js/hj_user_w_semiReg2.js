@@ -49,6 +49,8 @@ timeselSpan.forEach(el=>{
         State.time=(State.time+1)%3;
         if(State.time===0){
             console.log("초기화");
+			startTime=null;
+            endTime=null;
             for(let i=0; i<=12; i++){
                 if(timeselChk[i].checked){
                     timeselChk[i].click();
@@ -74,9 +76,9 @@ timeselSpan.forEach(el=>{
             for(let i=startTime+1; i<endTime; i++){
                 timeselChk[i-9].click();
             }
-            $('[name=start-time]').val(startTime);
-            $('[name=end-time]').val(endTime);
         }
+        $('[name=start-time]').val(startTime);
+        $('[name=end-time]').val(endTime);
     })
 })
 
