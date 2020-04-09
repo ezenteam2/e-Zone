@@ -8,6 +8,7 @@ article{
     width : 1158px;
     margin : 0 auto;
     display: flex;
+    background-color: #f6f6f6;
 }
 .content{
     width : 750px;
@@ -49,6 +50,8 @@ article{
         &-booking{
 
             &--num{
+                position: relative;
+                right : 5px;
                 margin-top : 20px;
                 color : rgb(112,77,228);
             }
@@ -70,6 +73,13 @@ article{
         font-weight: bold;
         margin : 50px 0 -3px 0;
         font-size: 15px;
+    }
+    &__more{
+        font-size: 14px;
+        color : gray;
+        float: right;
+        margin-bottom: 10px;
+        cursor: pointer;
     }
 }
 .payment-info{
