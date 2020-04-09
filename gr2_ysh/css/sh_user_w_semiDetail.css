@@ -12,6 +12,7 @@ article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background-color: #f6f6f6;
 }
 
 .content {
@@ -59,6 +60,8 @@ article {
 }
 
 .content__introduce-booking--num {
+  position: relative;
+  right: 5px;
   margin-top: 20px;
   color: #704de4;
 }
@@ -80,6 +83,14 @@ article {
   font-weight: bold;
   margin: 50px 0 -3px 0;
   font-size: 15px;
+}
+
+.content__more {
+  font-size: 14px;
+  color: gray;
+  float: right;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .payment-info {
