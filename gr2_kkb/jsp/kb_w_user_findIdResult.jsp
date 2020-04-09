@@ -1,3 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
+<fmt:requestEncoding value="utf-8"/>    
+<jsp:include page="kb_w_user_MainHeader.jsp"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +20,7 @@
                 <span id="find_Name_Span">권기범</span>님의 아이디는 
                 <span id="find_id">userezenkb77</span>입니다.
             </div>
-            <button type="button" id="moveLogin_Btn" onclick="location.href='kb_w_user_login.html'">로그인하기</button>
+            <button type="button" id="moveLogin_Btn" onclick="location.href='login.do'">로그인하기</button>
         </div>
     </main>
 </body>
