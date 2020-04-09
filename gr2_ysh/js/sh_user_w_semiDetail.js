@@ -1,36 +1,28 @@
-var radio1 = document.querySelector('#radio1');
-var radio2 = document.querySelector('#radio2');
 
-var one = document.querySelector('[name=one]');
-var overTwo = document.querySelector('input[name=overTwo]');
 
-var countTable =  document.querySelector('.choice-num__count');
+var askExit = document.querySelectorAll('.modal__inner--exit');
+var modal = document.querySelectorAll('.modal');
+var askButton = document.querySelectorAll('button');
 
-// if(overTwo.checked==true){
-//     countTable.style.display = 'none';
+// for(var i=0; i<modal.length;i++){
+//     askExit[i].addEventListener('click',function(event){
+//         modal[i].style.display = 'none';
+//     })
 // }
 
-var askExit = document.querySelector('.exit__ask');
-var reviewExit = document.querySelector('.exit__review');
-var ask = document.querySelector('.ask');
-var review = document.querySelector('.review');
-var askButton = document.querySelector('.ask--button');
-var reviewButton = document.querySelector('.review--button');
-
-askButton.addEventListener('click',function(event){
-    ask.style.display = 'block';
+askButton[0].addEventListener('click',function(event){
+    modal[0].style.display = 'block';
 })
-askExit.addEventListener('click',function(event){
-    ask.style.display = 'none';
+askButton[1].addEventListener('click',function(event){
+    modal[1].style.display = 'block';
 })
 
-reviewButton.addEventListener('click',function(event){
-    review.style.display = 'block';
+askExit[0].addEventListener('click',function(event){
+    modal[0].style.display = 'none';
 })
-reviewExit.addEventListener('click',function(event){
-    review.style.display = 'none';
-})
-
+askExit[1].addEventListener('click',function(event){
+    modal[1].style.display = 'none';
+ })
 // 인원 숫자 증감 부분
 var minus =  document.querySelector('.choice-num__count--minus');
 var number = document.querySelector('.number');
