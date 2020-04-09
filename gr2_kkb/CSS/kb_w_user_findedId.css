@@ -46,16 +46,7 @@ body{
     width:100%;
     height:60px;
     border:0;
-    background-color: #EDD200;
-    margin-top:27%;
-    font-size:14pt;
- }
-
- #moveFind_PassBtn{
-    width:100%;
-    height:60px;
-    border:0;
-    background-color: #EDD200;
-    margin-top:20px;
+    background-color: rgba(255,208,20,.85);;
+    margin-top:35%;
     font-size:14pt;
  }

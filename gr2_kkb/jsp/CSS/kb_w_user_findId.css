@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    padding:0;
+    background-color: #EAEAEA;
+}
+
+#find_Id_Main{
+    width:1200px;
+    height:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#find_Id_Main_Div{
+    width:600px;
+    height:450px;
+    background-color: white;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:15%;
+}
+
+#find_Id_Form_Div{
+    width:100%;
+    height:100%;
+    padding:1%;
+    margin-top:5%;
+}
+
+.input_find{
+    width:100%;
+    height:50px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:30px;
+    padding-left:10px;
+}
+
+#Find_Btn{
+    width:100%;
+    height:60px;
+    border:0;
+    background-color: rgba(255,208,20,.85);
+    margin-top:40px;
+}

@@ -175,34 +175,38 @@
             </table>
 
     <!-- 인원 선택/결제금액 form -->
+    <p class="choice-num">인원 선택</p>
+            <hr class="decoration--puple-line">        
+            <form class="choice-result--form" action="">
             <p class="choice-num">인원 선택</p>
             <hr class="decoration--puple-line">        
             <form class="choice-result--form" action="">
-                
-                <input name="one" id="radio1"  type="radio" name="num">
 
-                <label for="radio1" class="nonclick1"> <!-- 클릭전 -->
+ <!--         (인원선택 라디오 버튼)
+                <input id="radio1" class="radio" type="radio" name="num" checked> 
+
+                <label for="radio1" class="nonclick nonclick1">
                     <div  class="choice-num--ch1">
                     </div>
                 </label>
 
-                <label for="radio1" class="clicked1"><!-- 클릭후 -->
+                <label for="radio1" class="clicked clicked1">
                     <div  class="choice-num--ch1">
                         <div class="choice-num--circle-inner">
                         </div>
                     </div>
                 </label>
 
-                <label name="overTwo" class="radio1__title" for="radio2">1명</label><br>
-        <!-- --> 
-                <input id="radio2"  type="radio" name="num">
+                <label  class="radio1__title" for="radio1"></label><br>
+ 
+                <input id="radio2" class="radio" type="radio" name="num"> 
 
-                <label for="radio2" class="nonclick2"> <!-- 클릭전 -->
+                <label for="radio2" class="nonclick nonclick2"> 
                     <div  class="choice-num--ch2">
                     </div>
                 </label>
 
-                <label for="radio2" class="clicked2"><!-- 클릭후 -->
+                <label for="radio2" class="clicked clicked2">
                     <div  class="choice-num--ch2">
                         <div class="choice-num--circle-inner">
                         </div>
@@ -210,12 +214,13 @@
                 </label>
 
                 <label class="radio2__title" for="radio2">2명 이상</label><br>
+-->
 
-                <table  class="choice-num__count" class="">
+                <table  class="choice-num__count">
                     <tr>
                         <td class="choice-num__count--minus">-</td> <!-- 선택 인원 1씩 감소 버튼 -->
                         <td class="choice-num__count--number">
-                            <input class="number" value="1">
+                            <input class="number" value="1" maxlength="3">
                         </td> <!-- 현재 선택 인원 표시 -->
                         <td class="choice-num__count--plus">+</td></tr> <!-- 선택 인원 1씩 증가 버튼 -->
                 </table>
@@ -227,11 +232,11 @@
     
     
     <!-- 세미나문의 모달 -->
-    <div class="modal ask">
+    <div class="modal">
         <div class="modal__inner">
             <div class="modal__inner--top">
                 질문 작성하기
-                <div class="modal__inner--exit exit__ask">
+                <div class="modal__inner--exit">
                     X
                 </div>
             </div>
@@ -239,12 +244,10 @@
                 질문
             </span>
             <span  class="modal__inner--num">
-                0/200
+                <span class="typing"></span>/200
             </span>
         <form action="">
-            <textarea placeholder="질문을 남겨주세요" class="modal__inner--text">
-                
-            </textarea>
+            <textarea placeholder="질문을 남겨주세요" class="modal__inner--text"></textarea>
             <div class="modal__inner--alert">
             <img src="../img/alert.png" style="vertical-align: middle;">질문은 공개 상태로만 등록하실 수 있습니다.
             </div>
@@ -254,32 +257,31 @@
         </div>
         </form>
         </div>
+        </div>
 
         <!-- 이용후기 모달 -->
-    <div class="modal2 review">
-        <div class="modal2__inner">
-            <div class="modal2__inner--top">
-                질문 작성하기
-                <div class="modal2__inner--exit exit__review">
+    <div class="modal">
+        <div class="modal__inner">
+            <div class="modal__inner--top">
+                후기 작성하기
+                <div class="modal__inner--exit">
                     X
                 </div>
             </div>
-            <span  class="modal2__inner--title">
-                질문
+            <span  class="modal__inner--title">
+                후기
             </span>
-            <span  class="modal2__inner--num">
-                0/200
+            <span  class="modal__inner--num">
+                <span class="typing"></span>/200
             </span>
         <form action="">
-            <textarea placeholder="질문을 남겨주세요" class="modal2__inner--text">
-                
-            </textarea>
-            <div class="modal2__inner--alert">
-            <img src="../img/alert.png" style="vertical-align: middle;">질문은 공개 상태로만 등록하실 수 있습니다.
+            <textarea placeholder="후기를 남겨주세요" class="modal__inner--text"></textarea>
+            <div class="modal__inner--alert">
+            <img src="../img/alert.png" style="vertical-align: middle;">후기는 공개 상태로만 등록하실 수 있습니다.
             </div>
-        <div class="modal2__inner--button" style="display: flex;">
-            <input class="modal2__inner--button-blue" type="submit" value="등록">
-            <div class="modal2__inner--button-gray">삭제</div>
+        <div class="modal__inner--button" style="display: flex;">
+            <input class="modal__inner--button-blue" type="submit" value="등록">
+            <div class="modal__inner--button-gray">삭제</div>
         </div>
         </form>
         </div>
