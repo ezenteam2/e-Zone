@@ -14,7 +14,125 @@ body{
     margin-left:auto;
     margin-right:auto;
 }
+#SeminaZone_Title{
+    margin-left:5%;
+}
 
 #SeminaZone_Name_H1{
+    text-align: left;
+}
+
+#SeminaZone_Basic_Info_Div{
+    width:100%;
+    height:300px;
+    display:inline-block;
+}
+
+#SeminaZone_Image_Div{
+    width:800px;
+    height:100%;
+    float:left;
+}
+
+#SeminaZone_Info_Table_Div{
+    width:350px;
+    height:100%;
+    float:left;
+}
+
+#SeminaZon_Image{
+    width:700px;
+    height:100%;
+    margin-left:30px;
+}
+
+
+#Semina_Zone_Info_Table{
+    width:100%;
+    height:50%;
+    background-color:white;
     text-align: center;
+    margin-top:15%;
+
+}
+
+.Semina_Zone_Info_Th{
+
+    background-color: #704de4;
+    color:white;
+}
+
+#SeminaZone_Intro_Div{
+    width:100%;
+    margin-top:20px;
+}
+#intro_P{
+    font-size:13pt;
+    line-height: 50px;
+    word-break: break-all;
+    word-wrap: break-word;
+    color:gray;
+}
+
+#intro_title{
+    border-bottom: 2px solid rgba(255,208,20,.85);
+    line-height: 40px;
+    font-weight: bold;
+}
+
+#precautions_Title{
+    border-bottom: 2px solid rgba(255,208,20,.85);
+    line-height: 40px;
+    font-weight: bold; 
+}
+
+#SeminaZone_Guide_Div{
+    width:100%;
+    margin-top:20px;
+}
+
+#Guide_Title{
+    border-bottom: 2px solid rgba(255,208,20,.85);
+    line-height: 40px;
+    font-weight: bold; 
+}
+
+#Guide_P{
+    font-size:13pt;
+    line-height:50px;
+    color:gray;
+}
+
+#SeminaZone_precautions_Div{
+    width:100%;
+    margin-top:20px;
+}
+
+#precautions_Title{
+    border-bottom: 2px solid rgba(255,208,20,.85);
+    line-height: 40px;
+    font-weight: bold; 
+}
+
+#Precautions_P{
+    font-size:13pt;
+    line-height:50px;
+    color:gray;
+}
+
+#SeminaZone_Refund_Div{
+    width:100%;
+    margin-top:20px;
+}
+
+#Refuend_Title{
+    border-bottom: 2px solid rgba(255,208,20,.85);
+    line-height: 40px;
+    font-weight: bold; 
+}
+
+#Refund_P{
+    font-size:13pt;
+    line-height:50px;
+    color:gray;
 }
