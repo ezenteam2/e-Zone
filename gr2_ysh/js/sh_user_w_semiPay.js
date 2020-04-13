@@ -40,3 +40,24 @@ all__block.click(function(e){
     $(block).css('display','none');
     $(none).css('display','block');
 })
+
+var down = $('.down').get();
+var up = $('.up').get();
+var notice = $('.notice__personal').get();
+
+$(down).css('display','block');
+$(up).css('display','none');
+$(notice).css('display','none');
+
+for(let j=0; j<down.length;j++){
+    $(down[j]).click(function(e){
+        $(up[j]).css('display','block');
+        $(down[j]).css('display','none');
+        $(notice[j]).css('display','block')
+    })
+    $(up[j]).click(function(e){
+        $(down[j]).css('display','block');
+        $(up[j]).css('display','none');
+        $(notice[j]).css('display','none');
+    })
+}
