@@ -91,4 +91,83 @@ body {
 .article .content__kind td:nth-child(2n) {
   width: 730px;
 }
+
+.article .booking-info {
+  background-color: white;
+  border-top: 2px solid #704de4;
+}
+
+.article .booking-info--title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 55px;
+}
+
+.article .booking-info--table td {
+  padding: 20px 20px;
+  font-size: 15px;
+}
+
+.article .booking-info--table td:nth-child(2n+1) {
+  font-weight: bold;
+}
+
+.article .booking-info--table td:nth-child(2n) {
+  text-align: right;
+  width: 730px;
+  color: gray;
+  font-weight: bold;
+}
+
+.article .notice {
+  margin-top: 55px;
+  width: 900px;
+  border: 1px solid #f2f2f2;
+}
+
+.article .notice__title {
+  background-color: #ebebeb;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px;
+  padding-left: 25px;
+}
+
+.article .notice__main {
+  background-color: white;
+}
+
+.article .notice--inner {
+  line-height: 25px;
+  padding: 20px;
+  width: 100%;
+}
+
+.article .notice--inner td {
+  padding: 10px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.article .notice--inner td:nth-child(2n+1) {
+  font-weight: bold;
+  width: 30px;
+}
+
+.article .notice--inner td:nth-child(2n) {
+  font-size: 15px;
+}
+
+.none {
+  cursor: pointer;
+  width: 35px;
+}
+
+.block {
+  cursor: pointer;
+  width: 35px;
+}
+
+[type=checkbox] {
+  display: none;
+}
 /*# sourceMappingURL=sh_user_w_semiPay.css.map */

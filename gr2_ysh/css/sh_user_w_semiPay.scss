@@ -82,4 +82,71 @@ body{
             }
         }
     }
+    .booking-info{
+        background-color: white;
+        border-top: 2px solid rgb(112,77,228);
+        &--title{
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 55px;
+        }
+        &--table{
+            td{
+                padding : 20px 20px;
+                font-size: 15px;
+            }
+            td:nth-child(2n+1){
+                font-weight: bold;
+            }
+            td:nth-child(2n){
+                text-align: right;
+                width : 730px;
+                color: gray;
+                font-weight: bold;
+            }
+        }
+    }
+    .notice{
+        margin-top: 55px;
+        width: 900px;
+        border: 1px solid #f2f2f2;
+        &__title{
+            background-color: #ebebeb;
+            font-size: 18px;
+            font-weight: bold;
+
+            padding : 15px;
+            padding-left : 25px;
+        }
+        &__main{
+            background-color: white;
+        }
+        &--inner{
+            line-height: 25px;
+            padding : 20px;
+            width: 100%;
+            td{
+                padding : 10px;
+                border-bottom: 1px solid #f2f2f2 ;
+            }
+            td:nth-child(2n+1){
+                font-weight: bold;
+                width : 30px;
+            }
+            td:nth-child(2n){
+                font-size: 15px;
+            }
+        }
+    }
+}
+.none{
+    cursor: pointer;   
+    width : 35px;
+}
+.block{
+    cursor: pointer;   
+    width : 35px;
+}
+[type=checkbox]{
+    display: none;
 }
