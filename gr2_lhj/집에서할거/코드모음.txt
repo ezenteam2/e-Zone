@@ -1,0 +1,83 @@
+param
+
+id
+
+pass
+
+email
+
+telnumber
+
+name
+
+address
+
+img-file
+
+category1
+
+category2
+
+category3
+
+
+---------------------------------
+member _db
+
+MEM_ID
+MEM_PW
+MEM_NAME
+MEM_EMAIL
+MEM_NICK
+MEM_PHONE
+MEM_ADDR
+MEM_CATE
+MEM_PROF
+
+
+var xhr = new XMLHttpRequest();
+		xhr.open("get", "${path}/prod_detail", true);
+		
+		xhr.onreadystatechange=function(){ 
+			if(xhr.readyState==4&&xhr.status==200){
+				var plist = eval('('+xhr.responseText+')');
+				var show="<table align='center'>";
+				show+="<tr><th>이름</th><th>가격</th><th>갯수</th></tr>"
+				
+				for(var idx in plist){
+					var prod = plist[idx];
+					show+="<tr onclick=\"detail("+prod.code+")\">";
+					for(var idx2 in prod){
+						if(idx2!='code'){
+							show+="<td>"+prod[idx2]+"</td>";	
+						}
+					}
+					show+="</tr>";
+				}
+				show+="</table>";
+				$('#list').html(show);
+			}
+		}
+		xhr.send();
+
+
+
+public void setCon() {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String info="jdbc:oracle:thin:@192.168.4.90:1521:xe";
+			con = DriverManager.getConnection(info, "scott", "tiger");
+			System.out.println("Connection완료");
+			con.setAutoCommit(false);
+		} catch(Exception e) {
+			System.out.println("Connection 실패");
+		}
+	}
+
+semi_code
+mem_id
+zone_code
+semi_bookdate
+semi_title
+semi_subtitle
+semi_date

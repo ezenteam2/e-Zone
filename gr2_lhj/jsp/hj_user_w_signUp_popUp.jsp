@@ -41,11 +41,25 @@
     var callbackBtn=document.querySelector('#call-back');
 
     function changeMsg(){
-        message.innerHTML=`<span style="color:green;">${input.value}</span>는(은) 사용가능한 ID입니다.`;
-        callbackBtn.hidden=false;
+    	var xhr = new XMLHttpRequest();
+    	console.log("${path}/idchk?id="+input.value);
+		xhr.open("get", "${path}/idchk?id="+input.value, true);
+		
+		xhr.onreadystatechange=function(){ 
+			if(xhr.readyState==4&&xhr.status==200){
+				var result = eval('('+xhr.responseText+')');
+				if(!result.check){
+					message.innerHTML=`<span style="color:green;">${input.value}</span>는(은) 사용가능한 ID입니다.`;
+					callbackBtn.hidden=false;
+				} else {
+					message.innerHTML=`이미 등록된 아이디입니다.`;
+					callbackBtn.hidden=true;
+				}
+			}
+		}
+		xhr.send();
     }
     
-
     function closeChild(){
         opener.idCallBack(input.value);
         self.close();
