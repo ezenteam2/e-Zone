@@ -145,6 +145,11 @@ body{
                 font-size: 15px;
             }
         }
+        &__personal{
+            font-size: 12px;
+            font-weight: lighter;
+            color : gray;
+        }
     }
 }
 .none,.all__none{
@@ -157,4 +162,8 @@ body{
 }
 [type=checkbox]{
     display: none;
+}
+.up,.down{
+    width : 15px;
+    cursor: pointer;
 }

@@ -166,6 +166,12 @@ body {
   font-size: 15px;
 }
 
+.article .notice__personal {
+  font-size: 12px;
+  font-weight: lighter;
+  color: gray;
+}
+
 .none, .all__none {
   cursor: pointer;
   width: 35px;
@@ -178,5 +184,10 @@ body {
 
 [type=checkbox] {
   display: none;
+}
+
+.up, .down {
+  width: 15px;
+  cursor: pointer;
 }
 /*# sourceMappingURL=sh_user_w_semiPay.css.map */
