@@ -133,6 +133,15 @@ body {
   padding-left: 25px;
 }
 
+.article .notice__title--table td:first-child {
+  padding-right: 631px;
+}
+
+.article .notice__title--table td:nth-child(3) {
+  color: gray;
+  text-align: left;
+}
+
 .article .notice__main {
   background-color: white;
 }
@@ -157,12 +166,12 @@ body {
   font-size: 15px;
 }
 
-.none {
+.none, .all__none {
   cursor: pointer;
   width: 35px;
 }
 
-.block {
+.block, .all__block {
   cursor: pointer;
   width: 35px;
 }
