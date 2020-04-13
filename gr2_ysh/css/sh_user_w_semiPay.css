@@ -1,14 +1,13 @@
-.article {
-  width: 1400px;
-  margin: 0 auto;
+body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #f6f6f6;
 }
 
-.article__content {
+.article {
   width: 900px;
+  margin: 0 auto;
+  background-color: #f6f6f6;
 }
 
 .article__content--left {
