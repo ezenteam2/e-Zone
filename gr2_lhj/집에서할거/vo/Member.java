@@ -1,91 +1,102 @@
 package ezone.vo;
 
 public class Member {
-	private String id;
-	private String pass;
-	private String name;
-	private String email;
-	private String nick;
-	private String phone;
-	private String addr;
-	private String cate;
-	private String prof;
+	private String memId;
+	private String memPw;
+	private String memName;
+	private String memEmail;
+	private String memNick;
+	private String memPhone;
+	private String memAddr;
+	private String memCate;
+	private String memProf;
+	private java.sql.Date active;
 	
 	public Member() {
 		super();
 	}
 
-	public String getId() {
-		return id;
+	public String getMemId() {
+		return memId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setMemId(String memId) {
+		this.memId = memId;
 	}
 
-	public String getPass() {
-		return pass;
+	public String getMemPw() {
+		return memPw;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setMemPw(String memPw) {
+		this.memPw = memPw;
 	}
 
-	public String getName() {
-		return name;
+	public String getMemName() {
+		return memName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setMemName(String memName) {
+		this.memName = memName;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getMemEmail() {
+		return memEmail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMemEmail(String memEmail) {
+		this.memEmail = memEmail;
 	}
 
-	public String getNick() {
-		return nick;
+	public String getMemNick() {
+		return memNick;
 	}
 
-	public void setNick(String nick) {
-		this.nick = nick;
+	public void setMemNick(String memNick) {
+		this.memNick = memNick;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getMemPhone() {
+		return memPhone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setMemPhone(String memPhone) {
+		this.memPhone = memPhone;
 	}
 
-	public String getAddr() {
-		return addr;
+	public String getMemAddr() {
+		return memAddr;
 	}
 
-	public void setAddr(String addr) {
-		this.addr = addr;
+	public void setMemAddr(String memAddr) {
+		this.memAddr = memAddr;
 	}
 
-	public String getCate() {
-		return cate;
+	public String getMemCate() {
+		return memCate;
 	}
 
-	public void setCate(String cate) {
-		this.cate = cate;
+	public void setMemCate(String memCate) {
+		this.memCate = memCate;
 	}
 
-	public String getProf() {
-		return prof;
+	public String getMemProf() {
+		return memProf;
 	}
 
-	public void setProf(String prof) {
-		this.prof = prof;
+	public void setMemProf(String memProf) {
+		this.memProf = memProf;
 	}
+
+	public java.sql.Date getActive() {
+		return active;
+	}
+
+	public void setActive(java.sql.Date active) {
+		this.active = active;
+	}
+
+	
 	
 	
 }
