@@ -1,0 +1,55 @@
+오늘 할 일
+
+마이페이지 semi --> 기존 페이지 이동하던 것 한 페이지에서 로딩 되게끔 변경.
+		    필요한 모달창 양식도 만들기
+
+		    카테고리 변경 시, click 이벤트로 처리
+
+		    디비에 샘플 데이터 입력
+		    페이징은 어떻게 처리??
+
+		
+
+		이벤트 처리 순서
+	
+		카테고리 변경 --> 총페이지 계산, 페이지네이션 구성 --> 1페이지 기준으로 뿌려줌 --> 클릭시 모달창 ON -->
+		페이지네이션 클릭 시 다른 페이지 내용 기준으로 뿌려줌
+
+
+
+
+semi에 들어가는 샘플 데이터 종류
+
+1. 주최(완료)
+2. 참여(참여는 이후 웹사이트로 넣는 게 나을 것 같음...)
+
+db갯수 주최 약 15개, 참여 약 15개 정도 예상(완료)
+
+==p5semibook 컬럼 정리==
+
+semi_code / mem_id / zone_code / semi_bookdate / semi_title / semi_subtitle / semi_date / semi_stime / semi_ftime /
+
+semi_cate / semi_img / semi_detail / semi_capa / semi_parno / semi_price / semi_curr /  zone_comm / zone_commdate
+
+
+curr('입금대기', '입금완료')
+semi_cate IN ('IT기술','스포츠'
+	,'건강','음식','음악','가족','언어 문화', '영상제작', '기타')), 
+
+
+
+/* 세미나존 코드 - 세미나존 */
+CREATE SEQUENCE sz_code_seq
+	INCREMENT BY 1
+	START WITH 5100000;
+
+/* 세미나 코드 - 세미나존 예약 및 세미나 등록 */
+CREATE SEQUENCE semi_code_seq
+	INCREMENT BY 1
+	START WITH 1100000;
+
+5100000 금강관
+5100001 백두관
+5100002 한라관
+5100003 태백관
+
