@@ -26,15 +26,28 @@ toastr.options = {
   "hideMethod": "fadeOut"
 }
 
-function callPopUp(){
-        var url = path+'/my/e-Zone/gr2_lhj/jsp/hj_user_w_signUp_popUp.jsp';
-		var name= '아이디 중복 확인';
-		var option = "width = 400, height = 230, top = 50, left = 100, location = no";
-		window.open(url, name, option);
-}
 
-function idCallBack(id){
-    inputId.value=id;
+function idChk(event){
+	if(inputId.value.length>=5){
+		var xhr = new XMLHttpRequest();
+		xhr.open("get", path+"/idchk?id="+inputId.value, true);
+		
+		xhr.onreadystatechange=function(){ 
+			if(xhr.readyState==4&&xhr.status==200){
+				var result = eval('('+xhr.responseText+')');
+				if(!result.check){
+					Command: toastr["success"]("사용 가능한 아이디입니다");
+				} else {
+					Command: toastr["error"]("이미 등록된 아이디입니다");
+					inputId.value=null;
+				}
+			}
+		}
+		xhr.send();
+	} else {
+		Command: toastr["error"]("아이디는 최소 5자 이상입니다");
+	inputId.value=null;
+	}
 }
 
 function handleFile(event){
@@ -72,11 +85,9 @@ function chkEmailVal(event){
 
 function jusoPopUp(){
 	var url = path+'/my/e-Zone/gr2_lhj/jsp/jusoPopup.jsp';
-	console.log("dd");
 	var name= '아이디 중복 확인';
 	var option = "width = 400, height = 270, top = 50, left = 100, location = no";
 	window.open(url, name, option);
-	console.log("주소팝업");
 }
 
 function jusoCallBack(roadFullAddr){
@@ -111,9 +122,10 @@ function inputPhoneNumber(event) {
     obj.value = phone;
 }
 
-inputId.addEventListener('click', callPopUp);
+inputId.addEventListener('focusout', idChk);
 inputFile.addEventListener('change', handleFile);
 inputPassVal.addEventListener('focusout', chkPassVal);
 inputEmail.addEventListener('focusout', chkEmailVal);
 inputJuso.addEventListener('click', jusoPopUp);
+inputJuso.addEventListener('keyup', jusoPopUp);
 inputPhoneNum.addEventListener('keyup', inputPhoneNumber);
