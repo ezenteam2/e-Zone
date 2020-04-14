@@ -1,4 +1,4 @@
-
+// 서비스동의 체크박스
 var block = $('.block').get();
 var none = $('.none').get();
 var first = $('#first').get();
@@ -18,7 +18,7 @@ for(let i = 0; i<block.length; i++){
         $(first[i]).trigger('click');
     })
 }
-
+// 전체동의 체크박스
 var all__block = $('.all__block');
 var all__none = $('.all__none');
 var all = $('#all');
@@ -41,6 +41,7 @@ all__block.click(function(e){
     $(none).css('display','block');
 })
 
+// 서비스 동의 내용 펼치기
 var down = $('.down').get();
 var up = $('.up').get();
 var notice = $('.notice__personal').get();

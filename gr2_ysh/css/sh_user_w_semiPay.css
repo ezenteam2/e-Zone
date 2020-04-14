@@ -37,9 +37,14 @@ body {
 .article__payment-info {
   width: 330px;
   height: 600px;
-  margin: 180px 0 0 50px;
-  background-color: white;
+  position: relative;
+  right: 200px;
+  top: 50px;
   font-size: 13px;
+}
+
+.article__payment-info--main {
+  background-color: white;
 }
 
 .article .content__main {
