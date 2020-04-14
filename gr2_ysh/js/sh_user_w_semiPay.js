@@ -61,3 +61,4 @@ for(let j=0; j<down.length;j++){
         $(notice[j]).css('display','none');
     })
 }
+
