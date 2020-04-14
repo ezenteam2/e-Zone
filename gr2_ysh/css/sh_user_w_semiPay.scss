@@ -33,9 +33,13 @@ body{
     &__payment-info{
         width : 330px;
         height : 600px;
-        margin  : 180px 0 0 50px;
-        background-color: white;
+        position : relative;
+        right : 200px;
+        top : 50px;
         font-size : 13px;
+        &--main{
+            background-color: white;
+        }
     }
     .content{
         &__main{
@@ -137,12 +141,8 @@ body{
                 padding : 10px;
                 border-bottom: 1px solid #f2f2f2 ;
             }
-            td:nth-child(2n+1){
-                font-weight: bold;
+            td:nth-child(1),td:nth-child(3),td:nth-child(6){
                 width : 30px;
-            }
-            td:nth-child(2n){
-                font-size: 15px;
             }
         }
         &__personal{

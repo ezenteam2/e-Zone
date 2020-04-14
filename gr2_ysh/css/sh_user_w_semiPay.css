@@ -37,9 +37,14 @@ body {
 .article__payment-info {
   width: 330px;
   height: 600px;
-  margin: 180px 0 0 50px;
-  background-color: white;
+  position: relative;
+  right: 200px;
+  top: 50px;
   font-size: 13px;
+}
+
+.article__payment-info--main {
+  background-color: white;
 }
 
 .article .content__main {
@@ -157,13 +162,8 @@ body {
   border-bottom: 1px solid #f2f2f2;
 }
 
-.article .notice--inner td:nth-child(2n+1) {
-  font-weight: bold;
+.article .notice--inner td:nth-child(1), .article .notice--inner td:nth-child(3), .article .notice--inner td:nth-child(6) {
   width: 30px;
-}
-
-.article .notice--inner td:nth-child(2n) {
-  font-size: 15px;
 }
 
 .article .notice__personal {
