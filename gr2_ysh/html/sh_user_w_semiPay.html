@@ -76,7 +76,10 @@
                             </td>
                             <td colspan="2">
                                 예약조건 확인 및 결제진행 동의<span style="color : red;">(필수)</span>
+                            <tr></td>
+                            <td colspan="3">
                             </td>
+                            </tr>
                         </tr>
                         <tr>
                             <td>
@@ -139,9 +142,17 @@
                 </table>                
     </article>
     <div class="article__payment-info">
-        <p>결제 예정 금액</p>
+        <p class="article__content--left">결제 예정 금액</p>
         <div class="article__payment-info--main">
-
+            <table class="article__payment-info--table">
+                <tr><td>날짜</td><td>2020.04.01 (수)</td><td rowspan="3">&#8361;120,000</td></tr>
+                <tr><td>시간</td><td>12시 ~ 14시, 2시간</td></tr>
+                <tr><td>신청인원</td><td>2명</td></tr>
+            </table>
+            <div class="article__payment-info--result">
+                <span class="article__payment-info--8361">&#8361;</span><span class="article__payment-info--num">120,000</span>
+            </div>
+            <button class="article__payment-info__submit">신청하기</button>
         </div>
     </div>
     <script src="../js/sh_user_w_semiPay.js"></script>

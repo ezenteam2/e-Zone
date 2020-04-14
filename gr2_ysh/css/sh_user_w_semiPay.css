@@ -6,7 +6,7 @@ body {
 
 .article {
   width: 900px;
-  margin: 0 auto;
+  margin-left: 350px;
   background-color: #f6f6f6;
 }
 
@@ -37,14 +37,72 @@ body {
 .article__payment-info {
   width: 330px;
   height: 600px;
-  position: relative;
-  right: 200px;
-  top: 50px;
+  position: fixed;
+  right: 260px;
+  bottom: 345px;
   font-size: 13px;
 }
 
 .article__payment-info--main {
   background-color: white;
+  border-top: 2px solid #704de4;
+}
+
+.article__payment-info--table {
+  border-bottom: 2px solid #704de4;
+  width: 90%;
+  padding: 25px 5px;
+  margin: 0 auto;
+  font-size: 10px;
+  margin-bottom: 15px;
+}
+
+.article__payment-info--table td {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 35px;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 5px;
+}
+
+.article__payment-info--table td:nth-child(1), .article__payment-info--table td:nth-child(4), .article__payment-info--table td:nth-child(6) {
+  font-weight: bold;
+  color: gray;
+}
+
+.article__payment-info--table td:nth-child(3) {
+  border: none;
+  color: #704de4;
+  font-weight: bolder;
+}
+
+.article__payment-info--8361 {
+  color: #704de4;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.article__payment-info--num {
+  color: #704de4;
+  font-weight: bolder;
+  font-size: 20px;
+  float: right;
+}
+
+.article__payment-info--result {
+  padding: 5px 20px 20px;
+}
+
+.article__payment-info__submit {
+  width: 70%;
+  height: 55px;
+  background-color: #704de4;
+  border: none;
+  color: #fbca4a;
+  font-size: 15px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
 }
 
 .article .content__main {
