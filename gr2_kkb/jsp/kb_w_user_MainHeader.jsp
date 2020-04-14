@@ -21,6 +21,9 @@
          	$(".hide").mouseleave(function(){
          		$(this).slideUp();
          	})
+         	
+         	var id = '${user}';
+         	console.log("세션 테스트 " + id);
            
             
             
@@ -40,10 +43,15 @@
 	                <img src="Image/Search_Img.PNG" class="Search_logo">
 	            </a>
 	        </div>
-	        <div class="nav_top_Btn_Div"><span class="nav_Top_Span">세미나등록</span></div>
-	        <div class="nav_top_Btn_Div"><span class="nav_Top_Span">마이페이지</span></div>
+	        <div class="nav_top_Btn_Div"><span class="nav_Top_Span" onclick="location.href='SemiReg1.do'">세미나등록</span></div>
+	        <div class="nav_top_Btn_Div"><span class="nav_Top_Span" onclick="location.href='mypage.do'">마이페이지</span></div>
+	        <c:if test="${user==null}">
 	        <div class="nav_top_Btn_Div"><span class="nav_Top_Span" onclick="location.href='login.do'">로그인</span></div>
-	        
+	        </c:if>
+	        <c:if test="${user!=null}">
+	        <div class="nav_top_Btn_Div"><span class="nav_Top_Span" onclick="location.href='logout.do'">로그아웃</span></div>
+	        </c:if>
+	      
 	    </div>
 	    <div id="nav_menu">
 	        <div class="nav_menu_Div">

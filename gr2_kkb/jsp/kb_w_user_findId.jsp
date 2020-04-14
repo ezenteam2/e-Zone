@@ -20,7 +20,7 @@
                 <h1 style="text-align: center;">아이디 찾기</h1>
                 <form method="post" action="idResult.do">
                     <input type="text" name="name" class="input_find" placeholder="이름">
-                    <input type="text" name="name" class="input_find" placeholder="이메일">
+                    <input type="text" name="email" class="input_find" placeholder="이메일">
                     <button id="Find_Btn" onclick="location.href='kb_w_user_findedId.html'">아이디 찾기</button>
                 </form>
             </div>

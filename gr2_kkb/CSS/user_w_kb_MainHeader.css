@@ -1,10 +1,15 @@
 @import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);
-body{
+#header_Body{
     padding:0;
     margin:0;
+    
 }
 *{
     box-sizing: border-box;
+}
+
+#Header_Main_Div{
+	background-color:white;
 }
 
 #top_Div{
@@ -95,6 +100,7 @@ body{
     text-align: center;
     position: relative;
     background-color: #FFE6E6;
+    z-index:1;
 }
 
 .nav_menu_Div .hide{
@@ -102,6 +108,7 @@ body{
     display:none;
     background-color: #FFE6E6;
     margin-top:5px;
+    z-index:1;
 }
 
 .nav_menu_Div>a{
@@ -118,5 +125,6 @@ body{
     font-size:12pt;
     padding:2.5%;
     font-family: 'Nanum Barun Gothic', sans-serif;
+    z-index:1;
 
 }

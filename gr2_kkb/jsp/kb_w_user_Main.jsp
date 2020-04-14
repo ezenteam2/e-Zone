@@ -60,7 +60,7 @@
                 <div class="RecomSeminanumber"><h3 style="text-align:right">신청인원 : 25/40명</h3></div>
                 
             </div>
-            <div class="RecomSemina_Info_Div">
+            <div class="RecomSemina_Info_Div" onclick="location.href='seminaDetail.do'">
                 <div class="Recom_Semina_Img_Div">
                     <img src="Image/Semina_Poster2.jpg" class="RecomSemina_Img">
                 </div>
