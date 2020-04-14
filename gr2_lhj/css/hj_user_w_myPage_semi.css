@@ -26,6 +26,7 @@ body {
   background-color: #704de4;
   font-size: 15px;
   color: white;
+  outline:none;
 }
 
 .mypage-semi-wrap .list-area {

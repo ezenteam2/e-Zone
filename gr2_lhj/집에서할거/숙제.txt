@@ -1,0 +1,22 @@
+1. json배열 형태의 데이터 로딩하여, 화면에 출력하기..
+	데이터(z06_record.txt) 프로야구 정규리그 성적 [{}]
+	a08_baseball.jsp
+	2019년 정규시리즈 성적확인 --> 클릭시, 테이블로 리스트 처리
+
+
+2. 로그인 ajax로 처리하여, 유효 여부 바로 확인
+
+	id : [ 	]
+	pass:[	]
+	[로그인] ==> 로그인 성공/실패
+
+3. 사원이름[	] - 입력하는 순간 비슷한 이름이 리스트되어 출력되게 처리..
+	
+	a09_searchName.jsp
+	A07_EmpSearch.java(servlet)
+	z07_empname.jsp(data-json)
+
+4. http://sample.bmaster.kro.kr
+   http://sample.bmaster.kro.kr/contacts
+   http://sample.bmaster.kro.kr/contacts/search/jo
+   ajax를 이용해서, 데이터를 테이블로 리스트 처리..
