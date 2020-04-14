@@ -25,17 +25,17 @@ public class MemberDao {
 	public void insertMember(Member m1) {
 		try {
 			setCon();
-			String sql="insert into p5Member values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql="insert into p5Member values(?, ?, ?, ?, ?, ?, ?, ?, ?, null)";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, m1.getId());
-			pstmt.setString(2, m1.getPass());
-			pstmt.setString(3, m1.getName());
-			pstmt.setString(4, m1.getEmail());
-			pstmt.setString(5, m1.getNick());
-			pstmt.setString(6, m1.getPhone());
-			pstmt.setString(7, m1.getAddr());
-			pstmt.setString(8, m1.getCate());
-			pstmt.setString(9, m1.getProf());
+			pstmt.setString(1, m1.getMemId());
+			pstmt.setString(2, m1.getMemPw());
+			pstmt.setString(3, m1.getMemName());
+			pstmt.setString(4, m1.getMemEmail());
+			pstmt.setString(5, m1.getMemNick());
+			pstmt.setString(6, m1.getMemPhone());
+			pstmt.setString(7, m1.getMemAddr());
+			pstmt.setString(8, m1.getMemCate());
+			pstmt.setString(9, m1.getMemProf());
 			pstmt.executeUpdate();
 			System.out.println("멤버정보 삽입완료");
 			con.commit();
@@ -61,7 +61,7 @@ public class MemberDao {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs=pstmt.executeQuery();
-			System.out.println("아이디중복체크(1)");
+			System.out.println("아이디중복체크");
 			if(rs.next()) {
 				chk=true;
 			}

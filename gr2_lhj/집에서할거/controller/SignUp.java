@@ -14,7 +14,7 @@ import ezone.vo.*;
 /**
  * Servlet implementation class SignUp
  */
-@WebServlet("/SignUp")
+@WebServlet("/signup")
 public class SignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     MemberDao dao;
@@ -44,22 +44,21 @@ public class SignUp extends HttpServlet {
 		String cate2=request.getParameter("category2");
 		String cate3=request.getParameter("category3");
 		if(id!=null) {
-			System.out.println("cate1:"+cate1);
 			img=(img==null)?" ":img;
 			cate1=(cate1==null)?" ":cate1;
 			cate2=(cate2==null)?" ":cate2;
 			cate3=(cate3==null)?" ":cate3;
 			
 			Member m1=new Member();
-			m1.setId(id);
-			m1.setPass(pass);
-			m1.setEmail(email);
-			m1.setNick(nickName);
-			m1.setPhone(telNum);
-			m1.setName(name);
-			m1.setAddr(address);
-			m1.setCate(cate1+","+cate2+","+cate3);
-			m1.setProf(img);
+			m1.setMemId(id);
+			m1.setMemPw(pass);
+			m1.setMemEmail(email);
+			m1.setMemNick(nickName);
+			m1.setMemPhone(telNum);
+			m1.setMemName(name);
+			m1.setMemAddr(address);
+			m1.setMemCate(cate1+","+cate2+","+cate3);
+			m1.setMemProf(img);
 			dao.insertMember(m1);
 			String page="my\\e-Zone\\gr2_lhj\\jsp\\hj_user_w_signUp_done.jsp";
 			RequestDispatcher rd= request.getRequestDispatcher(page);

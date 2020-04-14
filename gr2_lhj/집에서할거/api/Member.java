@@ -1,4 +1,4 @@
-package ezone.vo;
+package ezone.api;
 
 public class Member {
 	private String memId;
