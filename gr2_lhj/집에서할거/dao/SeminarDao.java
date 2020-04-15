@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import ezone.vo.*;
+import ezone.vo.*;	
 
 public class SeminarDao {
 	
@@ -84,8 +84,8 @@ public class SeminarDao {
 		return array;
 	}
 	
-	//카테고리, 작성자별로 가져오는 리스트
-	public ArrayList<Seminar> getList(String cateOrHost, String type){
+	//카테고리, 작성자별, 검색어별로 가져오는 리스트
+	public ArrayList<Seminar> getList(String keyword, String type){
 		ArrayList<Seminar> array = new ArrayList<Seminar>();
 		try {
 			setCon();
@@ -94,9 +94,11 @@ public class SeminarDao {
 				sql="select * from P5SEMIBOOK where mem_id = ?";
 			} else if(type.contentEquals("cate")) {
 				sql="select * from P5SEMIBOOK where semi_cate = ?";
+			} else if(type.equals("title")){
+				sql="select * from p5semibook where semi_title like %?%";
 			}
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, cateOrHost);
+			pstmt.setString(1, keyword);
 			
 			rs=pstmt.executeQuery();
 			while(rs.next()){
@@ -215,7 +217,42 @@ public class SeminarDao {
 		}
 		
 		public void insertSeminar(Seminar sem) {
-			
+			try{
+				setCon();
+				String sql = "insert into p5semibook values(semi_code_seq.nextval, ?, ?, sysdate, ?,"+
+				"?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, sem.getMemId());
+				pstmt.setInt(2, sem.getZoneCode());
+				pstmt.setString(3, sem.getSemiTitle());
+				pstmt.setString(4, sem.getSemiSubtitle());
+				pstmt.setDate(5, sem.getSemiDate());
+				pstmt.setDate(6, sem.getSemiStime());
+				pstmt.setDate(7, sem.getSemiFtime());
+				pstmt.setString(8, sem.getSemiCate());
+				pstmt.setString(9, sem.getSemiImg());
+				pstmt.setString(10, sem.getSemiDetail());
+				pstmt.setInt(11, sem.getSemiCapa());
+				pstmt.setInt(12, sem.getSemiParno());
+				pstmt.setInt(13, sem.getSemiPrice());
+				pstmt.setInt(14, sem.getSemiCurr());
+				pstmt.setInt(15, sem.getZoneComm());
+				pstmt.setDate(16, sem.getZoneCommdate());
+
+				pstmt.executeUpdate();
+				con.commit();
+				pstmt.close();
+				con.close();
+			} catch(Exception e){
+				System.out.println("insertSeminar Error");
+				try{
+					con.rollback();
+					System.out.println("롤백시도");
+				} catch(Exception e2){
+					System.out.println("롤백에러");
+				}
+			}
 		}
 		
 }
