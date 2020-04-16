@@ -296,43 +296,47 @@ public class SeminarDao {
 		}
 		
 		//세미나 상세페이지 정보 불러오는거 - 서희
-				public ArrayList<Seminar> getSeminaInfo(int semiCode){
-					ArrayList<Seminar> array = new ArrayList<Seminar>();
-					try {
-						setCon();
-						String sql = "SELECT b.semi_code,b.MEM_ID,b.ZONE_CODE,b.SEMI_TITLE,b.SEMI_SUBTITLE,b.SEMI_DATE, b.SEMI_STIME, b.SEMI_FTIME, b.SEMI_CATE, b.semi_img, b.SEMI_DETAIL, b.SEMI_CAPA, b.SEMI_PRICE, sz_title \r\n" + 
-									 "FROM P5SEMIBOOK b \r\n" + 
-									 "LEFT JOIN P5SEMIZONE z ON b.ZONE_CODE=z.SZ_CODE WHERE b.SEMI_CODE =?";
-						pstmt=con.prepareStatement(sql);
-						pstmt.setInt(1, semiCode);	
-						rs=pstmt.executeQuery();
-						Seminar seminar = null;
-						while(rs.next()){
-							seminar = new Seminar();
-							seminar.setSemiCode(rs.getInt(1));
-							seminar.setMemId(rs.getString(2));
-							seminar.setZoneCode(rs.getInt(3));
-							seminar.setSemiTitle(rs.getString(4));
-							seminar.setSemiSubtitle(rs.getString(5));
-							seminar.setSemiDate(rs.getDate(6));
-							seminar.setSemiStime(rs.getDate(7));
-							seminar.setSemiFtime(rs.getDate(8));
-							seminar.setSemiCate(rs.getString(9));
-							seminar.setSemiImg(rs.getString(10));
-							seminar.setSemiDetail(rs.getString(11));
-							seminar.setSemiCapa(rs.getInt(12));
-							seminar.setSemiPrice(rs.getInt(13));
-							seminar.setSzTitle(rs.getString(14));
-							array.add(seminar);
-							
-						}
-						rs.close();
-						pstmt.close();
-						con.close();
-					} catch(Exception e) {
-						System.out.println("getSeminaInfo 중 에러발생");
-					}
-					return array;
+		public ArrayList<Seminar> getSeminaInfo(int semiCode){
+			ArrayList<Seminar> array = new ArrayList<Seminar>();
+			try {
+				setCon();
+				String sql = "SELECT b.semi_code,b.MEM_ID,b.ZONE_CODE,b.SEMI_TITLE,b.SEMI_SUBTITLE,b.SEMI_DATE, b.SEMI_STIME, b.SEMI_FTIME, b.SEMI_CATE, b.semi_img, b.SEMI_DETAIL, b.SEMI_CAPA, b.SEMI_PRICE, sz_title \r\n" + 
+							 "FROM P5SEMIBOOK b \r\n" + 
+							 "LEFT JOIN P5SEMIZONE z ON b.ZONE_CODE=z.SZ_CODE WHERE b.SEMI_CODE =?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1, semiCode);	
+				rs=pstmt.executeQuery();
+				Seminar seminar = null;
+				while(rs.next()){
+					seminar = new Seminar();
+					seminar.setSemiCode(rs.getInt(1));
+					seminar.setMemId(rs.getString(2));
+					seminar.setZoneCode(rs.getInt(3));
+					seminar.setSemiTitle(rs.getString(4));
+					seminar.setSemiSubtitle(rs.getString(5));
+					seminar.setSemiDate(rs.getDate(6));
+					java.sql.Timestamp semiStimeTmp=rs.getTimestamp(7);
+					String semiStime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(semiStimeTmp.getTime()));
+					seminar.setSemiStime(semiStime);
+					java.sql.Timestamp semiFtimeTmp=rs.getTimestamp(8);
+					String semiFtime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(semiFtimeTmp.getTime()));
+					seminar.setSemiFtime(semiFtime);
+					seminar.setSemiCate(rs.getString(9));
+					seminar.setSemiImg(rs.getString(10));
+					seminar.setSemiDetail(rs.getString(11));
+					seminar.setSemiCapa(rs.getInt(12));
+					seminar.setSemiPrice(rs.getInt(13));
+					seminar.setSzTitle(rs.getString(14));
+					array.add(seminar);
+					
 				}
+				rs.close();
+				pstmt.close();
+				con.close();
+			} catch(Exception e) {
+				System.out.println("getSeminaInfo 중 에러발생");
+			}
+			return array;
+		}
 		
 }
