@@ -12,13 +12,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="CSS/kb_w_user_findedId.css">
+    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+    	$(document).ready(function(){
+    		var id = '${id}';
+    		if(id == ''){
+    			alert("아이디가 없습니다");
+    			location.href="findId.do";
+    		} else {
+    			$("#find_Name_Span").text('${name}');
+    			$("#find_id").text('${id}');
+    		}
+    	})
+    </script>
 </head>
 <body>
     <main id="finded_Id_Main">
         <div id="finded_Div">
             <div id="Result_Div">
-                <span id="find_Name_Span">권기범</span>님의 아이디는 
-                <span id="find_id">userezenkb77</span>입니다.
+                <span id="find_Name_Span">${name}</span>님의 아이디는 
+                <span id="find_id">${id}</span>입니다.
             </div>
             <button type="button" id="moveLogin_Btn" onclick="location.href='login.do'">로그인하기</button>
         </div>
