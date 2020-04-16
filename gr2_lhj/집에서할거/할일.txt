@@ -53,3 +53,5 @@ CREATE SEQUENCE semi_code_seq
 5100002 한라관
 5100003 태백관
 
+
+일단 Dao 마무리 (검색용

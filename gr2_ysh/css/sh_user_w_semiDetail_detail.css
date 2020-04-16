@@ -1,0 +1,110 @@
+article {
+  width: 750px;
+  height: 80%;
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px 0px;
+  border-radius: 4px;
+  margin: auto;
+  margin-top: 100px;
+  padding: 40px;
+  padding-top: 40px;
+}
+
+.semi__ask {
+  margin: auto;
+  width: 700px;
+  margin-top: 30px;
+  line-height: 20px;
+}
+
+.semi__ask--img {
+  width: 80px;
+  height: 80px;
+  border-radius: 350px;
+  margin-right: 20px;
+}
+
+.semi__ask--td2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.semi__ask--td3 {
+  font-size: 14px;
+}
+
+.semi__ask--td4 {
+  font-size: 12px;
+}
+
+.semi__ask--button {
+  background-color: #704de4;
+  width: 120px;
+  height: 28px;
+  color: #fbca4a;
+  border: none;
+  border-radius: 20px;
+  float: right;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+.table--hr {
+  border: 0.5px solid #e6e6e6;
+  margin: 15px 0;
+}
+
+tr:nth-child(4n) {
+  height: 20px;
+}
+
+td {
+  line-height: 27px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.underline {
+  background-color: #ffd014;
+  height: 4px;
+  width: 100%;
+  margin-bottom: 30px 0;
+}
+
+.paging {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  left: 270px;
+  top: 15px;
+}
+
+.paging--btn {
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  margin-left: 3px;
+  background-color: gray;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  padding-top: 5px;
+}
+
+.paging__prev {
+  margin-right: 5px;
+}
+
+.paging__next {
+  margin-left: 8px;
+}
+/*# sourceMappingURL=sh_user_w_semiDetail_detail.css.map */
