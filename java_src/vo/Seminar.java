@@ -19,9 +19,16 @@ public class Seminar {
 	private String semiCurr;
 	private String zoneComm;
 	private java.sql.Date zoneCommdate;
-	private String szTitle; // 세미나존 이름 - 서희
+	private String szTitle;
 	
 	
+	
+	public String getSzTitle() {
+		return szTitle;
+	}
+	public void setSzTitle(String szTitle) {
+		this.szTitle = szTitle;
+	}
 	public int getSemiCode() {
 		return semiCode;
 	}
@@ -129,12 +136,6 @@ public class Seminar {
 	}
 	public void setZoneCommdate(java.sql.Date zoneCommdate) {
 		this.zoneCommdate = zoneCommdate;
-	}
-	public String getSzTitle() {
-		return szTitle;
-	}
-	public void setSzTitle(String szTitle) {
-		this.szTitle = szTitle;
 	}
 	
 	
