@@ -1,9 +1,11 @@
 package ezone.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import ezone.vo.*;	
 
@@ -41,8 +43,12 @@ public class SeminarDao {
 				String semiTitle=rs.getString(5);
 				String semiSubtitle=rs.getString(6);
 				java.sql.Date semiDate=rs.getDate(7);
-				java.sql.Date semiStime=rs.getDate(8);
-				java.sql.Date semiFtime=rs.getDate(9);
+				java.sql.Timestamp semiStimeTmp=rs.getTimestamp(8);
+				String semiStime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(semiStimeTmp.getTime()));
+				System.out.println("semiStime:"+semiStime);
+				java.sql.Timestamp semiFtimeTmp=rs.getTimestamp(9);
+				String semiFtime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(semiFtimeTmp.getTime()));
+				System.out.println("semiFtime:"+semiFtime);
 				String semiCate = rs.getString(10);
 				String semiImg = rs.getString(11);
 				String semiDetail = rs.getString(12);
@@ -109,8 +115,12 @@ public class SeminarDao {
 				String semiTitle=rs.getString(5);
 				String semiSubtitle=rs.getString(6);
 				java.sql.Date semiDate=rs.getDate(7);
-				java.sql.Date semiStime=rs.getDate(8);
-				java.sql.Date semiFtime=rs.getDate(9);
+				java.sql.Timestamp semiStimeTmp=rs.getTimestamp(8);
+				String semiStime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(semiStimeTmp.getTime()));
+				System.out.println("semiStime:"+semiStime);
+				java.sql.Timestamp semiFtimeTmp=rs.getTimestamp(9);
+				String semiFtime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(semiFtimeTmp.getTime()));
+				System.out.println("semiFtime:"+semiFtime);
 				String semiCate = rs.getString(10);
 				String semiImg = rs.getString(11);
 				String semiDetail = rs.getString(12);
@@ -172,8 +182,12 @@ public class SeminarDao {
 					String semiTitle=rs.getString(5);
 					String semiSubtitle=rs.getString(6);
 					java.sql.Date semiDate=rs.getDate(7);
-					java.sql.Date semiStime=rs.getDate(8);
-					java.sql.Date semiFtime=rs.getDate(9);
+					java.sql.Timestamp semiStimeTmp=rs.getTimestamp(8);
+					String semiStime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(semiStimeTmp.getTime()));
+					System.out.println("semiStime:"+semiStime);
+					java.sql.Timestamp semiFtimeTmp=rs.getTimestamp(9);
+					String semiFtime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(semiFtimeTmp.getTime()));
+					System.out.println("semiFtime:"+semiFtime);
 					String semiCate = rs.getString(10);
 					String semiImg = rs.getString(11);
 					String semiDetail = rs.getString(12);
@@ -220,7 +234,7 @@ public class SeminarDao {
 			try{
 				setCon();
 				String sql = "insert into p5semibook values(semi_code_seq.nextval, ?, ?, sysdate, ?,"+
-				"?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				"?, ?, to_date(?, 'YYYY-MM-DD HH24:MI:SS'), to_date(?, 'YYYY-MM-DD HH24:MI:SS'), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 				pstmt=con.prepareStatement(sql);
 				pstmt.setString(1, sem.getMemId());
@@ -228,16 +242,16 @@ public class SeminarDao {
 				pstmt.setString(3, sem.getSemiTitle());
 				pstmt.setString(4, sem.getSemiSubtitle());
 				pstmt.setDate(5, sem.getSemiDate());
-				pstmt.setDate(6, sem.getSemiStime());
-				pstmt.setDate(7, sem.getSemiFtime());
+				pstmt.setString(6, sem.getSemiStime());
+				pstmt.setString(7, sem.getSemiFtime());
 				pstmt.setString(8, sem.getSemiCate());
 				pstmt.setString(9, sem.getSemiImg());
 				pstmt.setString(10, sem.getSemiDetail());
 				pstmt.setInt(11, sem.getSemiCapa());
 				pstmt.setInt(12, sem.getSemiParno());
 				pstmt.setInt(13, sem.getSemiPrice());
-				pstmt.setInt(14, sem.getSemiCurr());
-				pstmt.setInt(15, sem.getZoneComm());
+				pstmt.setString(14, sem.getSemiCurr());
+				pstmt.setString(15, sem.getZoneComm());
 				pstmt.setDate(16, sem.getZoneCommdate());
 
 				pstmt.executeUpdate();
@@ -254,5 +268,71 @@ public class SeminarDao {
 				}
 			}
 		}
+		
+		public boolean deleteSeminar(int code) {
+			boolean result=false;
+			try{
+				setCon();
+				String sql = "delete from p5semibook where semi_code = ?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1, code);
+				
+
+				pstmt.executeUpdate();
+				con.commit();
+				pstmt.close();
+				con.close();
+				result=true;
+			} catch(Exception e){
+				System.out.println("deleteSeminar Error");
+				try{
+					con.rollback();
+					System.out.println("롤백시도");
+				} catch(Exception e2){
+					System.out.println("롤백에러");
+				}
+			}
+			return result;
+		}
+		
+		//세미나 상세페이지 정보 불러오는거 - 서희
+				public ArrayList<Seminar> getSeminaInfo(int semiCode){
+					ArrayList<Seminar> array = new ArrayList<Seminar>();
+					try {
+						setCon();
+						String sql = "SELECT b.semi_code,b.MEM_ID,b.ZONE_CODE,b.SEMI_TITLE,b.SEMI_SUBTITLE,b.SEMI_DATE, b.SEMI_STIME, b.SEMI_FTIME, b.SEMI_CATE, b.semi_img, b.SEMI_DETAIL, b.SEMI_CAPA, b.SEMI_PRICE, sz_title \r\n" + 
+									 "FROM P5SEMIBOOK b \r\n" + 
+									 "LEFT JOIN P5SEMIZONE z ON b.ZONE_CODE=z.SZ_CODE WHERE b.SEMI_CODE =?";
+						pstmt=con.prepareStatement(sql);
+						pstmt.setInt(1, semiCode);	
+						rs=pstmt.executeQuery();
+						Seminar seminar = null;
+						while(rs.next()){
+							seminar = new Seminar();
+							seminar.setSemiCode(rs.getInt(1));
+							seminar.setMemId(rs.getString(2));
+							seminar.setZoneCode(rs.getInt(3));
+							seminar.setSemiTitle(rs.getString(4));
+							seminar.setSemiSubtitle(rs.getString(5));
+							seminar.setSemiDate(rs.getDate(6));
+							seminar.setSemiStime(rs.getDate(7));
+							seminar.setSemiFtime(rs.getDate(8));
+							seminar.setSemiCate(rs.getString(9));
+							seminar.setSemiImg(rs.getString(10));
+							seminar.setSemiDetail(rs.getString(11));
+							seminar.setSemiCapa(rs.getInt(12));
+							seminar.setSemiPrice(rs.getInt(13));
+							seminar.setSzTitle(rs.getString(14));
+							array.add(seminar);
+							
+						}
+						rs.close();
+						pstmt.close();
+						con.close();
+					} catch(Exception e) {
+						System.out.println("getSeminaInfo 중 에러발생");
+					}
+					return array;
+				}
 		
 }

@@ -1,0 +1,96 @@
+body {
+  background-color: #fafafa;
+}
+
+.mypage-qna-wrap {
+  width: 1200px;
+  margin: 0 auto 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mypage-qna-wrap .select-area select {
+  width: 130px;
+  height: 40px;
+  font-size: 15px;
+  padding: 0 15px;
+}
+
+.mypage-qna-wrap .select-area button {
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  margin: 20px;
+  border: none;
+  background-color: #704de4;
+  font-size: 15px;
+  color: white;
+}
+
+.mypage-qna-wrap .list-area {
+  width: 1200px;
+  margin: 30px 0 0 0;
+}
+
+.mypage-qna-wrap .list-area .header {
+  width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(255, 208, 20, 0.85);
+  border-top: 4px #704de4 solid;
+}
+
+.mypage-qna-wrap .list-area .header span {
+  display: block;
+  font-size: 15px;
+  width: 300px;
+  height: 50px;
+  line-height: 50px;
+  border-right: solid 1px #ccc;
+  text-align: center;
+}
+
+.mypage-qna-wrap .list-area .header :last-child {
+  border: none;
+}
+
+.mypage-qna-wrap .list-area ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  background-color: white;
+}
+
+.mypage-qna-wrap .list-area ul li {
+  cursor: pointer;
+  border-bottom: 1px #ddd solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.mypage-qna-wrap .list-area ul li span {
+  width: 300px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #656565;
+}
+
+.mypage-qna-wrap .list-area ul :last-child {
+  border-bottom: none;
+}
