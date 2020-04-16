@@ -5,62 +5,39 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath }"/>
-<fmt:requestEncoding value="utf-8"/>   
-
+<fmt:requestEncoding value="utf-8"/>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/sh_user_w_semiDetail.css">
-    <link rel="stylesheet" href="../css/sytle.css">
+    <link rel="stylesheet" href="${path}/css/sh_user_w_semiDetail.css">
+    <link rel="stylesheet" href="${path}/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <title>e-Zone :: 지식 공유 플랫폼</title>
     <link href="../img/icon.png" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
     <article>
+<c:forEach var="smi" items="${seminaInfo}">
         <div class="content">
     <!-- 컨텐츠 상단 -->
-            <div class="content__title">모르면 망하는 준비의 비밀 3가지</div> <!-- 제목 -->
-            <div class="content__sub-title">회사는 절대 내 인생을 책임져주지 않는다</div> <!-- 부제목 -->
+
+            <div class="content__title">${smi.semiTitle}</div> <!-- 제목 -->
+
+            <div class="content__sub-title">${smi.semiSubtitle}</div> <!-- 부제목 -->
             <div class="content__tag"> <!-- 세미나존, 카테고리 태그 -->
-                <span class="content__tag--inner tag__seminazone">#블루문</span>
-                <span class="content__tag--inner tag__category">#IT기술</span> 
+                <span class="content__tag--inner tag__seminazone">#${smi.szTitle}</span>
+                <span class="content__tag--inner tag__category">#${smi.semiCate}</span> 
             </div>
-            <img class="content__img" src="../img/semina.png" alt="three"> <!-- 이미지 -->
-            <div class="content__inner-title">회사는 절대 내 인생을 책임져주지 않는다</div> <!-- 본문 제목(부제목과 동일) -->
+            <img class="content__img" src="${smi.semiImg}" alt="three"> <!-- 이미지 -->
+            <div class="content__inner-title">${smi.semiSubtitle}</div> <!-- 본문 제목(부제목과 동일) -->
 
     <!-- 컨텐츠 본문 -->
             <div class="content--title content__introduce-semina--title">세미나 소개</div>
             <p class="content__introduce--underline"></p> <!-- 제목 하단 밑줄 -->
             <div class="content--same content__introduce--main">
-                "처음 창업하는데...뭐부터 시작하지?"<br> 
-                "쥐꼬리 만한 월급에... 야근... 이짓도 이제 지겹다..."<br>
-                " '올해는 꼭 창업한다!' 오늘도 다짐 뿐이고... <br>
-                손목 빠지게 검색해도 난 왜 제자리지? "<br><br>
-
-                주변에 들려오는 이야기는 사업해서 돈 잘 벌고, 대박 난 사람은 많드만....
-                나도 6개월, 아니 1년 안에라도 좋으니  뭐라도 시작할 수 없을까? 
-                혹시 당신도 저런 고민 해본 적 있나요?<br><br>
-
-                저도 그랬습니다.처음 창업할 때 '빈손'에서 시작했습니다. 사업을 시작하고, 돈 벌고, 망하고를 4번 정도 겪다보니,창업자들과 5분 정도 이야기를 해보면 
-                신기하게도'저러면 망하겠구나' '저 분은 이걸 준비해야 하는데'가100% 정확하지는 않아도 굵직한 맥은 짚어줄 수 있게 됐습니다.
-                주변을 둘러보니 내가 망한 방법대로 열정만 갖고 낭떠러지로 달려가는 분들이 10명 중 9명 이었습니다.<br><br>
-
-                이왕 하는 거, 제대로 원리부터 깨우치고 시작할 수 있다면 당신도 한 번 시도해 볼 만 하지 않을까요?<br><br>
-
-                창업 후 만날 백사장의 모레알 처럼 많은 문제들을
-                사진 찍듯 찰칵! 눈 앞에 선명하게 그려보고
-                빙 돌아가지 않고 곧장 창업을 시작한다면요?
-                현명한 분이라면 한 번에 눈치채실 겁니다. 
-                처음 가는 길을 운전할 때 
-                네비게이션이 있고 없고가 하늘과 땅 차이가 될 수 있듯,
-                창업도 마찬가지라는 사실을 말입니다. 그렇지 않을까요?<br><br>
-               
-                그 능력을 창업에 써보고 싶다면 
-                아래 내용을 읽고 '바로 예약하기'를 클릭하시면 됩니다.<br>
-                그럼 세미나에서 뵙겠습니다.
+            ${smi.semiDetail}
             </div>
             <div class="content--title content__introduce-place--title">시설 소개</div>
             <p class="content__introduce--underline"></p> <!-- 제목 하단 밑줄 -->
@@ -83,7 +60,7 @@
                 3. e-Zone 플랫폼에 대한 이용 문의는 Q&amp;A게시판을 이용해주세요<br>
                 4. 결제 방식은 현재 &lt;무통장입금&gt;만 지원됩니다<br>
                 7. e-Zone은 참여신청 및 참가비 결제 기능을 제공하는 회사로 세미나주최자(개설자)가 아닙니다. 
-                세미나 내용과 관련한 사항은 소개 페이지의 &lt;세미나 문의&gt;를 통해 세미나 주최자에게 문의 바랍니다.<br>
+                	세미나 내용과 관련한 사항은 소개 페이지의 &lt;세미나 문의&gt;를 통해 세미나 주최자에게 문의 바랍니다.<br>
             </div>
             <br><br><br>
            
@@ -98,26 +75,26 @@
             <p class="content__introduce--underline"></p> <!-- 제목 하단 밑줄 -->
 
             <table class="semi__ask">
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="../img/logo.png" alt=""></td><td class="semi__ask--td2">박지민</td></tr>
+                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt=""></td><td class="semi__ask--td2">박지민</td></tr>
                 <tr><td class="semi__ask--td3">카톡 아이디 주시면 감사하겠습니다</td></tr>
                 <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
                 <tr><td colspan="3"></td></tr>
 
                 <!-- 호스트 답글 -->
                 <tr>
-                    <td rowspan="3"><img  class="semi__ask--img" src="../img/logo.png" alt="" style="opacity: 0;"></td>
+                    <td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt="" style="opacity: 0;"></td>
                     <td class="semi__ask--td2" style="color : rgb(112,77,228)">호스트의 답글</td>
                 </tr>
                 <tr><td class="semi__ask--td3">플랫폼 운영 원칙상 카톡 아이디는 제공 되지 않습니다. 고객센터를 통해 문의 해주세요</td></tr>
                 <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
                 <tr><td colspan="3"><hr class="table--hr"></td></tr>
 
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="../img/logo.png" alt=""></td><td class="semi__ask--td2">LimeTime</td></tr>
+                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt=""></td><td class="semi__ask--td2">LimeTime</td></tr>
                 <tr><td class="semi__ask--td3">안녕하세요! 최대 수용인원 50명까지 가능한 강의실에서 빔프로젝터와 스크린 하나로 구성 되어 있는데 혹시 빔프로젝터와 스크린 하나 더 필요한데 가능할까요?</td></tr>
                 <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
                 <tr><td colspan="3"><hr class="table--hr"></td></tr>
 
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="../img/logo.png" alt=""></td><td class="semi__ask--td2">로그온</td></tr>
+                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt=""></td><td class="semi__ask--td2">로그온</td></tr>
                 <tr><td class="semi__ask--td3">1.외부음식 반입 가능한가요(주류반입 등) 2.마이크, 빔프로젝터 등 구비되어 있나요 3.연계된 케이터링 있나요, 개별로 케이터링 예약 해도 되나요 4.원형테이블 세팅 가능한가요, 원형테이블 세팅시 몇명까지 수용 가능한가요(이와 별개로 최대 5~60명 테이블 좌석으로 수용 가능한가요)</td></tr>
                 <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
                 <tr><td colspan="3"><hr class="table--hr"></td></tr>
@@ -134,17 +111,17 @@
             <p class="content__introduce--underline"></p> <!-- 제목 하단 밑줄 -->
 
             <table class="semi__ask">
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="../img/logo.png" alt=""></td><td class="semi__ask--td2">박지민</td></tr>
+                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt=""></td><td class="semi__ask--td2">박지민</td></tr>
                 <tr><td class="semi__ask--td3">즐겁고 유익한 시간이었습니다!</td></tr>
                 <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
                 <tr><td colspan="3"><hr class="table--hr"></td></tr>
 
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="../img/logo.png" alt=""></td><td class="semi__ask--td2">LimeTime</td></tr>
+                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt=""></td><td class="semi__ask--td2">LimeTime</td></tr>
                 <tr><td class="semi__ask--td3">안녕하세요! 최대 수용인원 50명까지 가능한 강의실에서 빔프로젝터와 스크린 하나로 구성 되어 있는데 혹시 빔프로젝터와 스크린 하나 더 필요한데 가능할까요?</td></tr>
                 <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
                 <tr><td colspan="3"><hr class="table--hr"></td></tr>
 
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="../img/logo.png" alt=""></td><td class="semi__ask--td2">로그온</td></tr>
+                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt=""></td><td class="semi__ask--td2">로그온</td></tr>
                 <tr><td class="semi__ask--td3">1.외부음식 반입 가능한가요(주류반입 등) 2.마이크, 빔프로젝터 등 구비되어 있나요 3.연계된 케이터링 있나요, 개별로 케이터링 예약 해도 되나요 4.원형테이블 세팅 가능한가요, 원형테이블 세팅시 몇명까지 수용 가능한가요(이와 별개로 최대 5~60명 테이블 좌석으로 수용 가능한가요)</td></tr>
                 <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
                 <tr><td colspan="3"><hr class="table--hr"></td></tr>
@@ -165,27 +142,32 @@
             <table class="payment-info__infomation--table">
                 <tr>
                     <td>주최자</td>
-                    <td>김길동</td>
+                    <td>${smi.memId}</td>
                 </tr>
-                <tr>
+                <tr><fmt:parseDate value='${smi.semiDate}' var='date1' pattern="yyyymmdd" scope="page"/>
+                
                     <td>시간</td>
-                    <td>2020년 5월 20일<br>13:00:00(2시간)</td>
+                    <td>
+                    <fmt:formatDate value="${date1}" pattern="yyyy년 MM월 dd일  "/><br>
+                    <fmt:formatDate value="${date1}" pattern="hh시 mm분 "/></td>
                 </tr>
                 <tr>
                     <td>카테고리</td>
-                    <td>IT</td>
+                    <td>${smi.semiCate}</td>
                 </tr>
                 <tr>
                     <td>최대인원</td>
-                    <td>50</td>
+                    <td>${smi.semiCapa}명</td>
                 </tr>
                 <tr>
                     <td>장소</td>
-                    <td>e-Zone &lt;블루문&gt; 세미나존</td>
+                    <td>${smi.szTitle}</td>
                 </tr>
                 <tr>
                     <td>참가비/1인</td>
-                    <td>30,000원</td>
+                    <td>
+                    	<fmt:formatNumber value="${smi.semiPrice}" type="currency" pattern="#,###,### 원"/>
+					</td>
                 </tr>
             </table>
 
@@ -239,7 +221,7 @@
                         </td> <!-- 현재 선택 인원 표시 -->
                         <td class="choice-num__count--plus">+</td></tr> <!-- 선택 인원 1씩 증가 버튼 -->
                 </table>
-                <input class="result__submit" type="submit" value="바로 예약하기">
+                <input class="result__submit" action="sh_user_w_semiPay.jsp" type="submit" value="바로 예약하기">
             </form>
         </div>
 
@@ -264,7 +246,7 @@
         <form action="">
             <textarea placeholder="질문을 남겨주세요" class="modal__inner--text"></textarea>
             <div class="modal__inner--alert">
-            <img src="../img/alert.png" style="vertical-align: middle;">질문은 공개 상태로만 등록하실 수 있습니다.
+            <img src="${path}/img/alert.png" style="vertical-align: middle;">질문은 공개 상태로만 등록하실 수 있습니다.
             </div>
         <div class="modal__inner--button" style="display: flex;">
             <input class="modal__inner--button-blue" type="submit" value="등록">
@@ -292,7 +274,7 @@
         <form action="">
             <textarea placeholder="후기를 남겨주세요" class="modal__inner--text"></textarea>
             <div class="modal__inner--alert">
-            <img src="../img/alert.png" style="vertical-align: middle;">후기는 공개 상태로만 등록하실 수 있습니다.
+            <img src="${path}/img/alert.png" style="vertical-align: middle;">후기는 공개 상태로만 등록하실 수 있습니다.
             </div>
         <div class="modal__inner--button" style="display: flex;">
             <input class="modal__inner--button-blue" type="submit" value="등록">
@@ -302,6 +284,7 @@
         </div>
 
     </div>
-    <script src="../js/sh_user_w_semiDetail.js"></script>    
+</c:forEach> 
+    <script src="${path}/js/sh_user_w_semiDetail.js"></script>    
 </body>
 </html>

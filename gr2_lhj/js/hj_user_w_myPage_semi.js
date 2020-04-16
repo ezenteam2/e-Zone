@@ -12,6 +12,7 @@ function callHostList(){
 		if(xhr.readyState==4&&xhr.status==200){
 			var JSON = eval('('+xhr.responseText+')');
 			targetUl.innerHTML="";
+			console.log(JSON);
 			JSON.forEach(el=>{
 				targetUl.appendChild(makeList(el));
 			});
@@ -54,7 +55,7 @@ function contentsChange(target, data){
 }
 
 function callDetail(event){
-	contentsChange(detailWrap, event.currentTarget.JSONdata)
+	contentsChange(detailWrap, event.currentTarget.JSONdata);
 	detailOn();
 }
 
