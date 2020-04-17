@@ -38,6 +38,11 @@
                 
             </ul>
         </div>
+        <div class="page-nation">
+        	<ul>
+        		<li>1</li>
+        	</ul>
+        </div>
     </div>
     <div class="semi-detail-wrap">
         <h1>세미나 예약 상세페이지(호스트)</h1>
@@ -71,6 +76,7 @@
             <button id="delete-btn">삭제</button>
         </div>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>var path="${path}"</script>
     <script src="${path }/my/e-Zone/gr2_lhj/js/hj_user_w_myPage_semi.js" ></script>
 </body>

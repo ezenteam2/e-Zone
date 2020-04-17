@@ -3,11 +3,10 @@ const targetUl=document.querySelector('.list-area ul');
 const detailWrap = document.querySelector('.semi-detail-wrap');
 const detailOffBtn = document.querySelector('#detail-off');
 const deleteBtn= document.querySelector('#delete-btn');
-
-function callHostList(){
+const pageNation = document.querySelector('.page-nation ul');
+function callHostList(page){
     var xhr = new XMLHttpRequest();
-
-	xhr.open("get", path+"/semilisthost", true);		
+	xhr.open("get", path+"/semilisthost?type=page&keyword="+page, true);		
 	xhr.onreadystatechange=function(){ 
 		if(xhr.readyState==4&&xhr.status==200){
 			var JSON = eval('('+xhr.responseText+')');
@@ -19,6 +18,36 @@ function callHostList(){
 		}
 	}
 	xhr.send();
+}
+
+function makePageNation(){
+	var xhr = new XMLHttpRequest();
+	xhr.open("get", path+"/semilisthost?type=cnt", true);		
+	xhr.onreadystatechange=function(){ 
+		if(xhr.readyState==4&&xhr.status==200){
+			var JSON = eval('('+xhr.responseText+')');
+			let cnt=JSON.count;
+			let page=1;
+			if(cnt%10===0){
+				page=cnt/10;
+			} else {
+				page=cnt/10+1;
+			}
+			pageNation.innerHTML="";
+			for(let i=1; i<=page; i++){
+				let li=document.createElement('li');
+				li.innerHTML=`${i}`;
+				li.addEventListener('click', movePage);
+				pageNation.appendChild(li);
+			}
+		}
+	}
+	xhr.send();
+}
+
+function movePage(event){
+	let pageNum=event.currentTarget.innerHTML;
+	callHostList((Number)(pageNum));
 }
 
 function detailOn(){
@@ -85,31 +114,49 @@ function makeList(el){
 }
 
 function deleteSemi(){
-	if(confirm("해당 세미나를 정말 삭제하시겠습니까?")){
-		let semiCode=document.querySelector('input[name=semi_code]').value;
-		var xhr = new XMLHttpRequest();
-
-		xhr.open("get", path+"/semidelete?semi_code="+semiCode, true);		
-		xhr.onreadystatechange=function(){ 
-			if(xhr.readyState==4&&xhr.status==200){
-				var deleteResult = eval('('+xhr.responseText+')');
-				if(deleteResult.result){
-					alert("삭제가 완료되었습니다.");
-					window.location=window.location.pathname+"?proc=semi";
-				} else {
-					alert("삭제 실패하였습니다.")
-					window.location=window.location.pathname+"?proc=semi";
+	swal({
+		title: "해당 세미나를 삭제하시겠습니까?",
+		text: "한번 삭제하면 되돌릴 수 없습니다!",
+		icon: "warning",
+		buttons: true,
+		dangerMode: true,
+		})
+		.then((confirm) => {
+		if (confirm) {
+			let semiCode=document.querySelector('input[name=semi_code]').value;
+			var xhr = new XMLHttpRequest();
+			xhr.open("get", path+"/semidelete?semi_code="+semiCode, true);		
+			xhr.onreadystatechange=function(){ 
+				if(xhr.readyState==4&&xhr.status==200){
+					var deleteResult = eval('('+xhr.responseText+')');
+					if(deleteResult.result){
+						swal("성공적으로 삭제되었습니다", {
+							icon: "success",
+							}).then(()=>{
+								window.location=window.location.pathname+"?proc=semi";
+							});
+					} else {
+						swal("삭제 실패하였습니다.");
+					}
 				}
 			}
+			xhr.send();
+		} else {
+			swal("삭제 취소되었습니다.");
 		}
-		xhr.send();
-	}
+	});
 }
+
+
 
 function init(){
 	detailOff();
-	callHostList();
-	hostBtn.addEventListener('click', callHostList);
+	makePageNation();
+	callHostList(1);
+	hostBtn.addEventListener('click', function(){
+		callHostList(1);
+		swal("리스트 업데이트가 완료되었습니다.","", "success");
+	});
 	detailOffBtn.addEventListener('click', detailOff);
 	deleteBtn.addEventListener('click', deleteSemi);
 }

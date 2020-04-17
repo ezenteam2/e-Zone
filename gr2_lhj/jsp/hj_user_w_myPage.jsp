@@ -34,7 +34,7 @@
                 <ul>
                     <li onclick="moveSemi()"><img src="${path }/my/e-Zone/gr2_lhj/img/mypage/예약내용확인아이콘.PNG" alt=""><span>세미나 예약리스트</span></li>
                     <li><img src="${path }/my/e-Zone/gr2_lhj/img/mypage/예약내용확인아이콘.PNG" alt=""><span>밋업 예약리스트</span></li>
-                    <li><img src="${path }/my/e-Zone/gr2_lhj/img/mypage/문의사항관리아이콘.PNG" alt=""><span>문의사항 관리</span></li>
+                    <li onclick="moveQna()"><img src="${path }/my/e-Zone/gr2_lhj/img/mypage/문의사항관리아이콘.PNG" alt=""><span>문의사항 관리</span></li>
                     <li><img src="${path }/my/e-Zone/gr2_lhj/img/mypage/이용후기관리아이콘.PNG" alt=""><span>이용후기 관리</span></li>
                 </ul>
             </form>
@@ -44,6 +44,12 @@
         var path="${path }";
         function moveSemi(){
             window.location="${path }/mypage?proc=semi";
+        }
+        function moveQna(){
+        	window.location="${path }/mypage?proc=qna";
+        }
+        function moveComm(){
+        	window.location="${path }/mypage?proc=comm";
         }
     </script>
 </body>

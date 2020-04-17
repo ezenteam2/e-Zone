@@ -36,6 +36,11 @@ body #form-wrap form {
   background-color: white;
 }
 
+body #form-wrap form h5 {
+  padding: 0;
+  margin: 0 auto 15px 35px;
+}
+
 body #form-wrap form input {
   width: 548px;
   height: 48px;
