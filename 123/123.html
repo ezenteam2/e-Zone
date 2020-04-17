@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>클릭하세요</h1>
+    <h2>삭제하기</h2>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        document.querySelector('h1').onclick=function(){
+            swal("테스트1","xptmxm1", "success");
+        }
+
+        document.querySelector('h2').onclick=function(){
+            swal({
+                title: "정말로 삭제하시겠습니까?",
+                text: "한번 삭제되면 되돌릴 수 없습니다!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                })
+                .then((willDelete) => {
+                if (willDelete) {
+                    swal("성공적으로 삭제되었습니다", {
+                    icon: "success",
+                    });
+                } else {
+                    swal("삭제 취소되었습니다.");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

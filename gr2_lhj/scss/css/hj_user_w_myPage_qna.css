@@ -112,6 +112,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -242,8 +243,4 @@ body {
   height: 35px;
   font-size: 15px;
   cursor: pointer;
-}
-
-.display-none {
-  display: none;
 }
