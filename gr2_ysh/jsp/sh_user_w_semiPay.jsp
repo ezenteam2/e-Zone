@@ -21,6 +21,7 @@
     <link href="../img/icon.png" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
+	<div class="main">
     <article class="article">
             <div class="article__content">
                 <span class="article__content--left">신청세미나</span>
@@ -163,5 +164,6 @@
         </div>
     </div>
     <script src="../js/sh_user_w_semiPay.js"></script>
+    </div>
 </body>
 </html>
