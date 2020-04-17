@@ -32,14 +32,15 @@
     <div id='form-wrap'>
     <h1>회원가입</h1>
     <form method="get" accept-charset="utf-8">
-        <input id="input-id" type="text" name="id" placeholder="아이디" required>
-        <input id="pass-first" type="password" name="pass" placeholder="비밀번호" required>
+    	<h5>(*)는 필수사항입니다.</h5>
+        <input id="input-id" type="text" name="id" placeholder="아이디(*)" required>
+        <input id="pass-first" type="password" name="pass" placeholder="비밀번호(*)" required>
         <input id="pass-valid" type="password" placeholder="비밀번호확인" required>
-        <input id="nick" type="text" name="nickname" placeholder="닉네임" required>
-        <input id="e-mail" type="text" name="email" placeholder="이메일" required>
-        <input id="tel-number" type="text" name="telnumber" placeholder="전화번호" required>
-        <input type="text" name="name" placeholder="이름" required>
-        <input type="text" name="address" placeholder="주소" required>
+        <input id="nick" type="text" name="nickname" placeholder="닉네임(*)" required>
+        <input id="e-mail" type="text" name="email" placeholder="이메일(*)" required>
+        <input id="tel-number" type="text" name="telnumber" placeholder="전화번호(*)" required>
+        <input type="text" name="name" placeholder="이름(*)" required>
+        <input type="text" name="address" placeholder="주소(*)" required>
         <h2>프로필이미지를 등록해주세요</h2>
         <div class="profile-wrap">
             <img id="profile-img" src="${path }/my/e-Zone/gr2_lhj/img/signup/user.png" alt="프로필이미지">
@@ -48,7 +49,7 @@
         
         <h2>관심카테고리를 3개 선택해주세요</h2>
         <div class="category-wrap">
-        <select name="category1">
+        <select name="category1" required>
             <option value="IT기술">IT기술</option>
             <option value="스포츠">스포츠</option>
             <option value="건강">건강</option>
@@ -59,7 +60,7 @@
             <option value="영상제작">영상제작</option>
             <option value="기타">기타</option>
         </select>
-        <select name="category2">
+        <select name="category2" required>
             <option value="IT기술">IT기술</option>
             <option value="스포츠">스포츠</option>
             <option value="건강">건강</option>
@@ -70,7 +71,7 @@
             <option value="영상제작">영상제작</option>
             <option value="기타">기타</option>
         </select>
-        <select name="category3">
+        <select name="category3" required>
             <option value="IT기술">IT기술</option>
             <option value="스포츠">스포츠</option>
             <option value="건강">건강</option>
