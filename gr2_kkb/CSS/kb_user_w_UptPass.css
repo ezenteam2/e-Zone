@@ -38,3 +38,14 @@ body{
     background-color: rgba(255,208,20,.85);
     margin-top:30px;
 }
+
+#Match{
+    width:100%;
+    text-align: right;
+    display:none;
+}
+
+#MisMatch{
+    width:100%;
+    display:none;
+}

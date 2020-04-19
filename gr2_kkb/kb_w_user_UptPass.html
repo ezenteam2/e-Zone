@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="CSS/kb_user_w_UptPass.css">
+    <script src="http://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+        $(document).ready(function(){
+           
+            
+            $("[name=passChk]").keyup(function(){
+                var pass = $("[name=pass]").val();
+                console.log(pass);
+                if($(this).val() == pass){
+                    console.log($(this).val());
+                    $("#Match").show();
+                    $("#MisMatch").hide();
+                } else if($(this).val() == ""){
+                    $("#Match").hide();
+                    $("#MisMatch").hide();
+                }
+                 else {
+                    $("#Match").hide();
+                    $("#MisMatch").show();
+                }
+            })
+        });
+    </script>
 </head>
 <body>
     <main id="Upt_Pass_Main">
@@ -12,6 +35,8 @@
             <form method="post">
                 <input type="password" name="pass" placeholder="변경할 비밀번호" class="input_Upt">
                 <input type="password" name="passChk" placeholder="변경할 비밀번호 확인" class="input_Upt">
+                <span id="Match">비밀번호가 일치합니다.</span>
+                <span id="MisMatch">비밀번호가 일치하지 않습니다.</span>
                 <button type="button" id="UptBtn" onclick="location.href='kb_w_user_findingPass.html'">비밀번호 변경</button>
             </form>
         </div>
