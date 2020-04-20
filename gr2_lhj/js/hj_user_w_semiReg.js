@@ -85,7 +85,7 @@ timeselSpan.forEach(el=>{
                 }
 
                 if(!isTimeValid(startTime, endTime)){
-                    toastr["error"]("중복된시간이 존재합니다.");
+                    toastr["error"]("겹치는 시간이 존재합니다.");
                     startTime=null;
                     endTime=null;
                     State.time=(State.time+1)%3;

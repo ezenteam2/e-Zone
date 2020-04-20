@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 /**
  * Servlet implementation class MyPage
@@ -30,11 +32,24 @@ public class MyPage extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String proc = request.getParameter("proc");
+		HttpSession session = request.getSession();
+		session.setAttribute("user", "himan123");
 		if(proc==null) {
+			String page= "my\\e-Zone\\gr2_lhj\\jsp\\hj_user_w_myPage.jsp";
+			RequestDispatcher dis = request.getRequestDispatcher(page);
+			dis.forward(request, response);
+		}
+		if(proc!=null&&proc.equals("semi")) {
 			String page= "my\\e-Zone\\gr2_lhj\\jsp\\hj_user_w_myPage_semi.jsp";
 			RequestDispatcher dis = request.getRequestDispatcher(page);
 			dis.forward(request, response);
 		}
+		if(proc!=null&&proc.equals("qna")) {
+			String page= "my\\e-Zone\\gr2_lhj\\jsp\\hj_user_w_myPage_qna.jsp";
+			RequestDispatcher dis = request.getRequestDispatcher(page);
+			dis.forward(request, response);
+		}
+		
 	}
 
 }

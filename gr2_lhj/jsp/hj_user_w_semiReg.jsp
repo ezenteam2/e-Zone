@@ -1,15 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }" />
+<fmt:requestEncoding value="utf-8" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/hj_user_w_semiReg2.css">
-    <link rel="stylesheet" href="../css/toastr.css">
+    <link rel="stylesheet" href="${path }/my/e-Zone/gr2_lhj/css/hj_user_w_semiReg.css">
+    <link rel="stylesheet" href="${path }/my/e-Zone/gr2_lhj/css/toastr.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="../js/toastr.js"></script>
+    <script src="${path }/my/e-Zone/gr2_lhj/js/toastr.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>세미나등록</title>
 </head>
@@ -21,7 +28,9 @@
         (*)는 필수입력 사항입니다.
     </p>
     
-    <form id="reg-form" action="hj_user_w_semiReg_done.html">
+    <form id="reg-form">
+    <input tpye="hidden" name="proc" value="done" />
+    <input type="hidden" name="id" value="${user }" />
     <h2>세미나명(*)</h2>
     <input class="two-line" type="text" name="title" maxlength="40" required>
     <h2>부제(*)</h2>
@@ -78,7 +87,7 @@
     </div>
     <br>
     <h2>세미나소개(*)</h2>
-    <textarea name="detail" id="" cols="10" rows="10"></textarea>
+    <textarea name="detail" cols="10" rows="10"></textarea>
     <div class="join">
         <h4>최대 인원수(*)</h4><input type="text" name="max-join">
         <h4>참가비 설정(원)(*)</h4><input type="text" name="fee-join">
@@ -87,6 +96,6 @@
     </form>
     </div>
 
-    <script src="../js/hj_user_w_semiReg2.js"></script>
+    <script src="${path }/my/e-Zone/gr2_lhj/js/hj_user_w_semiReg.js"></script>
 </body>
 </html>

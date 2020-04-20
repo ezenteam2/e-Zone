@@ -17,6 +17,14 @@
         }
     </style>
     <link rel="stylesheet" href="${path }/my/e-Zone/gr2_lhj/css/hj_user_w_myPage_semi.css">
+    <script>
+    	var user = "${user}";
+    	window.onload=function(){	
+    		if(user===''){
+    			window.location="${path}/";
+    		}
+    	}
+    </script>
 </head>
 <body>
     <div class="mypage-semi-wrap">
