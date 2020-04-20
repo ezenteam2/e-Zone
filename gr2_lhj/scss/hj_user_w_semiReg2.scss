@@ -54,6 +54,48 @@ body{
             padding:0 15px 0 15px;
             height:45px;
         }
+
+        #zone-sel{
+            width:100%;
+            margin:10px 0 0 0;
+            ul{
+                display: flex;
+                flex-direction: row;
+                list-style: none;
+                padding:0;
+                margin:0;
+                width:100%;
+               li{
+                   cursor: pointer;
+                   flex-grow: 1;
+                   height:64px;
+                   border:1px #eee solid;
+                   overflow: hidden;
+                   span{
+                       display: inline-block;
+                       line-height: 64px;
+                       width:100%;
+                       text-align: center;
+                       color:#656565;
+                       font-size: 20px;
+                       background-color: white;
+                   }
+                   :hover{
+                       background-color: $color1;
+                       color:white;
+                   }
+               }
+            }
+        }
+
+        .date-sel{
+            #datepicker{
+                margin:10px 0 0 0;
+                height:35px;
+                padding:0 16px;
+            }
+        }
+        
         #time-sel{
             display: flex;
             flex-direction: row;
