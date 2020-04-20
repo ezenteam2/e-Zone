@@ -39,6 +39,7 @@
         color:white;
         background-color: #6d3afb;
         border-radius: 7px;
+        outline:none;
     }
 </style>
 <body>
