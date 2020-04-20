@@ -6,24 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/hj_user_w_semiReg2.css">
     <link rel="stylesheet" href="../css/toastr.css">
-    <script src="../js/jquery.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="../js/toastr.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>세미나등록</title>
 </head>
 <body>
     <div class="reg-wrap">
-    <h1>거의 다 끝났습니다!</h1>
+    <h1>어떤 모임을 계획하세요?</h1>
     <div class="header-line"></div>
-    <p>기본정보를 작성하여 세미나 등록을 완료해 주세요.</p>
+    <p>기본정보를 작성하여 세미나 등록을 완료해 주세요.
+        (*)는 필수입력 사항입니다.
+    </p>
     
     <form id="reg-form" action="hj_user_w_semiReg_done.html">
-    <input type="hidden" name="zone" value="${param.zone}" />
-    <h2>세미나명</h2>
+    <h2>세미나명(*)</h2>
     <input class="two-line" type="text" name="title" maxlength="40" required>
-    <h2>부제</h2>
+    <h2>부제(*)</h2>
     <input class="two-line" type="text" name="subtitle" maxlength="60" required>
     <br>
-    <h2>시간선택</h2>
+    <p>장소와 날짜를 정해주세요!</p>
+    <h2>모임장소(*)</h2>
+    <div id="zone-sel">
+        <ul>
+            <li><span>금강관</span><input type="radio" hidden name="zone" value="1"></li>
+            <li><span>백두관</span><input type="radio" hidden name="zone" value="2"></li>
+            <li><span>한라관</span><input type="radio" hidden name="zone" value="3"></li>
+            <li><span>태백관</span><input type="radio" hidden name="zone" value="4"></li>
+        </ul>
+    </div>
+    <br><br>
+    <h2>세미나 날짜 선택(*)</h2>
+    <div class="date-sel">
+        <input type="text" name="date" id="datepicker">
+    </div>
+    <br><br>
+    <h2>시간선택(*)</h2>
     <input type="number" hidden name="start-time" required>
     <input type="number" hidden name="end-time" required>
     <ul id='time-sel'>
@@ -42,7 +62,7 @@
         <li><span>21</span><input hidden type="checkbox"></li>
     </ul>
     <br><br> 
-    <h2>카테고리선택</h2>
+    <h2>카테고리선택(*)</h2>
     <div class="cate-wrap">
         <ul>
             <li><span>IT기술</span><input hidden type="radio" name="cate" value="1"></li>
@@ -57,11 +77,11 @@
         </ul>
     </div>
     <br>
-    <h2>세미나소개</h2>
+    <h2>세미나소개(*)</h2>
     <textarea name="detail" id="" cols="10" rows="10"></textarea>
     <div class="join">
-        <h4>최대 인원수</h4><input type="text" name="max-join">
-        <h4>참가비 설정(원)</h4><input type="text" name="fee-join">
+        <h4>최대 인원수(*)</h4><input type="text" name="max-join">
+        <h4>참가비 설정(원)(*)</h4><input type="text" name="fee-join">
     </div>
     <button type="submit">등록하기</button>
     </form>
