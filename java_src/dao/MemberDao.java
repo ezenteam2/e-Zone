@@ -14,7 +14,7 @@ public class MemberDao {
 	public void setCon() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String info="jdbc:oracle:thin:@192.168.4.90:1521:xe";
+			String info="jdbc:oracle:thin:@192.168.4.19:1521:xe";
 			con = DriverManager.getConnection(info, "scott", "tiger");
 			System.out.println("Connection완료");
 			con.setAutoCommit(false);
@@ -157,11 +157,11 @@ public class MemberDao {
 				if(id.equals(idChk) && pass.equals(pwChk)) {
 					check = id;
 				} else {
-					check = "";
+					check = "failed";
 				}
 				
 			} else {
-				check="";
+				check="failed";
 			}
 		} catch(Exception e) {
 			e.printStackTrace();

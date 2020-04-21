@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic:wght@700&display=swap');
 *{
     box-sizing: border-box;
 }
@@ -243,4 +245,90 @@ body{
 .QnA_Quest_Main_Div{
     width:100%;
     margin-top:20px;
+}
+
+#QnA_Modal_Div{
+    width:350px;
+    height:350px;
+    background-color: white;   
+    position: absolute;
+    top:180%;
+    left:50%;
+    margin:150px 0px 0px -200px;
+    display:none;
+}
+
+#QnA_Modal_Top{
+    width:100%;
+    height:40px;
+    background-color: #704de4;
+    color:#fbca4a;
+    font-size:14pt;
+    text-align: center;
+    padding:2%;
+}
+
+#QnA_Modal_Title{
+    width:100%;
+    height:40px;
+    margin-top:10px;
+    padding-left:2%;
+    font-size:12pt;
+}
+
+#QnA_Modal_Title{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size:12pt;
+    
+}
+
+#QnA_Length_Span{
+    float:right;
+    margin-right:10px;
+}
+
+#input_QnA_Content{
+    width:80%;
+    height:150px;
+    margin-left:40px;
+}
+
+#QnA_Modal_Btns{
+    width:100;
+    height:40px;
+    text-align:center;
+    margin-top:20px;
+}
+#QnA_Modal_Submit{
+    width:100px;
+    height:100%;
+    background-color: #704de4;
+    color:#fbca4a;
+    border:0;
+    border-radius: 5px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 500;
+}
+
+#QnA_Modal_Cancel{
+    width:100px;
+    height:100%;
+    background-color: #4d4d4d;
+    color:white;
+    border:0;
+    border-radius: 5px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 500;
+}
+
+#Reg_QnA_Model{
+    width:130px;
+    height:30px;
+    background-color: #704de4;
+    color:#fbca4a;
+    border:0;
+    border-radius: 20px;
+    float:right;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 500;   
 }
