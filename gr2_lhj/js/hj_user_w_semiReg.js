@@ -168,6 +168,7 @@ function allWhite(){
 
 function zoneSelHandle(event){
     event.currentTarget.nextSibling.click();
+    $('#datepicker').focus();
 }
 
 function handleRadio(event){
@@ -208,7 +209,30 @@ $("#datepicker").datepicker({
 function uptTimeSch(target){
     console.log(zoneNum);
     console.log(target.value);
-    swal(`${target.value}에 대한 시간 정보를 불러옵니다.`, "", "success");
-    initialize();
+    var xhr = new XMLHttpRequest();
+	xhr.open("get", path+"/semitimechk?zone="+zoneNum+"&date="+target.value, true);
+	
+	xhr.onreadystatechange=function(){ 
+		if(xhr.readyState==4&&xhr.status==200){
+			var result = eval('('+xhr.responseText+')');
+			var tmp=[];
+			result.forEach(el=>{
+				var startT=el.start.substring(11, 13);
+				console.log("startT:"+startT);
+				startT=Number(startT);
+				var endT=el.end.substring(11,13);
+				console.log("endT:"+endT);
+				endT=Number(endT)-1;
+				tmp.push({start:startT, end:endT});
+			})
+			swal(`시간정보를 업데이트하였습니다.`, "", "success").then(()=>{
+				unableTime=tmp;
+				console.log(unableTime);
+				initialize();
+			})
+		}
+	}
+	xhr.send();
 }
+
 datepicker.addEventListener('change', uptTimeSch);

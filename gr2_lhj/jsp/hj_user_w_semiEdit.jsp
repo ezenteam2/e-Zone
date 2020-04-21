@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../css/toastr.css">
     <script src="../js/jquery.js"></script>
     <script src="../js/toastr.js"></script>
-    <title>세미나수정</title>
+    <title>세미나정보수정</title>
 </head>
 <body>
     <div class="reg-wrap">
