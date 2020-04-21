@@ -25,8 +25,8 @@
         <div class="profile-zone">
             <img src="${path }/my/e-Zone/gr2_lhj/img/signup/user.png" alt="">
             <div class="profile">
-                <span>${Mem }</span>
-                <span>프로필관리</span>
+                <span>${user }</span>
+                <span onclick="moveEdit()">프로필관리</span>
             </div>
         </div>
         <div class="button-area">
@@ -50,6 +50,10 @@
         }
         function moveComm(){
         	window.location="${path }/mypage?proc=comm";
+        }
+        
+        function moveEdit(){
+        	window.location="${path }/mypage?proc=edit";
         }
         
         window.onload=function(){

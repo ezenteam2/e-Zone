@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="CSS/kb_user_w_semiZoneIntro.css">
+    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#QnA_Length").text("0");
+            $("#input_QnA_Content").keyup(function(){
+                var count = $(this).val().length;
+                $("#QnA_Length").text(count);
+                if(count > 200){
+                    $(this).val($(this).val().substring(0, 200));
+                    $("#QnA_Length").text("200");
+                }
+            })
+
+            $("#QnA_Modal_Cancel").click(function(){
+                $("#QnA_Modal_Div").hide();
+            })
+
+            $("#Reg_QnA_Model").click(function(){
+                $("#QnA_Modal_Div").show();
+            })
+        });
+    </script>
 </head>
 <body>
     <main id="SeminaZone_Intro_Main">
@@ -70,7 +92,7 @@
                 </p>
         </div>
         <div id="SeminaZone_QnA_Div">
-            <p id="QnA_Title">세미나존 문의</p>
+            <p id="QnA_Title">세미나존 문의 <button id="Reg_QnA_Model">질문작성하기</button></p>
                 <div class="QnA_Quest_Main_Div">
                     <div class="Qna_User_Info_Div">
                         <div class="user_profImg">
@@ -144,7 +166,20 @@
                     </div>
                 </div>
             </div>
+            <br>
 
+            <div id="QnA_Modal_Div">
+                <div id="QnA_Modal_Top">문의하기</div>
+                <div id="QnA_Modal_Title"><span id="QnA_Modal_Title">질문</span><span id="QnA_Length_Span"><span id="QnA_Length">0</span>/200</span>
+                </div>
+                <form>
+                    <textarea name="QnA_Content" id="input_QnA_Content" placeholder="질문 작성하기"></textarea>
+                    <div id="QnA_Modal_Btns">
+                        <Button id="QnA_Modal_Submit">작성하기</Button>&nbsp;
+                        <Button id="QnA_Modal_Cancel">취소하기</Button>
+                    </div>
+                </form>
+            </div>
     </main>
 </body>
 </html>
