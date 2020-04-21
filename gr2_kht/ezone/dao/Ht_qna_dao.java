@@ -26,7 +26,7 @@ public class Ht_qna_dao {
 			e.printStackTrace();
 		}
 	
-		String info = "jdbc:oracle:thin:@localhost:1521:xe";
+		String info = "jdbc:oracle:thin:@192.168.4.19:1521:xe";
 		con = DriverManager.getConnection(info, "scott", "tiger");
 		System.out.println("접속 성공");
 	}
@@ -70,6 +70,48 @@ public class Ht_qna_dao {
 		return qnaList;
 	}
 	
+	
+	public ArrayList<Ht_qna_VO> qnaList(int page){
+		ArrayList<Ht_qna_VO> qnaList = new ArrayList<Ht_qna_VO>();
+		
+		try {
+			setCon();
+			
+			String sql = "SELECT * FROM (SELECT a.*, rownum rn FROM (SELECT b.* FROM P5QNA b ORDER BY QNA_CODE ASC) a ORDER BY QNA_CODE DESC) WHERE rn>? AND rn<=? ";
+			pstmt = con.prepareStatement(sql);
+			System.out.println(sql);
+			pstmt.setInt(1, (page-1)*10);
+			pstmt.setInt(2, page*10);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				qnaList.add(new Ht_qna_VO(
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getDate(4),
+						rs.getString(5),
+						rs.getString(6),
+						rs.getString(7),
+						rs.getString(8),
+						rs.getDate(9),
+						rs.getString(10)
+						));
+			}
+			rs.close();
+			pstmt.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return qnaList;
+	}
+	
+	
+	
 	public void insertQna(Ht_qna_VO ins) {
 		
 		try {
@@ -112,6 +154,65 @@ public class Ht_qna_dao {
 		
 	}
 	
+	public int getCnt() {
+		
+		int cnt=0;
+		try {
+			setCon();
+			
+			String sql = "SELECT count(*) cnt FROM P5QNA";
+			pstmt = con.prepareStatement(sql);
+			System.out.println(sql);
+
+			rs = pstmt.executeQuery();
+					
+			if(rs.next()) {
+				cnt=rs.getInt(1);
+			}
+			
+			rs.close();
+			pstmt.close();
+			con.close();
+						
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
 	
+	public void deleteQna(int qnaCode) {
+		
+		try {
+			setCon();
+			
+			String sql = "DELETE P5QNA WHERE QNA_CODE = ? ";
+			
+			con.setAutoCommit(false);
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, qnaCode);
+			
+			pstmt.executeQuery();
+			con.commit();
+			
+			System.out.println("삭제성공");
+			
+			pstmt.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+	}
 }
 	

@@ -27,5 +27,6 @@ public class Ht_notice_service {
 		
 		return dao.schNoticeList(new Ht_notice_VO(keyword));
 	}
+	
 
 }
