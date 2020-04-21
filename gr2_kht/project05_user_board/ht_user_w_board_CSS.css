@@ -163,3 +163,53 @@ body{
 	padding-left:200px;
 	padding-right:200px;
 }
+
+.page-nation{
+	margin-top:50px;
+	margin-bottom:100px;
+	text-align:center;
+}
+
+.pageNationUl{
+	list-style: none;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 0;
+	margin: 20px 0 0 0;
+	text-align:center;
+	display: inline-block;
+}
+
+.pageNationLi{
+	display:inline-block;
+	width: 35px;
+	height: 35px;
+	background-color: #704de4;
+	color: white;
+	line-height: 35px;
+	text-align: center;
+	margin: 3px;
+	cursor: pointer;
+}
+
+.qnaBtnContainer{
+	text-align:right;
+	margin-bottom:15px;
+}
+
+.qnaUptBtnC{
+	width:80px;
+	height:30px;
+	background: url("ht_img/uptBtn.png");
+	border:none;
+	cursor:pointer;
+}
+
+.qnaDelBtnC{
+	width:80px;
+	height:30px;
+	background: url("ht_img/delBtn.png");
+	border:none;
+	cursor:pointer;	
+}

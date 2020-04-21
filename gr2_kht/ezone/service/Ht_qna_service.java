@@ -20,6 +20,14 @@ public class Ht_qna_service {
 	public ArrayList<Ht_qna_VO> getqnaList(Ht_qna_VO sch){
 		return dao.qnaList(sch);
 	}
+
+	public ArrayList<Ht_qna_VO> getqnaList(int page){
+		return dao.qnaList(page);
+	}
+	
+	public int getCnt(){
+		return dao.getCnt();
+	}
 	
 	public void insertQna(HttpServletRequest req) {
 		
@@ -31,5 +39,11 @@ public class Ht_qna_service {
 		
 		dao.insertQna(new Ht_qna_VO(qnaCate, memId, qnaTitle, qnaDetail, qnaOpen));
 	}
+	
+	public void deleteQna(HttpServletRequest req) {
+		dao.deleteQna(Nk.toInt(req.getParameter("qnaCode")));
+		System.out.println("삭제 서비스 수행");
+	}
+
 
 }
