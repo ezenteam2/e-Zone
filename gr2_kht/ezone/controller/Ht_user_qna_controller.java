@@ -39,17 +39,24 @@ public class Ht_user_qna_controller extends HttpServlet {
 		if(proc==null||proc.equals("")) proc="main";
 		
 		if(proc.equals("main")) {
-			request.setAttribute("qnalist", service.getqnaList(new Ht_qna_VO()));
+			String pageStr = request.getParameter("page");
+			int page=(pageStr==null)? 1:Integer.parseInt(pageStr);
+			request.setAttribute("qnalist", service.getqnaList(page));
+			request.setAttribute("qnacnt", service.getCnt());
 		}
 		
 		if(proc.equals("insert")) {
 			service.insertQna(request);
 		}
 		
+		if(proc.equals("delete")) {
+			service.deleteQna(request);
+		}
+		
 		
 		String page = "project05_user_board\\ht_user_w_qna.jsp";
 		
-		if(proc.equals("insert")) page="project05_user_board\\ht_user_w_qna_insert.jsp";
+		if(proc.equals("insert")||proc.equals("delete")) page="project05_user_board\\ht_user_w_qna_insert.jsp";
 		
 		RequestDispatcher rd = request.getRequestDispatcher(page);
 		rd.forward(request, response);

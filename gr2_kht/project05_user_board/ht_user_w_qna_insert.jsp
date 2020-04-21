@@ -24,8 +24,14 @@
 	--%>
 	
 	var proc = "${param.proc}";
+
 	if(proc=="insert"){
 		alert("등록 성공")
+		$(location).attr("href", "${path}/Ht_user_qna_controller")
+	}
+	
+	if(proc=="delete"){
+		alert("삭제 성공")
 		$(location).attr("href", "${path}/Ht_user_qna_controller")
 	}
 

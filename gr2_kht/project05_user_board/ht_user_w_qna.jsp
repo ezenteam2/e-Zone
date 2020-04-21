@@ -26,7 +26,7 @@
 	<%--
 	
 	--%>
-	
+	console.log("glskdjflka");
 
 	$("#qnaInsBtn").click(function(){
 		
@@ -34,6 +34,9 @@
 		$("[name=proc]").val("insert");
 
 	});
+	
+
+	
 	
 	$(".accordionTitleContainer:even").css({backgroundColor:"#F1F1F1"});
 	$(".accordionTitleContainer").first().css("border-top", "solid 2px");
@@ -45,6 +48,15 @@
 	$( function() {
 		$( "#accordion" ).accordion();
 	})
+	
+	function del(qnaCode) {
+		if(confirm("삭제 하시겠습니까?")){
+			$("[name=qnaCode]").val(qnaCode);
+			$("[name=proc]").val("delete");
+			$("form").submit();
+			console.log(qnaCode);
+		}
+	}
 </script>
 
 <title>Insert title here</title>
@@ -56,7 +68,8 @@
 	<form method="post">
 
 	<input type="hidden" name="proc"/>
-	<input type="hidden" name="memId" value=""/>
+	<input type="hidden" name="memId" value="${param.user }"/>
+	<input type="hidden" name="qnaCode"/>
 
 	<div class="schContainer">
 
@@ -97,20 +110,86 @@
 
 	<c:forEach var="qna" items="${qnalist }">
 
-		<div class="accordionTitleContainer">
-			<div class="accordionTitleType">${qna.qnaCate }</div><div class="accordionTitle">${qna.qnaTitle }</div>
-		</div>
-		<div class="accordionContent">
-			<p>
-			${qna.qnaDetail }
-			</p>
-		</div>
+	<c:choose>
+						
+		<c:when test="${qna.qnaOpen == 'Y' }">
+			<div class="accordionTitleContainer">
+				<div class="accordionTitleType">${qna.qnaCate }</div><div class="accordionTitle">${qna.qnaTitle }</div>
+			</div>
+			<div class="accordionContent">
+				<p>
+				${qna.qnaDetail }
+				</p>
+			</div>
+		</c:when>
+		
+		<c:otherwise>
 
+			<c:choose>
+		
+			<c:when test="${param.user == qna.memId }">
+
+				<div class="accordionTitleContainer">
+					<div class="accordionTitleType">${qna.qnaCate }</div><div class="accordionTitle">[MyQNA] ${qna.qnaTitle }</div>
+				</div>
+				<div class="accordionContent">
+					<p>
+					${qna.qnaDetail }
+					</p>
+					<div class="qnaBtnContainer">
+						<input class="qnaUptBtnC" type="submit" value=""/>
+						<input class="qnaDelBtnC" type="button" onclick="javascript:del(${qna.qnaCode})" value=""/>
+					</div>
+				</div>
+			</c:when>
+			
+			<c:otherwise>
+				<div class="accordionTitleContainer">
+					<div class="accordionTitleType">${qna.qnaCate }</div><div class="accordionTitle">비공개 글입니다.</div>
+				</div>
+				<div class="accordionContent">
+					<p>
+					비공개 글입니다.
+					</p>
+				</div>
+			</c:otherwise>
+			
+			</c:choose>
+
+		</c:otherwise>
+	
+	</c:choose>	
+	
 	</c:forEach>
 
+	</div>
+	
+	<%
+	int qnacnt = (int)request.getAttribute("qnacnt");
+	int page1 = 0;
+	if(qnacnt%10==0){
+		page1 = qnacnt/10;
+	} else {
+		page1 = (qnacnt/10)+1;
+	}
+	%>
+	
+	<div class="page-nation">
+		<ul class="pageNationUl">
+			<c:forEach var="i" begin="1" end="<%=page1 %>" >
+				<li class="pageNationLi" onclick="goPage(${i})">${i }</li>
+			</c:forEach>
+		</ul>
 	</div>
 
 	</div>
 
 </body>
+
+	<script type="text/javascript">
+		function goPage(num){
+			window.location="${path}/Ht_user_qna_controller?page="+num;
+		}
+	</script>
+
 </html>
