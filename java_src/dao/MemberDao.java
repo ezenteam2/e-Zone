@@ -65,11 +65,75 @@ public class MemberDao {
 			if(rs.next()) {
 				chk=true;
 			}
+			rs.close();
+			pstmt.close();
+			con.close();
 		} catch (Exception e) {
 			System.out.println("아이디중복체크에러");
 		}
 		
 		return  chk;
+	}
+	
+	public Member getMemInfo(String id) {
+		Member m1=new Member();
+		try {
+			setCon();
+			String sql="select MEM_ID, MEM_NAME, MEM_EMAIL, MEM_NICK, MEM_PHONE, MEM_ADDR from p5Member where MEM_ID = ?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				m1.setMemId(rs.getString(1));
+				m1.setMemName(rs.getString(2));
+				m1.setMemEmail(rs.getString(3));
+				m1.setMemNick(rs.getString(4));
+				m1.setMemPhone(rs.getString(5));
+				m1.setMemAddr(rs.getString(6));
+			}
+			
+		} catch(Exception e) {
+			System.out.println("getMemInfo Error");
+			System.out.println(e.getMessage());
+		}
+		return m1;
+	}
+	
+	public void updateMember(Member m1) {
+		try {
+			setCon();
+			String sql="update p5Member set mem_pw = ?, mem_email = ?, mem_Nick=?, mem_phone=?, mem_addr=?, mem_cate=?, mem_prof=? where mem_id =?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, m1.getMemPw());
+			System.out.println("m1.getMemPw():"+m1.getMemPw());
+			pstmt.setString(2, m1.getMemEmail());
+			System.out.println("m1.getMemEmail():"+m1.getMemEmail());
+			pstmt.setString(3, m1.getMemNick());
+			System.out.println("m1.getMemNick():"+m1.getMemNick());
+			pstmt.setString(4, m1.getMemPhone());
+			System.out.println("m1.getMemPhone():"+m1.getMemPhone());
+			pstmt.setString(5, m1.getMemAddr());
+			System.out.println("m1.getMemAddr():"+m1.getMemAddr());
+			pstmt.setString(6, m1.getMemCate());
+			System.out.println("m1.getMemCate():"+m1.getMemCate());
+			pstmt.setString(7, m1.getMemProf());
+			System.out.println("m1.getMemProf():"+m1.getMemProf());
+			pstmt.setString(8, m1.getMemId());
+			System.out.println("m1.getMemId():"+m1.getMemId());
+			pstmt.executeUpdate();
+			con.commit();
+			pstmt.close();
+			con.close();
+			System.out.println("회원정보변경성공");
+		} catch(Exception e1) {
+			System.out.println("회원정보변경실패");
+			System.out.println(e1.getMessage());
+			try {
+				con.rollback();
+			} catch(Exception e2) {
+				System.out.println("롤백실패");
+			}
+		}
 	}
 	
 	public String getfindId(String name, String email){
@@ -96,7 +160,6 @@ public class MemberDao {
 		
 		return id;
 	}
-	
 	
 	public boolean findPass(String id, String email) {
 	    boolean isExist = false;
