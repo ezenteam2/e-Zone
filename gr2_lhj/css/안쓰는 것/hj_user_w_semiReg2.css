@@ -77,6 +77,56 @@ body {
   height: 45px;
 }
 
+.reg-wrap #reg-form #zone-sel {
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+
+.reg-wrap #reg-form #zone-sel ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.reg-wrap #reg-form #zone-sel ul li {
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 64px;
+  border: 1px #eee solid;
+  overflow: hidden;
+}
+
+.reg-wrap #reg-form #zone-sel ul li span {
+  display: inline-block;
+  line-height: 64px;
+  width: 100%;
+  text-align: center;
+  color: #656565;
+  font-size: 20px;
+  background-color: white;
+}
+
+.reg-wrap #reg-form #zone-sel ul li :hover {
+  background-color: #704de4;
+  color: white;
+}
+
+.reg-wrap #reg-form .date-sel #datepicker {
+  margin: 10px 0 0 0;
+  height: 35px;
+  padding: 0 16px;
+}
+
 .reg-wrap #reg-form #time-sel {
   display: -webkit-box;
   display: -ms-flexbox;

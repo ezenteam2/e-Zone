@@ -8,8 +8,8 @@ public class Seminar {
 	private String semiTitle;
 	private String semiSubtitle;
 	private java.sql.Date semiDate;
-	private java.sql.Date semiStime;
-	private java.sql.Date semiFtime;
+	private String semiStime;
+	private String semiFtime;
 	private String semiCate;
 	private String semiImg;
 	private String semiDetail;
@@ -19,8 +19,16 @@ public class Seminar {
 	private String semiCurr;
 	private String zoneComm;
 	private java.sql.Date zoneCommdate;
+	private String szTitle;
 	
 	
+	
+	public String getSzTitle() {
+		return szTitle;
+	}
+	public void setSzTitle(String szTitle) {
+		this.szTitle = szTitle;
+	}
 	public int getSemiCode() {
 		return semiCode;
 	}
@@ -63,16 +71,16 @@ public class Seminar {
 	public void setSemiDate(java.sql.Date semiDate) {
 		this.semiDate = semiDate;
 	}
-	public java.sql.Date getSemiStime() {
+	public String getSemiStime() {
 		return semiStime;
 	}
-	public void setSemiStime(java.sql.Date semiStime) {
+	public void setSemiStime(String semiStime) {
 		this.semiStime = semiStime;
 	}
-	public java.sql.Date getSemiFtime() {
+	public String getSemiFtime() {
 		return semiFtime;
 	}
-	public void setSemiFtime(java.sql.Date semiFtime) {
+	public void setSemiFtime(String semiFtime) {
 		this.semiFtime = semiFtime;
 	}
 	public String getSemiCate() {

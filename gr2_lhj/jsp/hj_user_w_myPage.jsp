@@ -25,7 +25,7 @@
         <div class="profile-zone">
             <img src="${path }/my/e-Zone/gr2_lhj/img/signup/user.png" alt="">
             <div class="profile">
-                <span>myid1234</span>
+                <span>${Mem }</span>
                 <span>프로필관리</span>
             </div>
         </div>
@@ -50,6 +50,14 @@
         }
         function moveComm(){
         	window.location="${path }/mypage?proc=comm";
+        }
+        
+        window.onload=function(){
+        	var mem="${user}";
+        	if(mem===''){
+        		alert("로그인페이지로 이동합니다.");
+        		window.location="${path }/";  //로그인페이지이동..
+        	}
         }
     </script>
 </body>

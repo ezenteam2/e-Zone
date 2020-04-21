@@ -6,7 +6,7 @@ const deleteBtn= document.querySelector('#delete-btn');
 const pageNation = document.querySelector('.page-nation ul');
 function callHostList(page){
     var xhr = new XMLHttpRequest();
-	xhr.open("get", path+"/semilisthost?type=page&keyword="+page, true);		
+	xhr.open("get", path+"/semilisthost?type=host&page="+page+"&user="+user, true);		
 	xhr.onreadystatechange=function(){ 
 		if(xhr.readyState==4&&xhr.status==200){
 			var JSON = eval('('+xhr.responseText+')');
@@ -22,7 +22,7 @@ function callHostList(page){
 
 function makePageNation(){
 	var xhr = new XMLHttpRequest();
-	xhr.open("get", path+"/semilisthost?type=cnt", true);		
+	xhr.open("get", path+"/semilisthost?type=cnt&user="+user, true);		
 	xhr.onreadystatechange=function(){ 
 		if(xhr.readyState==4&&xhr.status==200){
 			var JSON = eval('('+xhr.responseText+')');
