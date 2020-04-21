@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="java.util.*,jspexp.z01_vo.*,jspexp.b01_database.*"
+    import="java.util.*"
     %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -11,33 +11,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="${path}/css/sh_user_w_semiDetail.css">
-    <link rel="stylesheet" href="${path}/css/style.css">
+    <link rel="stylesheet" href="${path}/gr2_ysh/css/sh_user_w_semiDetail.css">
+    <link rel="stylesheet" href="${path}/gr2_ysh/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <title>e-Zone :: 지식 공유 플랫폼</title>
-    <link href="../img/icon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="${path}/gr2_ysh/img/icon.png" rel="shortcut icon" type="image/x-icon">
+    <script>
+    
+    $(document).ready(function(){
+		function qnaMore(){
+			int semiCode = request.getParameter("semiCode");
+			url = "/semi";
+        	location.href = url+"?"+semiCode
+        }
+    })
+    
+    
+    </script>
 </head>
 <body>
     <article>
-<c:forEach var="smi" items="${seminaInfo}">
         <div class="content">
     <!-- 컨텐츠 상단 -->
 
-            <div class="content__title">${smi.semiTitle}</div> <!-- 제목 -->
+            <div class="content__title">${seminaInfo.semiTitle}</div> <!-- 제목 -->
 
-            <div class="content__sub-title">${smi.semiSubtitle}</div> <!-- 부제목 -->
+            <div class="content__sub-title">${seminaInfo.semiSubtitle}</div> <!-- 부제목 -->
             <div class="content__tag"> <!-- 세미나존, 카테고리 태그 -->
-                <span class="content__tag--inner tag__seminazone">#${smi.szTitle}</span>
-                <span class="content__tag--inner tag__category">#${smi.semiCate}</span> 
+                <span class="content__tag--inner tag__seminazone">#${seminaInfo.szTitle}</span>
+                <span class="content__tag--inner tag__category">#${seminaInfo.semiCate}</span> 
             </div>
-            <img class="content__img" src="${smi.semiImg}" alt="three"> <!-- 이미지 -->
-            <div class="content__inner-title">${smi.semiSubtitle}</div> <!-- 본문 제목(부제목과 동일) -->
+            <img class="content__img" src="${seminaInfo.semiImg}" alt="three"> <!-- 이미지 -->
+            <div class="content__inner-title">${seminaInfo.semiSubtitle}</div> <!-- 본문 제목(부제목과 동일) -->
 
     <!-- 컨텐츠 본문 -->
             <div class="content--title content__introduce-semina--title">세미나 소개</div>
             <p class="content__introduce--underline"></p> <!-- 제목 하단 밑줄 -->
             <div class="content--same content__introduce--main">
-            ${smi.semiDetail}
+            ${seminaInfo.semiDetail}
             </div>
             <div class="content--title content__introduce-place--title">시설 소개</div>
             <p class="content__introduce--underline"></p> <!-- 제목 하단 밑줄 -->
@@ -73,60 +84,51 @@
             <button class="semi__ask--button ask--button">질문 작성하기</button>
 
             <p class="content__introduce--underline"></p> <!-- 제목 하단 밑줄 -->
+            
+
 
             <table class="semi__ask">
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt=""></td><td class="semi__ask--td2">박지민</td></tr>
-                <tr><td class="semi__ask--td3">카톡 아이디 주시면 감사하겠습니다</td></tr>
-                <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
+<c:forEach var="qna" items="${qnaList}" begin="0" end="3" step="1">
+                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/gr2_ysh/img/${qna.memProf}" alt=""></td><td class="semi__ask--td2">${qna.memNick}</td></tr>
+                <tr><td class="semi__ask--td3">${qna.sqDetail}</td></tr>
+                <tr><td class="semi__ask--td4">${qna.sqDate}</td></tr>
                 <tr><td colspan="3"></td></tr>
 
                 <!-- 호스트 답글 -->
                 <tr>
-                    <td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt="" style="opacity: 0;"></td>
+                    <td rowspan="3"><img  class="semi__ask--img" src="${path}/gr2_ysh/img/${qna.memProf}" alt="" style="opacity: 0;"></td>
                     <td class="semi__ask--td2" style="color : rgb(112,77,228)">호스트의 답글</td>
                 </tr>
-                <tr><td class="semi__ask--td3">플랫폼 운영 원칙상 카톡 아이디는 제공 되지 않습니다. 고객센터를 통해 문의 해주세요</td></tr>
-                <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
+                <tr><td class="semi__ask--td3">${qna.sqAnswer}</td></tr>
+                <tr><td class="semi__ask--td4">${qna.qnaAnsdate}</td></tr>
                 <tr><td colspan="3"><hr class="table--hr"></td></tr>
-
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt=""></td><td class="semi__ask--td2">LimeTime</td></tr>
-                <tr><td class="semi__ask--td3">안녕하세요! 최대 수용인원 50명까지 가능한 강의실에서 빔프로젝터와 스크린 하나로 구성 되어 있는데 혹시 빔프로젝터와 스크린 하나 더 필요한데 가능할까요?</td></tr>
-                <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
-                <tr><td colspan="3"><hr class="table--hr"></td></tr>
-
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt=""></td><td class="semi__ask--td2">로그온</td></tr>
-                <tr><td class="semi__ask--td3">1.외부음식 반입 가능한가요(주류반입 등) 2.마이크, 빔프로젝터 등 구비되어 있나요 3.연계된 케이터링 있나요, 개별로 케이터링 예약 해도 되나요 4.원형테이블 세팅 가능한가요, 원형테이블 세팅시 몇명까지 수용 가능한가요(이와 별개로 최대 5~60명 테이블 좌석으로 수용 가능한가요)</td></tr>
-                <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
-                <tr><td colspan="3"><hr class="table--hr"></td></tr>
+</c:forEach>
             </table>
+
             <span class="content__more" onclick="location.href='sh_user_w_semiDetail_semi.html'">더보기 ></span>
             <br><br><br><br>
 
             <!-- 이용 후기 -->
+
             <span class="content--title content__introduce-booking--title">이용 후기</span>&nbsp;&nbsp;
             <span class="content--title content__introduce-booking--num">3명</span>
             
             <button class="semi__ask--button review--button">후기 작성하기</button>
 
             <p class="content__introduce--underline"></p> <!-- 제목 하단 밑줄 -->
+            
+
 
             <table class="semi__ask">
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt=""></td><td class="semi__ask--td2">박지민</td></tr>
-                <tr><td class="semi__ask--td3">즐겁고 유익한 시간이었습니다!</td></tr>
-                <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
+<c:forEach var="rev" items="${reviewList}" begin="0" end="3" step="1">
+                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/gr2_ysh/img/${rev.memProf}" alt=""></td><td class="semi__ask--td2">${rev.memNick}</td></tr>
+                <tr><td class="semi__ask--td3">${rev.partiComm}</td></tr>
+                <tr><td class="semi__ask--td4">${rev.partiCommDate}</td></tr>
                 <tr><td colspan="3"><hr class="table--hr"></td></tr>
-
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt=""></td><td class="semi__ask--td2">LimeTime</td></tr>
-                <tr><td class="semi__ask--td3">안녕하세요! 최대 수용인원 50명까지 가능한 강의실에서 빔프로젝터와 스크린 하나로 구성 되어 있는데 혹시 빔프로젝터와 스크린 하나 더 필요한데 가능할까요?</td></tr>
-                <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
-                <tr><td colspan="3"><hr class="table--hr"></td></tr>
-
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/logo.png" alt=""></td><td class="semi__ask--td2">로그온</td></tr>
-                <tr><td class="semi__ask--td3">1.외부음식 반입 가능한가요(주류반입 등) 2.마이크, 빔프로젝터 등 구비되어 있나요 3.연계된 케이터링 있나요, 개별로 케이터링 예약 해도 되나요 4.원형테이블 세팅 가능한가요, 원형테이블 세팅시 몇명까지 수용 가능한가요(이와 별개로 최대 5~60명 테이블 좌석으로 수용 가능한가요)</td></tr>
-                <tr><td class="semi__ask--td4">2019.02.05 12:14:19</td></tr>
-                <tr><td colspan="3"><hr class="table--hr"></td></tr>
+</c:forEach>
             </table>
-            <span class="content__more" onclick="location.href='sh_user_w_semiDetail_semi.html'">더보기 ></span>
+
+            <span class="content__more" onclick="qnaMore()">더보기 ></span>
         </div>
         <br><br><br>
 
@@ -142,9 +144,9 @@
             <table class="payment-info__infomation--table">
                 <tr>
                     <td>주최자</td>
-                    <td>${smi.memId}</td>
+                    <td>${seminaInfo.memId}</td>
                 </tr>
-                <tr><fmt:parseDate value='${smi.semiDate}' var='date1' pattern="yyyymmdd" scope="page"/>
+                <tr><fmt:parseDate value='${seminaInfo.semiDate}' var='date1' pattern="yyyymmdd" scope="page"/>
                 
                     <td>시간</td>
                     <td>
@@ -153,20 +155,20 @@
                 </tr>
                 <tr>
                     <td>카테고리</td>
-                    <td>${smi.semiCate}</td>
+                    <td>${seminaInfo.semiCate}</td>
                 </tr>
                 <tr>
                     <td>최대인원</td>
-                    <td>${smi.semiCapa}명</td>
+                    <td>${seminaInfo.semiCapa}명</td>
                 </tr>
                 <tr>
                     <td>장소</td>
-                    <td>${smi.szTitle}</td>
+                    <td>${seminaInfo.szTitle}</td>
                 </tr>
                 <tr>
                     <td>참가비/1인</td>
                     <td>
-                    	<fmt:formatNumber value="${smi.semiPrice}" type="currency" pattern="#,###,### 원"/>
+                    	<fmt:formatNumber value="${seminaInfo.semiPrice}" type="currency" pattern="#,###,### 원"/>
 					</td>
                 </tr>
             </table>
@@ -178,40 +180,6 @@
             <p class="choice-num">인원 선택</p>
             <hr class="decoration--puple-line">        
             <form class="choice-result--form" action="">
-
- <!--         (인원선택 라디오 버튼)
-                <input id="radio1" class="radio" type="radio" name="num" checked> 
-
-                <label for="radio1" class="nonclick nonclick1">
-                    <div  class="choice-num--ch1">
-                    </div>
-                </label>
-
-                <label for="radio1" class="clicked clicked1">
-                    <div  class="choice-num--ch1">
-                        <div class="choice-num--circle-inner">
-                        </div>
-                    </div>
-                </label>
-
-                <label  class="radio1__title" for="radio1"></label><br>
- 
-                <input id="radio2" class="radio" type="radio" name="num"> 
-
-                <label for="radio2" class="nonclick nonclick2"> 
-                    <div  class="choice-num--ch2">
-                    </div>
-                </label>
-
-                <label for="radio2" class="clicked clicked2">
-                    <div  class="choice-num--ch2">
-                        <div class="choice-num--circle-inner">
-                        </div>
-                    </div>
-                </label>
-
-                <label class="radio2__title" for="radio2">2명 이상</label><br>
--->
 
                 <table  class="choice-num__count">
                     <tr>
@@ -246,7 +214,7 @@
         <form action="">
             <textarea placeholder="질문을 남겨주세요" class="modal__inner--text"></textarea>
             <div class="modal__inner--alert">
-            <img src="${path}/img/alert.png" style="vertical-align: middle;">질문은 공개 상태로만 등록하실 수 있습니다.
+            <img src="${path}/gr2_ysh/img/alert.png" style="vertical-align: middle;">질문은 공개 상태로만 등록하실 수 있습니다.
             </div>
         <div class="modal__inner--button" style="display: flex;">
             <input class="modal__inner--button-blue" type="submit" value="등록">
@@ -274,7 +242,7 @@
         <form action="">
             <textarea placeholder="후기를 남겨주세요" class="modal__inner--text"></textarea>
             <div class="modal__inner--alert">
-            <img src="${path}/img/alert.png" style="vertical-align: middle;">후기는 공개 상태로만 등록하실 수 있습니다.
+            <img src="${path}/gr2_ysh/img/alert.png" style="vertical-align: middle;">후기는 공개 상태로만 등록하실 수 있습니다.
             </div>
         <div class="modal__inner--button" style="display: flex;">
             <input class="modal__inner--button-blue" type="submit" value="등록">
@@ -284,7 +252,6 @@
         </div>
 
     </div>
-</c:forEach> 
-    <script src="${path}/js/sh_user_w_semiDetail.js"></script>    
+    <script src="${path}/gr2_ysh/js/sh_user_w_semiDetail.js"></script>    
 </body>
 </html>
