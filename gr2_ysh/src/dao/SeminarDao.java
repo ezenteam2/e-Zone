@@ -5,9 +5,10 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import ezone.vo.*;	
+import ezone.vo.*;
 
 public class SeminarDao {
 	
@@ -403,6 +404,60 @@ public class SeminarDao {
 						System.out.println("getSeminaReview 중 에러발생");
 					}
 					return semiReviewList;
+				}
+				// 세미나 참가 예약 insert
+				public void insertSemiParti(SemiParti ins) {
+					try {
+						setCon();
+						String sql = "INSERT INTO P5SEMIPARTI values(parti_code_seq.nextval,?,sysdate,?,?,?,'입금대기',NULL,NULL)";
+						con.setAutoCommit(false);
+						pstmt = con.prepareStatement(sql);
+						pstmt.setInt(1, ins.getSemiCode());
+						pstmt.setString(2, ins.getMemId());
+						pstmt.setInt(3, ins.getPartiMcnt());
+						pstmt.setInt(4, ins.getPartiPrice());
+						pstmt.executeUpdate();
+						con.commit();
+						pstmt.close();
+						con.close();
+				
+					} catch (SQLException e) {
+						e.printStackTrace();
+						System.out.println(e.getMessage());
+						try {
+							con.rollback();
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+					} catch (Exception e) {
+						System.out.println(e.getMessage());
+					}
+				}
+				// 세미나 상세페이지 - 문의 등록
+				public void insertSemiQna(SemiQna ins) {
+					try {
+						setCon();
+						String sql = "INSERT INTO P5SEMIQNA values(sq_code_seq.nextval,'세미나',?,?,sysdate,?문의내용,NULL,NULL,null)";
+						con.setAutoCommit(false);
+						pstmt = con.prepareStatement(sql);
+						pstmt.setInt(1, ins.getSemiCode());
+						pstmt.setString(2, ins.getMemId());
+						pstmt.setString(3, ins.getSqDetail());
+						pstmt.executeUpdate();
+						con.commit();
+						pstmt.close();
+						con.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+						System.out.println(e.getMessage());
+						try {
+							con.rollback();
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+					} catch (Exception e) {
+						System.out.println(e.getMessage());
+					}
 				}
 		
 }

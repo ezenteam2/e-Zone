@@ -22,6 +22,14 @@ public class SemiParti {
 		// TODO Auto-generated constructor stub
 	}
 
+	public SemiParti(int semiCode, String memId, int partiMcnt, int partiPrice) {
+		super();
+		this.semiCode = semiCode;
+		this.memId = memId;
+		this.partiMcnt = partiMcnt;
+		this.partiPrice = partiPrice;
+	}
+
 	public SemiParti(int partiCode, int semiCode, Date partiBookDate, String memId, int partiMcnt, int partiPrice,
 			String partiCurr, String partiComm, Date partiCommDate, String memNick, String memProf) {
 		super();

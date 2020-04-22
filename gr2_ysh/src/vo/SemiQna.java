@@ -19,6 +19,12 @@ public class SemiQna {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public SemiQna(int semiCode, String memId, String sqDetail) {
+		super();
+		this.semiCode = semiCode;
+		this.memId = memId;
+		this.sqDetail = sqDetail;
+	}
 	public SemiQna(int sqCode, String qnatype, int semiCode, String memId, Date sqDate, String sqDetail,
 			String qnaAnsId, String sqAnswer, Date qnaAnsdate, String memNick, String memProf) {
 		super();

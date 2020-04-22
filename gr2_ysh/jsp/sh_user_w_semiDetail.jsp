@@ -6,21 +6,35 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="utf-8"/>  
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${path}/gr2_ysh/css/sh_user_w_semiDetail.css">
+    <link rel="stylesheet" href="${path}/gr2_ysh/css/toastr.css">
     <link rel="stylesheet" href="${path}/gr2_ysh/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <title>e-Zone :: 지식 공유 플랫폼</title>
     <link href="${path}/gr2_ysh/img/icon.png" rel="shortcut icon" type="image/x-icon">
-<script
-  src="https://code.jquery.com/jquery-3.5.0.js"
-></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="${path}/gr2_ysh/js/toastr.js"></script>
     <script>
+    function partiNum(){
+  		return "<c:out value="${seminaInfo.semiCapa}"/>"
+  	}
     $(document).ready(function(){
+    	var number = $("#number01").val();
+    	$("#number01").change(function(){
+        	number = $("#number01").val();
+		});
+    	$(".choice-num__count--plus").click(function(){
+        	number = $("#number01").val();
+		});
+    	$(".choice-num__count--minus").click(function(){
+        	number = $("#number01").val();
+		});
     	$("#qnaMore").click(function(){
 			$("[name=proc]").val("qnaMore");
 			$("form").submit();
@@ -29,6 +43,15 @@
 			$("[name=proc]").val("reviewMore");
 			$("form").submit();
 		});
+      	$("#pay").click(function(){
+      		
+			$("[name=proc]").val("pay");
+			$("[name=number]").val(number);			
+			$("form").submit();
+		});
+      	
+      	
+      
     	
     })
      
@@ -38,7 +61,7 @@
     <article>
         <div class="content">
     <!-- 컨텐츠 상단 -->
-
+	
             <div class="content__title">${seminaInfo.semiTitle}</div> <!-- 제목 -->
 
             <div class="content__sub-title">${seminaInfo.semiSubtitle}</div> <!-- 부제목 -->
@@ -181,21 +204,18 @@
     <!-- 인원 선택/결제금액 form -->
     <p class="choice-num">인원 선택</p>
             <hr class="decoration--puple-line">        
-            <form class="choice-result--form" action="">
             <p class="choice-num">인원 선택</p>
             <hr class="decoration--puple-line">        
-            <form class="choice-result--form" action="">
-
                 <table  class="choice-num__count">
                     <tr>
                         <td class="choice-num__count--minus">-</td> <!-- 선택 인원 1씩 감소 버튼 -->
                         <td class="choice-num__count--number">
-                            <input class="number" value="1" maxlength="3">
+                            <input class="number" id="number01" value="1" maxlength="3">
                         </td> <!-- 현재 선택 인원 표시 -->
                         <td class="choice-num__count--plus">+</td></tr> <!-- 선택 인원 1씩 증가 버튼 -->
                 </table>
-                <input class="result__submit" action="sh_user_w_semiPay.jsp" type="submit" value="바로 예약하기">
-            </form>
+                <input class="result__submit" type="button" id="pay" value="바로 예약하기">
+
         </div>
 
     </article>
@@ -258,6 +278,7 @@
         
 	 <form method="POST" style="display : none">
         <input type="hidden" name="proc">
+        <input type="hidden" name="number">
         <input type="submit">
      </form>
      
