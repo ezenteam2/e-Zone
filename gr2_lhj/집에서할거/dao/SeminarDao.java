@@ -175,28 +175,43 @@ public class SeminarDao {
 
 				pstmt=con.prepareStatement(sql);
 				pstmt.setString(1, sem.getMemId());
+				System.out.println("getMemId:"+sem.getMemId());
 				pstmt.setInt(2, sem.getZoneCode());
+				System.out.println("getZoneCode:"+sem.getZoneCode());
 				pstmt.setString(3, sem.getSemiTitle());
+				System.out.println("getSemiTitle:"+sem.getSemiTitle());
 				pstmt.setString(4, sem.getSemiSubtitle());
+				System.out.println("getSemiSubtitle:"+sem.getSemiSubtitle());
 				pstmt.setDate(5, sem.getSemiDate());
+				System.out.println("SemiDate:"+sem.getSemiDate());
 				pstmt.setString(6, sem.getSemiStime());
+				System.out.println("SemiStime:"+sem.getSemiStime());
 				pstmt.setString(7, sem.getSemiFtime());
+				System.out.println("SemiFtime:"+sem.getSemiFtime());
 				pstmt.setString(8, sem.getSemiCate());
-				pstmt.setString(9, sem.getSemiImg());
+				System.out.println("getSemiCate:"+sem.getSemiCate());
+				pstmt.setString(9, "default");
+				System.out.println("getSemiImg:"+sem.getSemiImg());
 				pstmt.setString(10, sem.getSemiDetail());
+				System.out.println("getSemiDetail:"+sem.getSemiDetail());
 				pstmt.setInt(11, sem.getSemiCapa());
+				System.out.println("getSemiCapa:"+sem.getSemiCapa());
 				pstmt.setInt(12, 0);
 				pstmt.setInt(13, sem.getSemiPrice());
-				pstmt.setString(14, sem.getSemiCurr());
-				pstmt.setString(15, null);
+				System.out.println("getSemiPrice:"+sem.getSemiPrice());
+				pstmt.setString(14, "입금대기");
+				System.out.println("getSemiCurr:"+sem.getSemiCurr());
+				pstmt.setString(15, "");
 				pstmt.setDate(16, null);
 
 				pstmt.executeUpdate();
+				System.out.println("인서트성공");
 				con.commit();
 				pstmt.close();
 				con.close();
 			} catch(Exception e){
 				System.out.println("insertSeminar Error");
+				System.out.println(e.getMessage());
 				try{
 					con.rollback();
 					System.out.println("롤백시도");
@@ -294,6 +309,34 @@ public class SeminarDao {
 				System.out.println("getCount Error");
 			}
 			return cnt;
+		}
+		
+		public ArrayList<String> getTimeTable(String zoneStr, String date){
+			int zone=Integer.parseInt(zoneStr);
+			ArrayList<String> arr=new ArrayList<String>();
+			System.out.println(date);
+			System.out.println(zone);
+			try {
+				setCon();
+				String sql = "SELECT * FROM p5semibook WHERE semi_date=to_date(?) AND zone_code = ?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, date);
+				pstmt.setInt(2, zone);
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+					java.sql.Timestamp semiStimeTmp=rs.getTimestamp("SEMI_STIME");
+					String semiStime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(semiStimeTmp.getTime()));
+					java.sql.Timestamp semiFtimeTmp=rs.getTimestamp("SEMI_FTIME");
+					String semiFtime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(semiFtimeTmp.getTime()));
+					arr.add(semiStime);
+					arr.add(semiFtime);
+				}
+				System.out.println("getTimeTable 성공");
+			} catch (Exception e) {
+				System.out.println("getTimeTable Error");
+				System.out.println(e.getMessage());
+			}
+			return arr;
 		}
 		
 }

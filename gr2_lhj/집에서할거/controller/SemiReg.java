@@ -63,7 +63,7 @@ public class SemiReg extends HttpServlet {
 			}
 	        java.sql.Date semiDate = new java.sql.Date(parsed.getTime());
 	        String startTime=semiDate+" "+request.getParameter("start-time")+":00";
-	        String endTime=semiDate+" "+request.getParameter("end-time")+":00";
+	        String endTime=semiDate+" "+(Integer.parseInt(request.getParameter("end-time"))+1)+":00";
 			String cate=request.getParameter("cate");
 			String detail=request.getParameter("detail");
 			int semiCapa=Integer.parseInt(request.getParameter("max-join"));

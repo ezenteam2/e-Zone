@@ -19,6 +19,17 @@
     <script src="${path }/my/e-Zone/gr2_lhj/js/toastr.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>세미나등록</title>
+    <script>
+    	var path="${path}";
+    	$(document).ready(function(){
+    		var user="${user}";
+    		if(user===''){
+    			swal("먼저 로그인을 해주세요", "", "warning").then(()=>{
+    				window.location="${path}/";
+    			})
+    		}
+    	})
+    </script>
 </head>
 <body>
     <div class="reg-wrap">
@@ -29,7 +40,7 @@
     </p>
     
     <form id="reg-form">
-    <input tpye="hidden" name="proc" value="done" />
+    <input type="hidden" name="proc" value="done" />
     <input type="hidden" name="id" value="${user }" />
     <h2>세미나명(*)</h2>
     <input class="two-line" type="text" name="title" maxlength="40" required>
@@ -40,10 +51,10 @@
     <h2>모임장소(*)</h2>
     <div id="zone-sel">
         <ul>
-            <li><span>금강관</span><input type="radio" hidden name="zone" value="1"></li>
-            <li><span>백두관</span><input type="radio" hidden name="zone" value="2"></li>
-            <li><span>한라관</span><input type="radio" hidden name="zone" value="3"></li>
-            <li><span>태백관</span><input type="radio" hidden name="zone" value="4"></li>
+            <li><span>금강관</span><input type="radio" hidden name="zone" value="5100000"></li>
+            <li><span>백두관</span><input type="radio" hidden name="zone" value="5100001"></li>
+            <li><span>한라관</span><input type="radio" hidden name="zone" value="5100002"></li>
+            <li><span>태백관</span><input type="radio" hidden name="zone" value="5100003"></li>
         </ul>
     </div>
     <br><br>
@@ -74,15 +85,15 @@
     <h2>카테고리선택(*)</h2>
     <div class="cate-wrap">
         <ul>
-            <li><span>IT기술</span><input hidden type="radio" name="cate" value="1"></li>
-            <li><span>스포츠</span><input hidden type="radio" name="cate" value="2"></li>
-            <li><span>건강</span><input hidden type="radio" name="cate" value="3"></li>
-            <li><span>음식</span><input hidden type="radio" name="cate" value="4"></li>
-            <li><span>음악</span><input hidden type="radio" name="cate" value="5"></li>
-            <li><span>가족</span><input hidden type="radio" name="cate" value="6"></li>
-            <li><span>언어문화</span><input hidden type="radio" name="cate" value="7"></li>
-            <li><span>영상제작</span><input hidden type="radio" name="cate" value="8"></li>
-            <li><span>기타</span><input hidden type="radio" name="cate" value="9"></li>
+            <li><span>IT기술</span><input hidden type="radio" name="cate" value="IT기술"></li>
+            <li><span>스포츠</span><input hidden type="radio" name="cate" value="스포츠"></li>
+            <li><span>건강</span><input hidden type="radio" name="cate" value="건강"></li>
+            <li><span>음식</span><input hidden type="radio" name="cate" value="음식"></li>
+            <li><span>음악</span><input hidden type="radio" name="cate" value="음악"></li>
+            <li><span>가족</span><input hidden type="radio" name="cate" value="가족"></li>
+            <li><span>언어문화</span><input hidden type="radio" name="cate" value="언어 문화"></li>
+            <li><span>영상제작</span><input hidden type="radio" name="cate" value="영상제작"></li>
+            <li><span>기타</span><input hidden type="radio" name="cate" value="기타"></li>
         </ul>
     </div>
     <br>
@@ -95,7 +106,6 @@
     <button type="submit">등록하기</button>
     </form>
     </div>
-
     <script src="${path }/my/e-Zone/gr2_lhj/js/hj_user_w_semiReg.js"></script>
 </body>
 </html>

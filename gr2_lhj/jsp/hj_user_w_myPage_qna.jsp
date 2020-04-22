@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css">
-    <title>세미나 예약 리스트</title>
+    <title>문의사항 관리</title>
     <style>
         *{
             font-family: 'NanumBarunGothic', sans-serif;
