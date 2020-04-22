@@ -43,6 +43,15 @@ public class Ht_qna_VO {
 		this.qnaDetail = qnaDetail;
 		this.qnaOpen = qnaOpen;
 	}
+	
+	
+
+	public Ht_qna_VO(String qnaTitle, String qnaDetail, int qnaCode) {
+		super();
+		this.qnaTitle = qnaTitle;
+		this.qnaDetail = qnaDetail;
+		this.qnaCode = qnaCode;
+	}
 
 	public int getQnaCode() {
 		return qnaCode;

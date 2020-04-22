@@ -17,6 +17,7 @@
 
 <link rel="stylesheet" href="${path}/project05_user_board/ht_user_w_board_CSS.css">
 <link rel="stylesheet" href="${path}/project05_user_board/ht_accordion_CSS.css">
+<link rel="stylesheet" href="${path}/project05_user_board/ht_user_w_modal.css">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -26,8 +27,6 @@
 	<%--
 	
 	--%>
-	console.log("glskdjflka");
-
 	$("#qnaInsBtn").click(function(){
 		
 		$("[name=memId]").val("${param.user}");
@@ -35,13 +34,9 @@
 
 	});
 	
-
-	
-	
 	$(".accordionTitleContainer:even").css({backgroundColor:"#F1F1F1"});
 	$(".accordionTitleContainer").first().css("border-top", "solid 2px");
 	$(".accordionContent").last().css("border-bottom", "solid 2px");
-	
 	
 	});
 
@@ -51,12 +46,21 @@
 	
 	function del(qnaCode) {
 		if(confirm("삭제 하시겠습니까?")){
-			$("[name=qnaCode]").val(qnaCode);
-			$("[name=proc]").val("delete");
-			$("form").submit();
-			console.log(qnaCode);
+			window.location="${path}/Ht_user_qna_controller?proc=delete&qnaCode="+qnaCode;
 		}
 	}
+	
+	function uptConfirm(qnaCode) {
+		if(confirm("수정 하겠습니다")) {
+			$("[name=proc]").val("update");
+//			window.location="${path}/Ht_user_qna_controller?qnaCode="+qnaCode;
+		}
+	}
+	
+
+	
+	
+	
 </script>
 
 <title>Insert title here</title>
@@ -113,14 +117,37 @@
 	<c:choose>
 						
 		<c:when test="${qna.qnaOpen == 'Y' }">
-			<div class="accordionTitleContainer">
-				<div class="accordionTitleType">${qna.qnaCate }</div><div class="accordionTitle">${qna.qnaTitle }</div>
-			</div>
-			<div class="accordionContent">
-				<p>
-				${qna.qnaDetail }
-				</p>
-			</div>
+
+			<c:choose>
+
+				<c:when test="${param.user == qna.memId }">
+					<div class="accordionTitleContainer">
+						<div class="accordionTitleType">${qna.qnaCate }</div><div class="accordionTitle">[MyQNA] ${qna.qnaTitle }</div>
+					</div>
+					<div class="accordionContent">
+						<p>
+						${qna.qnaDetail }
+						</p>
+						<div class="qnaBtnContainer">
+							<input class="qnaUptBtnC" type="button" onclick="javascript:openUptForm(${qna.qnaCode})" value=""/>
+							<input class="qnaDelBtnC" type="button" onclick="javascript:del(${qna.qnaCode})" value=""/>
+						</div>						
+					</div>
+				</c:when>
+				
+				<c:otherwise>
+					<div class="accordionTitleContainer">
+						<div class="accordionTitleType">${qna.qnaCate }</div><div class="accordionTitle">${qna.qnaTitle }</div>
+					</div>
+					<div class="accordionContent">
+						<p>
+						${qna.qnaDetail }
+						</p>
+					</div>
+				</c:otherwise>
+
+			</c:choose>
+
 		</c:when>
 		
 		<c:otherwise>
@@ -137,7 +164,7 @@
 					${qna.qnaDetail }
 					</p>
 					<div class="qnaBtnContainer">
-						<input class="qnaUptBtnC" type="submit" value=""/>
+						<input class="qnaUptBtnC" type="button" onclick="javascript:openUptForm(${qna.qnaCode})" value=""/>
 						<input class="qnaDelBtnC" type="button" onclick="javascript:del(${qna.qnaCode})" value=""/>
 					</div>
 				</div>
@@ -183,13 +210,68 @@
 	</div>
 
 	</div>
+	
+
+	<div id="uptDiv" class="modal">
+
+	<div class="modal__inner">
+
+		<div class="modal__inner--top">
+			QNA 수정
+			<div id="uptDivClose" class="modal__inner--exit">
+				X
+			</div>
+		</div>
+
+	<form method="post" id="uptForm" action="ht_user_w_qna_insert.jsp">
+
+		<div  class="modal__inner--title">
+			제목<br>
+			<input type="text" name="qnaTitleUpt" class="qnaTitleInput" value="${info.qnaTitle }"/>
+		</div>
+
+		<div  class="modal__inner--title">
+			내용
+		</div>
+
+		<textarea class="modal__inner--text" name="qnaDetailUpt">${info.qnaDetail }</textarea>
+
+		<div class="modal__inner--button" style="display: flex;">
+			<input class="modal__inner--button-blue" type="button" value="수정" onclick="javascript:uptConfirm(${info.qnaCode })"/>
+		</div>
+
+	</form>
+
+	</div>
+
+	</div>
+
 
 </body>
 
-	<script type="text/javascript">
-		function goPage(num){
-			window.location="${path}/Ht_user_qna_controller?page="+num;
+<script type="text/javascript">
+
+	function goPage(num){
+		window.location="${path}/Ht_user_qna_controller?page="+num;
+	}
+	
+	
+	function openUptForm(qnaCode) {
+		window.location="${path}/Ht_user_qna_controller?proc=detail&code="+qnaCode;
+	}
+	
+	$(document).ready(function(){
+		var proc= "${param.proc}";
+		console.log(proc);
+		if(proc==='detail'){
+			$("#uptDiv").css("visibility","visible");
 		}
-	</script>
+	})
+	
+	$("#uptDivClose").click(function(){
+		$("#uptDiv").css("visibility","hidden");
+	})
+				
+</script>
 
 </html>
