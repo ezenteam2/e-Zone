@@ -338,7 +338,7 @@ public class SeminarDao {
 			return semina;
 		}
 		
-		//세미나 상세페이지 -- 세미나 문의
+		//세미나 상세페이지 -- 세미나 문의 - 서희
 		public ArrayList<SemiQna> getSeminaQna(int semiCode){
 			ArrayList<SemiQna> semiQnaList = new ArrayList<SemiQna>();
 			try {
@@ -380,7 +380,7 @@ public class SeminarDao {
 			return semiQnaList;
 		}
 		
-		//세미나 상세페이지 -- 이용 후기 가져오기
+		//세미나 상세페이지 -- 이용 후기 가져오기 -- 서희
 				public ArrayList<SemiParti> getSeminaReview(int semiCode){
 					ArrayList<SemiParti> semiReviewList = new ArrayList<SemiParti>();
 					try {
@@ -421,7 +421,7 @@ public class SeminarDao {
 					}
 					return semiReviewList;
 				}
-				// 세미나 참가 예약 insert
+				// 세미나 참가 예약 insert --서희
 				public void insertSemiParti(SemiParti ins) {
 					try {
 						setCon();
