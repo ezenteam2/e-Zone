@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import ezone.dao.SeminarDao;
 import ezone.vo.SemiParti;
@@ -28,5 +29,17 @@ public class seminaService {
 	public ArrayList<SemiParti> reviewList(HttpServletRequest request) {
 		int semiCode = Integer.parseInt(request.getParameter("semiCode"));
 		return dao.getSeminaReview(semiCode);
+	}
+	public void insertParti(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String memId = (String)session.getAttribute("user");
+		System.out.println("memId : "+memId);
+		int semiCode = Integer.parseInt(request.getParameter("semiCode"));
+		System.out.println("semiCode : "+semiCode);
+		int partiMcnt= Integer.parseInt(request.getParameter("partiMcnt"));
+		System.out.println("partiMcnt : "+partiMcnt);
+		int partiPrice= Integer.parseInt(request.getParameter("partiPrice"));
+		System.out.println("partiPrice : "+partiPrice);
+		dao.insertSemiParti(new SemiParti(semiCode, memId, partiMcnt, partiPrice));
 	}
 }

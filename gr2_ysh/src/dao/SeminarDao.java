@@ -5,9 +5,10 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import ezone.vo.*;	
+import ezone.vo.*;
 
 public class SeminarDao {
 	
@@ -337,7 +338,7 @@ public class SeminarDao {
 			return semina;
 		}
 		
-		//세미나 상세페이지 -- 세미나 문의
+		//세미나 상세페이지 -- 세미나 문의 - 서희
 		public ArrayList<SemiQna> getSeminaQna(int semiCode){
 			ArrayList<SemiQna> semiQnaList = new ArrayList<SemiQna>();
 			try {
@@ -353,11 +354,19 @@ public class SeminarDao {
 					semiQna.setQnatype(rs.getString(2));
 					semiQna.setSemiCode(rs.getInt(3));
 					semiQna.setMemId(rs.getString(4));
-					semiQna.setSqDate(rs.getDate(5));
+					
+					java.sql.Timestamp SqDateTmp=rs.getTimestamp(5);
+					String SqDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(SqDateTmp.getTime()));
+					semiQna.setSqDate(SqDate);
+					
 					semiQna.setSqDetail(rs.getString(6));
 					semiQna.setQnaAnsId(rs.getString(7));
 					semiQna.setSqAnswer(rs.getString(8));
-					semiQna.setQnaAnsdate(rs.getDate(9));
+					
+					java.sql.Timestamp QnaAnsdateTmp=rs.getTimestamp(9);
+					String QnaAnsdate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(QnaAnsdateTmp.getTime()));
+					semiQna.setSqDate(QnaAnsdate);
+					
 					semiQna.setMemNick(rs.getString(10));
 					semiQna.setMemProf(rs.getString(11));
 					semiQnaList.add(semiQna);
@@ -371,7 +380,7 @@ public class SeminarDao {
 			return semiQnaList;
 		}
 		
-		//세미나 상세페이지 -- 이용 후기 가져오기
+		//세미나 상세페이지 -- 이용 후기 가져오기 -- 서희
 				public ArrayList<SemiParti> getSeminaReview(int semiCode){
 					ArrayList<SemiParti> semiReviewList = new ArrayList<SemiParti>();
 					try {
@@ -385,13 +394,21 @@ public class SeminarDao {
 							semiParti = new SemiParti();
 							semiParti.setPartiCode(rs.getInt(1));
 							semiParti.setSemiCode(rs.getInt(2));
-							semiParti.setPartiBookDate(rs.getDate(3));
+							
+							java.sql.Timestamp PartiBookDateTmp=rs.getTimestamp(9);
+							String PartiBookDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(PartiBookDateTmp.getTime()));
+							semiParti.setPartiBookDate(PartiBookDate);
+							
 							semiParti.setMemId(rs.getString(4));
 							semiParti.setPartiMcnt(rs.getInt(5));
 							semiParti.setPartiPrice(rs.getInt(6));
 							semiParti.setPartiCurr(rs.getString(7));
 							semiParti.setPartiComm(rs.getString(8));
-							semiParti.setPartiCommDate(rs.getDate(9));
+							
+							java.sql.Timestamp PartiCommDateTmp=rs.getTimestamp(9);
+							String PartiCommDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(PartiCommDateTmp.getTime()));
+							semiParti.setPartiCommDate(PartiCommDate);
+							
 							semiParti.setMemNick(rs.getString(10));
 							semiParti.setMemProf(rs.getString(11));
 							semiReviewList.add(semiParti);
@@ -403,6 +420,60 @@ public class SeminarDao {
 						System.out.println("getSeminaReview 중 에러발생");
 					}
 					return semiReviewList;
+				}
+				// 세미나 참가 예약 insert --서희
+				public void insertSemiParti(SemiParti ins) {
+					try {
+						setCon();
+						String sql = "INSERT INTO P5SEMIPARTI values(parti_code_seq.nextval,?,sysdate,?,?,?,'입금대기',NULL,NULL)";
+						con.setAutoCommit(false);
+						pstmt = con.prepareStatement(sql);
+						pstmt.setInt(1, ins.getSemiCode());
+						pstmt.setString(2, ins.getMemId());
+						pstmt.setInt(3, ins.getPartiMcnt());
+						pstmt.setInt(4, ins.getPartiPrice());
+						pstmt.executeUpdate();
+						con.commit();
+						pstmt.close();
+						con.close();
+				
+					} catch (SQLException e) {
+						e.printStackTrace();
+						System.out.println(e.getMessage());
+						try {
+							con.rollback();
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+					} catch (Exception e) {
+						System.out.println(e.getMessage());
+					}
+				}
+				// 세미나 상세페이지 - 문의 등록
+				public void insertSemiQna(SemiQna ins) {
+					try {
+						setCon();
+						String sql = "INSERT INTO P5SEMIQNA values(sq_code_seq.nextval,'세미나',?,?,sysdate,?문의내용,NULL,NULL,null)";
+						con.setAutoCommit(false);
+						pstmt = con.prepareStatement(sql);
+						pstmt.setInt(1, ins.getSemiCode());
+						pstmt.setString(2, ins.getMemId());
+						pstmt.setString(3, ins.getSqDetail());
+						pstmt.executeUpdate();
+						con.commit();
+						pstmt.close();
+						con.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+						System.out.println(e.getMessage());
+						try {
+							con.rollback();
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+					} catch (Exception e) {
+						System.out.println(e.getMessage());
+					}
 				}
 		
 }

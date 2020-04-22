@@ -40,7 +40,7 @@ number.value=1;
 
 // -,+ 버튼 클릭시 숫자 증감
 plus.addEventListener('click',function(event){
-    if(Number(number.value)+1<=50){
+    if(Number(number.value)+1<=partiNum()){
         number.value = Number(number.value)+1;
 
     }
@@ -56,8 +56,8 @@ number.addEventListener('change',function(event){
     if(Number(number.value)<=0){
         number.value=1;
 
-    }else if(Number(number.value)>50){
-        number.value=50;
+    }else if(Number(number.value)>partiNum()){
+        number.value=partiNum();
     }
 })
 
@@ -77,29 +77,35 @@ var textarea = document.querySelectorAll('.modal__inner--text');
     number.addEventListener('keyup',function(event){
 
      })
-
-// 인원선택 라디오
-var radio = document.querySelectorAll('.radio');
-var nonclick = document.querySelectorAll('.nonclick');
-var clicked = document.querySelectorAll('.clicked');
-
-nonclick[1].addEventListener('click',function(event){
-    clicked[1].style.display='block';
-    clicked[0].style.display='none';
-    nonclick[0].style.display='block';
-    nonclick[1].style.display='none';
-})
-    if(radio[0].checked==true){
-        nonclick[0].style.display='none';
-        clicked[0].style.display='block';
-        nonclick[1].style.display='block';
-        clicked[1].style.display='none';
-    }else{
-        nonclick[0].style.display='block';
-        clicked[0].style.display='none';
-        nonclick[1].style.display='none';
-        clicked[1].style.display='block';
-    }
+     
+toastr.options = {
+		  "closeButton": false,
+		  "debug": false,
+		  "newestOnTop": false,
+		  "progressBar": false,
+		  "positionClass": "toast-top-center",
+		  "preventDuplicates": false,
+		  "onclick": null,
+		  "showDuration": "300",
+		  "hideDuration": "1000",
+		  "timeOut": "5000",
+		  "extendedTimeOut": "1000",
+		  "showEasing": "swing",
+		  "hideEasing": "linear",
+		  "showMethod": "fadeIn",
+		  "hideMethod": "fadeOut"
+		}
+    
+// 모달창 글자수 제한 //error,success,info,warning
+var text = $('.modal__inner--text').get();
+	for(let i = 0; i<text.length; i++){
+	    $(text[i]).keyup(function(e) {
+		    if($(text[i]).val().length > 200) {
+		    	Command: toastr["warning"]("200자 이내로 작성해주세요");
+		    	$(text[i]).val($(text[i]).val().substring(0, 200));
+			}
+	    });
+	}
 
 
 
