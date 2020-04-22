@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import ezone.service.Ht_qna_service;
 import ezone.vo.Ht_qna_VO;
@@ -34,7 +35,8 @@ public class Ht_user_qna_controller extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
-		
+		HttpSession session = request.getSession();
+		session.setAttribute("user", "himan123");
 		String page = null;
 		String pageStr = null;
 		

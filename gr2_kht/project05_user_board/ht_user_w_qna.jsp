@@ -53,11 +53,10 @@
 	function uptConfirm(qnaCode) {
 		if(confirm("수정 하겠습니다")) {
 			$("[name=proc]").val("update");
-//			window.location="${path}/Ht_user_qna_controller?qnaCode="+qnaCode;
+			$("#uptDiv").submit();
+			window.location="${path}/Ht_user_qna_controller";
 		}
 	}
-	
-
 	
 	
 	
@@ -72,7 +71,7 @@
 	<form method="post">
 
 	<input type="hidden" name="proc"/>
-	<input type="hidden" name="memId" value="${param.user }"/>
+	<input type="hidden" name="memId" value="${user }"/>
 	<input type="hidden" name="qnaCode"/>
 
 	<div class="schContainer">
@@ -120,7 +119,7 @@
 
 			<c:choose>
 
-				<c:when test="${param.user == qna.memId }">
+				<c:when test="${user == qna.memId }">
 					<div class="accordionTitleContainer">
 						<div class="accordionTitleType">${qna.qnaCate }</div><div class="accordionTitle">[MyQNA] ${qna.qnaTitle }</div>
 					</div>
@@ -154,7 +153,7 @@
 
 			<c:choose>
 		
-			<c:when test="${param.user == qna.memId }">
+			<c:when test="${user == qna.memId }">
 
 				<div class="accordionTitleContainer">
 					<div class="accordionTitleType">${qna.qnaCate }</div><div class="accordionTitle">[MyQNA] ${qna.qnaTitle }</div>
