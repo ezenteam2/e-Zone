@@ -214,5 +214,81 @@ public class Ht_qna_dao {
 			}
 		}
 	}
+	
+	public Ht_qna_VO qnaUptDetail(int qnaCode){
+
+		Ht_qna_VO tmp = null;
+
+		try {
+			setCon();
+			
+			String sql = "SELECT * FROM P5QNA WHERE QNA_CODE = ? ";
+			pstmt = con.prepareStatement(sql);
+			System.out.println(sql);
+			pstmt.setInt(1, qnaCode);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				tmp=new Ht_qna_VO(
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getDate(4),
+						rs.getString(5),
+						rs.getString(6),
+						rs.getString(7),
+						rs.getString(8),
+						rs.getDate(9),
+						rs.getString(10)
+						);
+			}
+
+			rs.close();
+			pstmt.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return tmp;
+	}
+	
+	public void uptQna(Ht_qna_VO upt) {
+		
+		try {
+			setCon();
+			
+			String sql = "UPDATE P5QNA SET QNA_TITLE = ?, QNA_DETAIL = ?, QNA_DATE = sysdate WHERE QNA_CODE = ? ";
+			
+			con.setAutoCommit(false);
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, upt.getQnaTitle());
+			pstmt.setString(2, upt.getQnaDetail());
+			pstmt.setInt(3, upt.getQnaCode());
+			
+			System.out.println(sql);
+			
+			pstmt.executeUpdate();
+			con.commit();
+			pstmt.close();
+			con.close();
+			System.out.println("수정 완료");
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+	}
 }
 	

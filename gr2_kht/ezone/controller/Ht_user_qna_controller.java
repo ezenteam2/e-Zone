@@ -35,31 +35,51 @@ public class Ht_user_qna_controller extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		
+		String page = null;
+		String pageStr = null;
+		
 		String proc = request.getParameter("proc");
+		
 		if(proc==null||proc.equals("")) proc="main";
 		
 		if(proc.equals("main")) {
-			String pageStr = request.getParameter("page");
-			int page=(pageStr==null)? 1:Integer.parseInt(pageStr);
-			request.setAttribute("qnalist", service.getqnaList(page));
+			pageStr = request.getParameter("page");
+			int pageInt=(pageStr==null)? 1:Integer.parseInt(pageStr);
+			request.setAttribute("qnalist", service.getqnaList(pageInt));
 			request.setAttribute("qnacnt", service.getCnt());
+			page = "project05_user_board\\ht_user_w_qna.jsp";
 		}
 		
 		if(proc.equals("insert")) {
 			service.insertQna(request);
+			page="project05_user_board\\ht_user_w_qna_process.jsp";
+			System.out.println(page);
 		}
 		
 		if(proc.equals("delete")) {
 			service.deleteQna(request);
+			page="project05_user_board\\ht_user_w_qna_process.jsp";
+			System.out.println(page);
+		}
+
+		if(proc.equals("update")) {
+			service.uptQna(request);
+			page="project05_user_board\\ht_user_w_qna_process.jsp";
+			System.out.println(page);
 		}
 		
-		
-		String page = "project05_user_board\\ht_user_w_qna.jsp";
-		
-		if(proc.equals("insert")||proc.equals("delete")) page="project05_user_board\\ht_user_w_qna_insert.jsp";
+		if(proc.equals("detail")) {
+			page = "project05_user_board\\ht_user_w_qna.jsp";
+			pageStr = request.getParameter("page");
+			int pageInt=(pageStr==null)? 1:Integer.parseInt(pageStr);
+			request.setAttribute("qnalist", service.getqnaList(pageInt));
+			request.setAttribute("qnacnt", service.getCnt());
+			request.setAttribute("info", service.qnaUptDetail(request));
+		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(page);
 		rd.forward(request, response);
+		
 	}
 
 }

@@ -44,6 +44,22 @@ public class Ht_qna_service {
 		dao.deleteQna(Nk.toInt(req.getParameter("qnaCode")));
 		System.out.println("삭제 서비스 수행");
 	}
-
+	
+	public Ht_qna_VO qnaUptDetail(HttpServletRequest req) {
+		System.out.println(req.getParameter("code"));
+		String qnaCodeStr = Nk.toStr(req.getParameter("code"));
+		int qnaCode = Integer.parseInt(qnaCodeStr);
+		return dao.qnaUptDetail(qnaCode);
+	}
+	
+	public void uptQna(HttpServletRequest req) {
+		String qnaTitleUpt = Nk.toStr(req.getParameter("qnaTitleUpt"));
+		String qnaDetailUpt = Nk.toStr(req.getParameter("qnaDetailUpt"));
+		int qnaCode = Nk.toInt(req.getParameter("qnaCode"));
+		
+		dao.uptQna(new Ht_qna_VO(qnaTitleUpt, qnaDetailUpt, qnaCode));
+	}
+	
+	
 
 }
