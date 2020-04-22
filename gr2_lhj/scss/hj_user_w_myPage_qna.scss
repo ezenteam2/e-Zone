@@ -82,6 +82,25 @@ body{
             }
         }
     }
+
+    .page-nation{
+        ul{
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin:20px 0 0 0;
+            li{
+                width:35px;
+                height:35px;
+                background-color:$purple;
+                color:white;
+                line-height: 35px;
+                text-align: center;
+                margin:3px;
+                cursor: pointer;
+            }
+        }
+    }
 }
 
 .qna-detail-send-wrap{

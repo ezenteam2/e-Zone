@@ -66,6 +66,11 @@
                     <span>답변완료</span></li>
             </ul>
         </div>
+        <div class="page-nation">
+        	<ul>
+        		<li>1</li>
+        	</ul>
+        </div>
     </div>
 
     <div class="qna-detail-send-wrap">
