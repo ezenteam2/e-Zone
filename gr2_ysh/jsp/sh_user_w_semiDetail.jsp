@@ -16,17 +16,22 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <title>e-Zone :: 지식 공유 플랫폼</title>
     <link href="${path}/gr2_ysh/img/icon.png" rel="shortcut icon" type="image/x-icon">
+<script
+  src="https://code.jquery.com/jquery-3.5.0.js"
+></script>
     <script>
-    
     $(document).ready(function(){
-		function qnaMore(){
-			int semiCode = request.getParameter("semiCode");
-			url = "/semi";
-        	location.href = url+"?"+semiCode
-        }
+    	$("#qnaMore").click(function(){
+			$("[name=proc]").val("qnaMore");
+			$("form").submit();
+		});
+      	$("#reviewMore").click(function(){
+			$("[name=proc]").val("reviewMore");
+			$("form").submit();
+		});
+    	
     })
-    
-    
+     
     </script>
 </head>
 <body>
@@ -105,7 +110,7 @@
 </c:forEach>
             </table>
 
-            <span class="content__more" onclick="location.href='sh_user_w_semiDetail_semi.html'">더보기 ></span>
+            <span class="content__more" id="qnaMore">더보기 ></span>
             <br><br><br><br>
 
             <!-- 이용 후기 -->
@@ -128,7 +133,7 @@
 </c:forEach>
             </table>
 
-            <span class="content__more" onclick="qnaMore()">더보기 ></span>
+            <span class="content__more" id="reviewMore">더보기 ></span>
         </div>
         <br><br><br>
 
@@ -250,7 +255,12 @@
         </div>
         </form>
         </div>
-
+        
+	 <form method="POST" style="display : none">
+        <input type="hidden" name="proc">
+        <input type="submit">
+     </form>
+     
     </div>
     <script src="${path}/gr2_ysh/js/sh_user_w_semiDetail.js"></script>    
 </body>
