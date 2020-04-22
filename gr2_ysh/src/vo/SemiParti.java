@@ -1,17 +1,15 @@
 package ezone.vo;
 
-import java.sql.Date;
-
 public class SemiParti {
 	private int partiCode; // 참가 코드
 	private int semiCode; // 세미나 코드 
-	private Date partiBookDate; // 참가 신청 날짜
+	private String partiBookDate; // 참가 신청 날짜
 	private String memId; // 참가자 아이디
 	private int partiMcnt; // 참가 신청 인원
 	private int partiPrice; // 참가 비용
 	private String partiCurr; // 결제 상태
 	private String partiComm; // 이용후기
-	private Date partiCommDate; // 이용후기 날짜
+	private String partiCommDate; // 이용후기 날짜
 	
 	private String memNick; // 참가자 닉네임
 	private String memProf; // 참가자 프로필
@@ -30,8 +28,8 @@ public class SemiParti {
 		this.partiPrice = partiPrice;
 	}
 
-	public SemiParti(int partiCode, int semiCode, Date partiBookDate, String memId, int partiMcnt, int partiPrice,
-			String partiCurr, String partiComm, Date partiCommDate, String memNick, String memProf) {
+	public SemiParti(int partiCode, int semiCode, String partiBookDate, String memId, int partiMcnt, int partiPrice,
+			String partiCurr, String partiComm, String partiCommDate, String memNick, String memProf) {
 		super();
 		this.partiCode = partiCode;
 		this.semiCode = semiCode;
@@ -62,11 +60,11 @@ public class SemiParti {
 		this.semiCode = semiCode;
 	}
 
-	public Date getPartiBookDate() {
+	public String getPartiBookDate() {
 		return partiBookDate;
 	}
 
-	public void setPartiBookDate(Date partiBookDate) {
+	public void setPartiBookDate(String partiBookDate) {
 		this.partiBookDate = partiBookDate;
 	}
 
@@ -110,11 +108,11 @@ public class SemiParti {
 		this.partiComm = partiComm;
 	}
 
-	public Date getPartiCommDate() {
+	public String getPartiCommDate() {
 		return partiCommDate;
 	}
 
-	public void setPartiCommDate(Date partiCommDate) {
+	public void setPartiCommDate(String partiCommDate) {
 		this.partiCommDate = partiCommDate;
 	}
 

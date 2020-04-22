@@ -1,17 +1,15 @@
 package ezone.vo;
 
-import java.sql.Date;
-
 public class SemiQna {
 	private int sqCode; // 세미나 문의 코드
 	private String qnatype; // 문의 종류
 	private int semiCode; // 세미나 코드
 	private String memId; // 문의자 아이디
-	private Date sqDate; // 문의 날짜
+	private String sqDate; // 문의 날짜
 	private String sqDetail; // 문의 내용
 	private String qnaAnsId; // 답변자 아이디
 	private String sqAnswer; // 답변 내용
-	private Date qnaAnsdate; // 답변 날짜
+	private String qnaAnsdate; // 답변 날짜
 	private String memNick; // 문의자 닉네임
 	private String memProf; // 문의자 프로필 이미지
 	
@@ -25,8 +23,8 @@ public class SemiQna {
 		this.memId = memId;
 		this.sqDetail = sqDetail;
 	}
-	public SemiQna(int sqCode, String qnatype, int semiCode, String memId, Date sqDate, String sqDetail,
-			String qnaAnsId, String sqAnswer, Date qnaAnsdate, String memNick, String memProf) {
+	public SemiQna(int sqCode, String qnatype, int semiCode, String memId, String sqDate, String sqDetail,
+			String qnaAnsId, String sqAnswer, String qnaAnsdate, String memNick, String memProf) {
 		super();
 		this.sqCode = sqCode;
 		this.qnatype = qnatype;
@@ -65,10 +63,10 @@ public class SemiQna {
 	public void setMemId(String memId) {
 		this.memId = memId;
 	}
-	public Date getSqDate() {
+	public String getSqDate() {
 		return sqDate;
 	}
-	public void setSqDate(Date sqDate) {
+	public void setSqDate(String sqDate) {
 		this.sqDate = sqDate;
 	}
 	public String getSqDetail() {
@@ -89,10 +87,10 @@ public class SemiQna {
 	public void setSqAnswer(String sqAnswer) {
 		this.sqAnswer = sqAnswer;
 	}
-	public Date getQnaAnsdate() {
+	public String getQnaAnsdate() {
 		return qnaAnsdate;
 	}
-	public void setQnaAnsdate(Date qnaAnsdate) {
+	public void setQnaAnsdate(String qnaAnsdate) {
 		this.qnaAnsdate = qnaAnsdate;
 	}
 	public String getMemNick() {

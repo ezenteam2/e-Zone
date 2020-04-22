@@ -354,11 +354,19 @@ public class SeminarDao {
 					semiQna.setQnatype(rs.getString(2));
 					semiQna.setSemiCode(rs.getInt(3));
 					semiQna.setMemId(rs.getString(4));
-					semiQna.setSqDate(rs.getDate(5));
+					
+					java.sql.Timestamp SqDateTmp=rs.getTimestamp(5);
+					String SqDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(SqDateTmp.getTime()));
+					semiQna.setSqDate(SqDate);
+					
 					semiQna.setSqDetail(rs.getString(6));
 					semiQna.setQnaAnsId(rs.getString(7));
 					semiQna.setSqAnswer(rs.getString(8));
-					semiQna.setQnaAnsdate(rs.getDate(9));
+					
+					java.sql.Timestamp QnaAnsdateTmp=rs.getTimestamp(9);
+					String QnaAnsdate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(QnaAnsdateTmp.getTime()));
+					semiQna.setSqDate(QnaAnsdate);
+					
 					semiQna.setMemNick(rs.getString(10));
 					semiQna.setMemProf(rs.getString(11));
 					semiQnaList.add(semiQna);
@@ -386,13 +394,21 @@ public class SeminarDao {
 							semiParti = new SemiParti();
 							semiParti.setPartiCode(rs.getInt(1));
 							semiParti.setSemiCode(rs.getInt(2));
-							semiParti.setPartiBookDate(rs.getDate(3));
+							
+							java.sql.Timestamp PartiBookDateTmp=rs.getTimestamp(9);
+							String PartiBookDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(PartiBookDateTmp.getTime()));
+							semiParti.setPartiBookDate(PartiBookDate);
+							
 							semiParti.setMemId(rs.getString(4));
 							semiParti.setPartiMcnt(rs.getInt(5));
 							semiParti.setPartiPrice(rs.getInt(6));
 							semiParti.setPartiCurr(rs.getString(7));
 							semiParti.setPartiComm(rs.getString(8));
-							semiParti.setPartiCommDate(rs.getDate(9));
+							
+							java.sql.Timestamp PartiCommDateTmp=rs.getTimestamp(9);
+							String PartiCommDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(PartiCommDateTmp.getTime()));
+							semiParti.setPartiCommDate(PartiCommDate);
+							
 							semiParti.setMemNick(rs.getString(10));
 							semiParti.setMemProf(rs.getString(11));
 							semiReviewList.add(semiParti);
