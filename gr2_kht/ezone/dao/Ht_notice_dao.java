@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.google.gson.Gson;
+
 import ezone.vo.Ht_notice_VO;
 
 public class Ht_notice_dao{
@@ -26,7 +28,7 @@ public class Ht_notice_dao{
 			e.printStackTrace();
 		}
 	
-		String info = "jdbc:oracle:thin:@localhost:1521:xe";
+		String info = "jdbc:oracle:thin:@192.168.4.19:1521:xe";
 		con = DriverManager.getConnection(info, "scott", "tiger");
 		System.out.println("접속 성공");
 	
@@ -64,8 +66,7 @@ public class Ht_notice_dao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+	
 		return notiList;
 		
 	}

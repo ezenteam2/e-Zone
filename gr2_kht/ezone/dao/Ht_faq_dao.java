@@ -25,7 +25,7 @@ public class Ht_faq_dao {
 			e.printStackTrace();
 		}
 	
-		String info = "jdbc:oracle:thin:@192.168.4.90:1521:xe";
+		String info = "jdbc:oracle:thin:@192.168.4.19:1521:xe";
 		con = DriverManager.getConnection(info, "scott", "tiger");
 		System.out.println("접속 성공");
 	

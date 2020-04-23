@@ -14,8 +14,8 @@
 
 
 </style>
-<link rel="stylesheet" href="${path}/project05_user_board/ht_user_w_board_CSS.css">
-<link rel="stylesheet" href="${path}/project05_user_board/ht_accordion_CSS.css">
+<link rel="stylesheet" href="${path}/css/ht_user_w_board_CSS.css">
+<link rel="stylesheet" href="${path}/css/ht_accordion_CSS.css">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

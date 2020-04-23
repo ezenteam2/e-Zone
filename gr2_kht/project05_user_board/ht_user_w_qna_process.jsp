@@ -24,6 +24,7 @@
 	--%>
 	
 	var proc = "${param.proc}";
+	console.log(proc);
 
 	if(proc=="insert"){
 		alert("등록 완료")
@@ -35,12 +36,14 @@
 		$(location).attr("href", "${path}/Ht_user_qna_controller")
 	}
 
-	})
 	
 	if(proc=="update"){
 		alert("수정 완료")
 		$(location).attr("href", "${path}/Ht_user_qna_controller")
 	}
+
+	})
+
 </script>
 
 <title>Insert title here</title>

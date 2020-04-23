@@ -15,9 +15,9 @@
 
 </style>
 
-<link rel="stylesheet" href="${path}/project05_user_board/ht_user_w_board_CSS.css">
-<link rel="stylesheet" href="${path}/project05_user_board/ht_accordion_CSS.css">
-<link rel="stylesheet" href="${path}/project05_user_board/ht_user_w_modal.css">
+<link rel="stylesheet" href="${path}/css/ht_user_w_board_CSS.css">
+<link rel="stylesheet" href="${path}/css/ht_accordion_CSS.css">
+<link rel="stylesheet" href="${path}/css/ht_user_w_modal.css">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -28,10 +28,8 @@
 	
 	--%>
 	$("#qnaInsBtn").click(function(){
-		
-		$("[name=memId]").val("${param.user}");
+		$("[name=memId]").val("${user}");
 		$("[name=proc]").val("insert");
-
 	});
 	
 	$(".accordionTitleContainer:even").css({backgroundColor:"#F1F1F1"});
@@ -53,8 +51,8 @@
 	function uptConfirm(qnaCode) {
 		if(confirm("수정 하겠습니다")) {
 			$("[name=proc]").val("update");
-			$("#uptDiv").submit();
-			window.location="${path}/Ht_user_qna_controller";
+			$("[name=qnaCode]").val(qnaCode);
+			$("#uptForm").submit();
 		}
 	}
 	
@@ -222,7 +220,9 @@
 			</div>
 		</div>
 
-	<form method="post" id="uptForm" action="ht_user_w_qna_insert.jsp">
+	<form method="post" id="uptForm" action="${path}/Ht_user_qna_controller">
+		<input type="hidden" name="proc"/>
+		<input type="hidden" name="qnaCode"/>
 
 		<div  class="modal__inner--title">
 			제목<br>
