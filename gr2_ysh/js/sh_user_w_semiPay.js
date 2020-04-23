@@ -42,21 +42,15 @@ all__block.click(function(e){
 })
 
 // 모두 선택시 전체 동의에 체크 (수정중)
-var k = 0;
-for(let i = 0; i<block.length; i++){
-    $(first[i]).change(function(e){
-        for(let j = 0; i<block.length; i++){
-            if($(first[j]).is(":checked")==true){
-                k = k + 1;       
-            }
-            if(k==3){
-                $(all__block).css('display','block');
-                $(all__none).css('display','none');
-            }
-        }
-    })
-}
-
+$(none[0]).click(function(e){
+	$(none[1]).click(function(e){
+		$(none[2]).click(function(e){
+			$(all).trigger('click');
+			all__block.css('display','block');
+		    all__none.css('display','none');
+		})
+	})
+})
 
 // 서비스 동의 내용 펼치기
 var down = $('.down').get();
