@@ -28,7 +28,7 @@ var startTime=0;
 var endTime=21;
 var timeselChk = document.querySelectorAll('#time-sel input[type=checkbox]');
 var timeselSpan=document.querySelectorAll("#time-sel span");
-let unableTime=[{start:11,end:13}, {start:18,end:20}];
+let unableTime=[];
 
 //timevalid
 function isTimeValid(startTime, endTime){
