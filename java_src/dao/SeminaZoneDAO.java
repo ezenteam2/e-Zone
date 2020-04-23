@@ -12,7 +12,7 @@ public class SeminaZoneDAO {
 	public void setCon() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String info="jdbc:oracle:thin:@192.168.4.90:1521:xe";
+			String info="jdbc:oracle:thin:@192.168.4.19:1521:xe";
 			con = DriverManager.getConnection(info, "scott", "tiger");
 			System.out.println("Connection완료");
 			con.setAutoCommit(false);
