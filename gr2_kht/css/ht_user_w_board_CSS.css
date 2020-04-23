@@ -1,0 +1,224 @@
+@charset "UTF-8";
+
+*{
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+body{
+	background-color:#F6F6F6;
+}
+
+.boardTitle{
+	text-align:center;
+}
+
+.schContainer{
+	width:1140px;
+	margin-right:auto;
+	margin-left:auto;
+	margin-top:30px;
+	margin-bottom:50px;
+	padding:30px;
+	border: solid 3px #704DE4;
+	background-color:white;
+}
+
+.schTitle{
+	font-size:17px;
+	margin-top:20px;
+	margin-bottom:10px;
+	font-weight:bold;
+}
+
+.schTitleCate{
+	display:inline-block;
+	width:230px;
+	font-size:17px;
+	margin-bottom:10px;
+	font-weight:bold;
+	margin-right:20px;	
+	
+}
+
+.schTitleDetail{
+	display:inline-block;
+	width:600px;
+	font-size:17px;
+	padding-left:10px;
+	margin-bottom:10px;
+	font-weight:bold;	
+}
+
+.schSelectContainer{
+	display:inline-block;
+	width:240px;
+	margin-right:20px;
+}
+
+.faqCateSelect{
+	width:230px;
+	height:50px;
+	padding-left:20px;
+	font-size:15px;
+	border:solid 2px #E0E0E0;
+	
+}
+
+.schInputContainerFaq{
+	display:inline-block;
+	margin-right:30px;
+	
+}
+
+.schInputContainer{
+	width:900px;
+	margin-right:15px;
+	display:inline-block;	
+}
+
+.qnaTextareaContainer{
+	width:940px;
+	margin-right:15px;
+	display:inline-block;
+}
+
+.schBtnContainer{
+	width:160px;
+	display:inline-block;
+}
+
+.schInput{
+	width:850px;
+	height:50px;
+	padding-left:20px;
+	border:solid 2px #E0E0E0;
+	font-size:15px;
+}
+
+.schInputFaq{
+	width:640px;
+	height:47px;
+	padding-left:20px;
+	border:solid 2px #E0E0E0;
+	font-size:15px;	
+}
+
+.qnaTextarea{
+	resize:none;
+	width:905px;
+	height:80px;
+	padding:10px;
+	border:solid 2px #E0E0E0;
+}
+
+.schBtnC{
+	width:150px;
+	height:50px;
+	background: url("../css/ht_img/schBtn.png");
+	border:none;
+	cursor:pointer;
+}
+
+.accordionContainer{
+	width:1200px;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+.accordionTitleContainer{
+	border-top:solid 1px #E0E0E0;
+	border-bottom:solid 1px #E0E0E0;
+	height:30px;
+	padding-left:20px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.accordionTitleType{
+	width:150px;
+	display:inline-block;
+	font-weight:bold;
+	font-size:17px;
+	text-align:center;
+	margin-right:50px;
+	vertical-align:middle;
+}
+
+.accordionTitle{
+	margin-top:-1px;
+	margin-bottom:-1px;
+	width:750px;
+	display:inline-block;
+	font-size:17px;
+	font-weight:bold;
+	vertical-align:middle;
+}
+
+.accordionContent{
+	margin-top:-1px;
+	margin-bottom:-1px;
+	background-color:white;
+	border-top:solid 1px #E0E0E0;
+	border-bottom:solid 1px #E0E0E0;
+	padding-left:200px;
+	padding-right:200px;
+}
+
+.page-nation{
+	margin-top:50px;
+	margin-bottom:100px;
+	text-align:center;
+}
+
+.pageNationUl{
+	list-style: none;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 0;
+	margin: 20px 0 0 0;
+	text-align:center;
+	display: inline-block;
+}
+
+.pageNationLi{
+	display:inline-block;
+	width: 35px;
+	height: 35px;
+	background-color: #704de4;
+	color: white;
+	line-height: 35px;
+	text-align: center;
+	margin: 3px;
+	cursor: pointer;
+}
+
+.qnaBtnContainer{
+	text-align:right;
+	margin-bottom:15px;
+}
+
+.qnaUptBtnC{
+	width:80px;
+	height:30px;
+	background: url("../css/ht_img/uptBtn.png");
+	border:none;
+	cursor:pointer;
+}
+
+.qnaDelBtnC{
+	width:80px;
+	height:30px;
+	background: url("../css/ht_img/delBtn.png");
+	border:none;
+	cursor:pointer;	
+}
+
+.qnaTitleInput{
+	left: 25px;
+	width: 91.5%;
+	height: 35px;
+	border: 1px solid #a4a4a4;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
