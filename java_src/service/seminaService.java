@@ -33,13 +33,9 @@ public class seminaService {
 	public void insertParti(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String memId = (String)session.getAttribute("user");
-		System.out.println("memId : "+memId);
 		int semiCode = Integer.parseInt(request.getParameter("semiCode"));
-		System.out.println("semiCode : "+semiCode);
 		int partiMcnt= Integer.parseInt(request.getParameter("partiMcnt"));
-		System.out.println("partiMcnt : "+partiMcnt);
 		int partiPrice= Integer.parseInt(request.getParameter("partiPrice"));
-		System.out.println("partiPrice : "+partiPrice);
 		dao.insertSemiParti(new SemiParti(semiCode, memId, partiMcnt, partiPrice));
 	}
 }
