@@ -34,20 +34,23 @@ public class SemiListHost extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 		response.setCharacterEncoding("UTF-8");
-		String keyword=request.getParameter("keyword");
+		String pageStr=request.getParameter("page");
 		String type=request.getParameter("type");
+		String user=request.getParameter("user");
 		
 		
-		
-		if(keyword==null) {
-			keyword="";
+		if(pageStr==null) {
+			pageStr="1";
 		}
 		if(type==null) {
-			type="";
+			type="host";
+		}
+		if(user==null) {
+			user="";
 		}
 		
-		if(keyword.contentEquals("")) {
-			ArrayList<Seminar> array = dao.getList();
+		if(type.equals("host")) {
+			ArrayList<Seminar> array = dao.getList(type, Integer.parseInt(pageStr), user);
 			response.getWriter().print("[");
 			for(Seminar sem:array) {
 				response.getWriter().print("{\"semiCode\":"+sem.getSemiCode()+", ");
@@ -71,6 +74,9 @@ public class SemiListHost extends HttpServlet {
 			}
 			response.getWriter().print("]");
 		}
+		if(type.equals("cnt")) {
+			int cnt =dao.getCount(user);
+			response.getWriter().print("{\"count\":"+cnt+"}");
+		}
 	}
-
 }

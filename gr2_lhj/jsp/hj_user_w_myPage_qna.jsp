@@ -44,26 +44,7 @@
                 <span>답변상태</span>
             </div>
             <ul>
-                <li><span>인공지능개요</span>
-                <span>2020-04-08</span>
-                <span>세미나</span>
-                <span>미답변</span></li>
-                <li><span>1인미디어총론</span>
-                    <span>2020-04-09</span>
-                    <span>세미나</span>
-                    <span>답변완료</span></li>
-                <li><span>자바웹개발기초</span>
-                    <span>2020-04-08</span>
-                    <span>세미나</span>
-                    <span>답변완료</span></li>
-                <li><span>스프링/자바 웹개발</span>
-                    <span>2020-04-08</span>
-                    <span>세미나</span>
-                    <span>미답변</span></li>
-                <li><span>오라클 기초</span>
-                    <span>2020-04-10</span>
-                    <span>세미나</span>
-                    <span>답변완료</span></li>
+                
             </ul>
         </div>
         <div class="page-nation">
@@ -127,6 +108,10 @@
             <button>닫기</button>
         </div>
     </div>
+    <script>
+    	var path="${path}";
+    	var user="${user}";
+    </script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="${path }/my/e-Zone/gr2_lhj/js/hj_user_w_myPage_qna.js"></script>
 </body>
