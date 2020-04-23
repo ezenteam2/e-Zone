@@ -52,7 +52,6 @@ public class seminaController extends HttpServlet {
 			if(user==null||user.equals("")) {
 				page = "gr2_ysh\\jsp\\sh_user_w_semiPay.jsp";
 				String number = request.getParameter("number");
-				System.out.println("number 존재 : "+number);
 				request.setAttribute("seminaInfo", service.infoList(request));
 				request.setAttribute("number", number);
 			}else {
