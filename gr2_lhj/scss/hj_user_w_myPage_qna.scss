@@ -74,7 +74,10 @@ body{
                     height:40px;
                     line-height: 40px;
                     text-align: center;
-                    color:#656565
+                    color:#656565;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
                 }
             }
             :last-child{
@@ -93,6 +96,8 @@ body{
                 width:35px;
                 height:35px;
                 background-color:$purple;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 color:white;
                 line-height: 35px;
                 text-align: center;
