@@ -49,18 +49,11 @@ public class seminaController extends HttpServlet {
 			HttpSession session = request.getSession();
 			String user = (String)session.getAttribute("user");
 			System.out.println(user);
-			if(user==null||user.equals("")) {
-				page = "gr2_ysh\\jsp\\sh_user_w_semiPay.jsp";
-				String number = request.getParameter("number");
-				System.out.println("number 존재 : "+number);
-				request.setAttribute("seminaInfo", service.infoList(request));
-				request.setAttribute("number", number);
-			}else {
-				page = "gr2_ysh\\jsp\\sh_user_w_semiPay.jsp";
-				String number = request.getParameter("number");
-				request.setAttribute("seminaInfo", service.infoList(request));
-				request.setAttribute("number", number);
-			}
+			page = "gr2_ysh\\jsp\\sh_user_w_semiPay.jsp";
+			String number = request.getParameter("number");
+			request.setAttribute("seminaInfo", service.infoList(request));
+			request.setAttribute("number", number);
+			
 		}else if(proc.equals("apply")) {
 			service.insertParti(request);
 			page = "gr2_ysh\\jsp\\sh_user_w_semiPay_last.jsp";
