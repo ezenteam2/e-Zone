@@ -6,7 +6,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="utf-8"/>  
-
+<%
+String user = (String)session.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,10 +46,13 @@
 			$("form").submit();
 		});
       	$("#pay").click(function(){
-      		
+      		if(<%=user%>==null){
+      			alert("로그인시 신청 가능합니다")
+      		}else{
 			$("[name=proc]").val("pay");
 			$("[name=number]").val(number);			
 			$("form").submit();
+      		}
 		});
       	
       	
