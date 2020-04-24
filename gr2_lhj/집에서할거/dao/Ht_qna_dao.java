@@ -181,6 +181,34 @@ public class Ht_qna_dao {
 		return cnt;
 	}
 	
+	public int getCnt(String id) {
+			
+			int cnt=0;
+			try {
+				setCon();
+				
+				String sql = "SELECT count(*) cnt FROM P5QNA where mem_id = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, id);
+	
+				rs = pstmt.executeQuery();
+						
+				if(rs.next()) {
+					cnt=rs.getInt(1);
+				}
+				
+				rs.close();
+				pstmt.close();
+				con.close();
+							
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return cnt;
+		}
+	
 	public void deleteQna(int qnaCode) {
 		
 		try {

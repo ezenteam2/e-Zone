@@ -49,7 +49,6 @@ public class SemiListHost extends HttpServlet {
 			user="";
 		}
 		
-		
 		if(type.equals("host")) {
 			ArrayList<Seminar> array = dao.getList(type, Integer.parseInt(pageStr), user);
 			response.getWriter().print("[");
