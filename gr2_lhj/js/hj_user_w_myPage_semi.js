@@ -155,7 +155,7 @@ function init(){
 	callHostList(1);
 	hostBtn.addEventListener('click', function(){
 		callHostList(1);
-		swal("리스트 업데이트가 완료되었습니다.","", "success");
+		swal("리스트 업데이트가 완료되었습니다.");
 	});
 	detailOffBtn.addEventListener('click', detailOff);
 	deleteBtn.addEventListener('click', deleteSemi);
