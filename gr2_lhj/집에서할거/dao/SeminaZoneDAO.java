@@ -33,7 +33,7 @@ public class SeminaZoneDAO {
 
 			pstmt.setInt(1, semiCode);
 			rs = pstmt.executeQuery();
-			
+			System.out.println("ddd");
 			if(rs.next()) {
 
 				semizone.setZoneCode(rs.getInt(1));
