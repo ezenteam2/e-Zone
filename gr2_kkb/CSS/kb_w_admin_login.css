@@ -5,48 +5,44 @@ body{
     background-color: #EAEAEA;
 }
 
-#Upt_Pass_Main{
+#Admin_Login_Main{
     width:1200px;
-    height:100%;
     margin-left:auto;
     margin-right:auto;
 }
 
-#Upt_Pass_Form_Div{
+#Login_Div{
     width:600px;
-    height:350px;
-    background-color: white;
+    height:300px;
     margin-left:auto;
     margin-right:auto;
-    margin-top:20%;
-    padding:1%;
+    margin-top:5%;
+    background-color: white;
+    padding:2%;
+
+
 }
 
-.input_Upt{
+.login_Title{
+    margin-top:14%;
+}
+
+.input_login{
     width:100%;
     height:50px;
     margin-left:auto;
     margin-right:auto;
-    margin-top:30px;
+    margin-top:15px;
     padding-left:10px;
 }
 
-#UptBtn{
+#LoginBtn{
     width:100%;
     height:60px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:15px;
+    background-color: rgba(255,208,20,.85);;
     border:0;
-    background-color: rgba(255,208,20,.85);
-    margin-top:30px;
+    font-size:12pt;
 }
-
-#Match{
-    width:100%;
-    text-align: right;
-    display:none;
-}
-
-#MisMatch{
-    width:100%;
-    display:none;
-}
-

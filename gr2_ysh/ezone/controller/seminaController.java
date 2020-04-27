@@ -32,9 +32,12 @@ public class seminaController extends HttpServlet {
 		String page = null;
 		
 		if(proc==null||proc.equals("")) {
-		page = "gr2_ysh\\jsp\\sh_user_w_semiDetail.jsp";
 		request.setAttribute("seminaInfo", service.infoList(request));
 		request.setAttribute("qnaList", service.qnaList(request));
+		page = "gr2_ysh\\jsp\\sh_user_w_semiDetail.jsp";
+		for(SemiQna q1:service.qnaList(request)) {
+			System.out.println(q1.getMemNick());
+		}
 		request.setAttribute("reviewList", service.reviewList(request));
 
 		
@@ -58,6 +61,14 @@ public class seminaController extends HttpServlet {
 			service.insertParti(request);
 			page = "gr2_ysh\\jsp\\sh_user_w_semiPay_last.jsp";
 			System.out.println("등록성공");
+		}else if(proc.equals("sqDetail")) {
+			service.insertQna(request);
+			request.setAttribute("seminaInfo", service.infoList(request));
+			request.setAttribute("qnaList", service.qnaList(request));
+			request.setAttribute("reviewList", service.reviewList(request));
+			String semiCode=request.getParameter("semiCode");
+			page="gr2_ysh\\jsp\\qnaResult.jsp?semiCode="+semiCode;
+			
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(page);

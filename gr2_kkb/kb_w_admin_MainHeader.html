@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/user_w_kb_MainHeader.css">
+    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".nav_menu_Div>a").mouseover(function(){
+                var submenu = $(this).next("ul");
+
+               submenu.slideDown();
+            })
+            $(".nav_menu_Div>a").click(function(){
+                var submenu = $(this).next("ul");
+                submenu.slideDown();
+                submenu.hide();
+            });
+
+            $(this).before("li")
+        });
+    </script>
+    <title> e-Zone</title>
+</head>
+<body>
+    <div id="top_Div">
+        <div id="logo_div">
+            <img src="Image/e-Zone-logo.png" class="logo_Img">
+        </div>
+        <div class="nav_top_Btn_Div"><span class="nav_Top_Span">로그인</span></div>
+    </div>
+    <div id="nav_menu">
+        <div class="nav_menu_Div">
+            <a>회원관리</a>
+            <ul class="hide">
+                <li>회원관리</li>
+                <li>관리자 계정관리</li>
+            </ul>
+        </div>
+        <div class="nav_menu_Div">
+            <a>세미나존 관리</a>
+            <ul class="hide">
+                <li>세미나존</li>
+                <li>세미나존 문의 관리</li>
+            </ul>
+        </div>
+        <div class="nav_menu_Div">
+            <a>세미나관리</a>
+            <ul class="hide">
+                <li>모임등록</li>
+                <li>모임참가</li>
+            </ul>
+        </div>
+        <div class="nav_menu_Div">
+            <a>커뮤니티 관리</a>
+            <ul class="hide">
+                <li>공지사항</li>
+                <li>Q & A</li>
+                <li>F A Q</li> 
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 
