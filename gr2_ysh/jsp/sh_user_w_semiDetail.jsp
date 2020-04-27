@@ -46,8 +46,10 @@ String user = (String)session.getAttribute("user");
 			$("form").submit();
 		});
       	$("#pay").click(function(){
-      		if(<%=user%>==null){
-      			alert("로그인시 신청 가능합니다")
+      		var user= "<c:out value="${param.user}"/>"
+      		if(user==""){
+      			Command: toastr["warning"]("로그인시 예약 가능합니다");
+      		
       		}else{
 			$("[name=proc]").val("pay");
 			$("[name=number]").val(number);			
@@ -55,14 +57,44 @@ String user = (String)session.getAttribute("user");
       		}
 		});
       	
-      	
-      
-    	
-    })
+      	var xhr = new XMLHttpRequest();
+		$("#sqSubmit").click(function(){
+			
+			var semiCode = "<c:out value="${param.semiCode}"/>"
+
+			var sqDetail = $("textarea").val();
+			var qnaDetail = "semiCode="+semiCode+"&proc=sqDetail&sqDetail="+sqDetail;
+
+			xhr.open("get","${path}/semina?"+qnaDetail,true);
+			
+			/*
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					
+					var qlist = eval("("+xhr.responseText+")");
+					console.log(qlist)
+					var qnainfos=null;
+					$.each(qlist,function(idx,qna){
+						qnainfos +="<tr><td>"+qna.memProf+"</td><td>"+qna.memNick+"</td><td>"+qna.sqDetail+"</td><td>"+qna.sqDate
+						+"</td><td>"+qna.sqAnswer+"</td><td>"+qna.qnaAnsdate+"</td></tr>";
+					});
+					$("#show").html(qnainfos);
+
+				}
+			
+			};
+			*/
+			xhr.send();
+			window.location=window.location.pathname+"?semiCode="+semiCode;
+		});
+		
+});
      
     </script>
+   
 </head>
 <body>
+ <table id="show"></table>
     <article>
         <div class="content">
     <!-- 컨텐츠 상단 -->
@@ -121,11 +153,14 @@ String user = (String)session.getAttribute("user");
 
 
             <table class="semi__ask">
-<c:forEach var="qna" items="${qnaList}" begin="0" end="3" step="1">
+<c:forEach var="qna" items="${qnaList}" begin="0" end="2" step="1">
+				<td colspan="3"><hr class="table--hr"></td></tr>
                 <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/gr2_ysh/img/${qna.memProf}" alt=""></td><td class="semi__ask--td2">${qna.memNick}</td></tr>
                 <tr><td class="semi__ask--td3">${qna.sqDetail}</td></tr>
                 <tr><td class="semi__ask--td4">${qna.sqDate}</td></tr>
                 <tr><td colspan="3"></td></tr>
+
+<c:if test="${!empty qna.sqAnswer}">
 
                 <!-- 호스트 답글 -->
                 <tr>
@@ -134,7 +169,8 @@ String user = (String)session.getAttribute("user");
                 </tr>
                 <tr><td class="semi__ask--td3">${qna.sqAnswer}</td></tr>
                 <tr><td class="semi__ask--td4">${qna.qnaAnsdate}</td></tr>
-                <tr><td colspan="3"><hr class="table--hr"></td></tr>
+
+</c:if>            
 </c:forEach>
             </table>
 
@@ -154,10 +190,11 @@ String user = (String)session.getAttribute("user");
 
             <table class="semi__ask">
 <c:forEach var="rev" items="${reviewList}" begin="0" end="3" step="1">
+				<td colspan="3"><hr class="table--hr"></td></tr>
                 <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/gr2_ysh/img/${rev.memProf}" alt=""></td><td class="semi__ask--td2">${rev.memNick}</td></tr>
                 <tr><td class="semi__ask--td3">${rev.partiComm}</td></tr>
                 <tr><td class="semi__ask--td4">${rev.partiCommDate}</td></tr>
-                <tr><td colspan="3"><hr class="table--hr"></td></tr>
+
 </c:forEach>
             </table>
 
@@ -242,12 +279,12 @@ String user = (String)session.getAttribute("user");
                 <span class="typing"></span>/200
             </span>
         <form action="">
-            <textarea placeholder="질문을 남겨주세요" class="modal__inner--text"></textarea>
+            <textarea placeholder="질문을 남겨주세요" class="modal__inner--text" id="sqDetail"></textarea>
             <div class="modal__inner--alert">
             <img src="${path}/gr2_ysh/img/alert.png" style="vertical-align: middle;">질문은 공개 상태로만 등록하실 수 있습니다.
             </div>
         <div class="modal__inner--button" style="display: flex;">
-            <input class="modal__inner--button-blue" type="submit" value="등록">
+            <button class="modal__inner--button-blue" id="sqSubmit" type="button">등록</button>
             <div class="modal__inner--button-gray">삭제</div>
         </div>
         </form>
@@ -284,6 +321,7 @@ String user = (String)session.getAttribute("user");
 	 <form method="POST" style="display : none">
         <input type="hidden" name="proc">
         <input type="hidden" name="number">
+        <input type="hidden" name="sqDetail">
         <input type="submit">
      </form>
      
