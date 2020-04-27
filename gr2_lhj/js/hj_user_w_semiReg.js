@@ -236,3 +236,36 @@ function uptTimeSch(target){
 }
 
 datepicker.addEventListener('change', uptTimeSch);
+
+
+let unableTime2=[];
+document.querySelector('button[type="submit"]').addEventListener('click', (event)=>{
+	event.preventDefault();
+	let date2=document.querySelector("input[id=datepicker]").value;
+	var xhr = new XMLHttpRequest();
+	xhr.open("get", path+"/semitimechk?zone="+zoneNum+"&date="+date2, true);
+	
+	xhr.onreadystatechange=function(){ 
+		if(xhr.readyState==4&&xhr.status==200){
+			var result = eval('('+xhr.responseText+')');
+			var tmp=[];
+			result.forEach(el=>{
+				var startT=el.start.substring(11, 13);
+				console.log("startT:"+startT);
+				startT=Number(startT);
+				var endT=el.end.substring(11,13);
+				console.log("endT:"+endT);
+				endT=Number(endT)-1;
+				tmp.push({start:startT, end:endT});
+			});
+			unableTime2=tmp;
+			if(unableTime.length===unableTime2.length){
+				document.querySelector('#reg-form').submit();
+			} else {
+				swal("시간정보가 변경되었습니다.", "시간을 재설정해주세요", "info");
+			}
+			
+		}
+	}
+	xhr.send();
+});

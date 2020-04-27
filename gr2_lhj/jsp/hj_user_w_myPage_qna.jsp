@@ -49,7 +49,7 @@
         </div>
         <div class="page-nation">
         	<ul>
-        		<li>1</li>
+        		
         	</ul>
         </div>
     </div>

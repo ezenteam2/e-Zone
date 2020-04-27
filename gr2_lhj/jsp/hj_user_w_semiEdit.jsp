@@ -11,10 +11,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/hj_user_w_semiEdit.css">
+    <link rel="stylesheet" href="${path }/my/e-Zone/gr2_lhj/css/hj_user_w_semiEdit.css">
     <link rel="stylesheet" href="../css/toastr.css">
-    <script src="../js/jquery.js"></script>
-    <script src="../js/toastr.js"></script>
+    <script src="${path }/my/e-Zone/gr2_lhj/js/jquery.js"></script>
+    <script src="${path }/my/e-Zone/gr2_lhj/js/toastr.js"></script>
     <title>세미나정보수정</title>
 </head>
 <body>
@@ -74,6 +74,6 @@
     </form>
     </div>
 
-    <script src="../js/hj_user_w_semiEdit.js"></script>
+    <script src="${path }/my/e-Zone/gr2_lhj/js/hj_user_w_semiEdit.js"></script>
 </body>
 </html>
