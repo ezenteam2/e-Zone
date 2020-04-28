@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >	
+
+<!-- 
+	resultMap 객체 선언 단위 객체가 모인 객체 선언
+	resultMap은 배열 형태로 결과값을 return할 객체
+	resultType 단일 데이터형태로 결과값을 return할 객체
+	
+	column ==> vo와 연결하여 ArrayList로 처리
+ -->
+ 
+<mapper namespace="springweb1.a03_mvc.a03_repository.BoardDao">
+	<resultMap type="board" id="boardResult"></resultMap>
+	<select id="boardList" resultMap="boardResult" parameterType="board">
+		select * from reboard where 1=1
+		<if test="title !=null and title !=''">
+		and title like '%'||#{title}||'%'
+		</if>
+		<if test="writer !=null and writer !=''" >
+		and writer like '%'||#{writer}||'%'
+		</if>
+	</select>
+	
+	<insert id="insertBoard"> 
+        INSERT INTO reboard VALUES (reboard_seq.nextval, 0, #{title}, #{contents}, #{writer}, sysdate, sysdate, #{etc}) 
+    </insert>
+</mapper>
