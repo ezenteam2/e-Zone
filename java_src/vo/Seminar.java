@@ -20,6 +20,7 @@ public class Seminar {
 	private String zoneComm;
 	private java.sql.Date zoneCommdate;
 	private String szTitle;
+	private String semiDateS;
 	
 	
 	

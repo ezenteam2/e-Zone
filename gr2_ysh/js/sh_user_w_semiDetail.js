@@ -1,36 +1,4 @@
 
-// 모달창
-var askExit = document.querySelectorAll('.modal__inner--exit');
-var modal = document.querySelectorAll('.modal');
-var askButton = document.querySelectorAll('button');
-
-// for(var i=0; i<modal.length;i++){
-//     askExit[i].addEventListener('click',function(event){
-//         modal[i].style.display = 'none';
-//     })
-// }
-
-askButton[0].addEventListener('click',function(event){
-    modal[0].style.display = 'block';
-})
-askButton[1].addEventListener('click',function(event){
-    modal[1].style.display = 'block';
-})
-
-askExit[0].addEventListener('click',function(event){
-    modal[0].style.display = 'none';
-})
-askExit[1].addEventListener('click',function(event){
-    modal[1].style.display = 'none';
- })
-
- window.onkeydown = function(event){
-    if(event.keyCode==27){
-        modal[0].style.display = 'none';
-        modal[1].style.display = 'none';
-    }
-}
-
 // 인원 숫자 증감 부분
 var minus =  document.querySelector('.choice-num__count--minus');
 var number = document.querySelector('.number');
@@ -42,6 +10,9 @@ number.value=1;
 plus.addEventListener('click',function(event){
     if(Number(number.value)+1<=partiNum()){
         number.value = Number(number.value)+1;
+        if(number.value==partiNum()){
+        	Command: toastr["warning"]("최대 신청 가능 인원은"+partiNum()+"명 입니다");
+        }
 
     }
 })
@@ -58,6 +29,7 @@ number.addEventListener('change',function(event){
 
     }else if(Number(number.value)>partiNum()){
         number.value=partiNum();
+        Command: toastr["warning"]("최대 신청 가능 인원은"+partiNum()+"명 입니다");
     }
 })
 
@@ -83,13 +55,13 @@ toastr.options = {
 		  "debug": false,
 		  "newestOnTop": false,
 		  "progressBar": false,
-		  "positionClass": "toast-top-center",
+		  "positionClass": "toast-top-right",
 		  "preventDuplicates": false,
 		  "onclick": null,
-		  "showDuration": "300",
-		  "hideDuration": "1000",
-		  "timeOut": "5000",
-		  "extendedTimeOut": "1000",
+		  "showDuration": "100",
+		  "hideDuration": "300",
+		  "timeOut": "1000",
+		  "extendedTimeOut": "2000",
 		  "showEasing": "swing",
 		  "hideEasing": "linear",
 		  "showMethod": "fadeIn",

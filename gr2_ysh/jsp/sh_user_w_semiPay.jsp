@@ -5,9 +5,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path" value="${pageContext.request.contextPath }"/>
-<fmt:parseDate value='${seminaInfo.semiStime}' var='date1' pattern="yyyymmdd" scope="page"/>
-<fmt:parseDate value='${seminaInfo.semiFtime}' var='date2' pattern="yyyymmdd" scope="page"/>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+<fmt:parseDate value='${seminaInfo.semiStime}' var='date1' pattern="yyyy-MM-dd HH:mm:ss" scope="page"/>
+<fmt:parseDate value='${seminaInfo.semiFtime}' var='date2' pattern="yyyy-MM-dd HH:mm:ss" scope="page"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="${path}/gr2_ysh/css/style.css">
     <link rel="stylesheet" href="${path}/gr2_ysh/css/sh_user_w_semiPay.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-></script>
+        <link rel="stylesheet" href="${path}/gr2_ysh/css/toastr.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="${path}/gr2_ysh/js/toastr.js"></script>
 <script>
 	$(document).ready(function(){
 		
@@ -31,7 +31,7 @@
 				$("form").submit();
 				
 			}else{
-				alert("전체동의를 해야 신청가능합니다")
+				Command: toastr["warning"]("전체동의시 신청 가능합니다");
 			}
 		});
 		
@@ -71,7 +71,7 @@
                     <table class="booking-info--table">
                         <tr><td>예약 날짜</td><td>
                         <fmt:formatDate value="${date1}" pattern="yyyy년 MM월 dd일  "/>
-                        <fmt:formatDate value="${date1}" pattern="hh:mm  "/>~<fmt:formatDate value="${date2}" pattern="hh:mm"/></td></tr>
+                        <fmt:formatDate value="${date1}" pattern="HH시 mm분"/>~<fmt:formatDate value="${date2}" pattern="HH시 mm분"/></td></tr>
                         <tr><td>예약 인원</td><td class="number">${number}명</td></tr>
                     </table>
                 </div>
@@ -186,7 +186,7 @@
                 <td rowspan="3">&#8361;<fmt:formatNumber value="${seminaInfo.semiPrice*number}" type="currency" pattern="#,###,###"/></td>
                 </tr>
                 
-                <tr><td>시간</td><td><fmt:formatDate value="${date1}" pattern="hh:mm"/>~<fmt:formatDate value="${date2}" pattern="hh:mm"/></td></tr>
+                <tr><td>시간</td><td><fmt:formatDate value="${date1}" pattern="HH:mm"/>~<fmt:formatDate value="${date2}" pattern="HH:mm"/></td></tr>
                 <tr><td>신청인원</td><td>${number}명</td></tr>
             </table>
             <div class="article__payment-info--result">

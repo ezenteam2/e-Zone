@@ -6,9 +6,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath }"/>
 <fmt:requestEncoding value="utf-8"/>  
-<%
-String user = (String)session.getAttribute("user");
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,9 +20,12 @@ String user = (String)session.getAttribute("user");
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="${path}/gr2_ysh/js/toastr.js"></script>
     <script>
+    // 세미나별 현재 신청가능 인원
     function partiNum(){
-  		return "<c:out value="${seminaInfo.semiCapa}"/>"
+  		return "<c:out value="${seminaInfo.semiCapa-seminaInfo.semiParno}"/>"
   	}
+    
+    //form을 통해 submit되는 proc 프로세스
     $(document).ready(function(){
     	var number = $("#number01").val();
     	$("#number01").change(function(){
@@ -46,26 +46,81 @@ String user = (String)session.getAttribute("user");
 			$("form").submit();
 		});
       	$("#pay").click(function(){
-      		var user= "<c:out value="${param.user}"/>"
-      		if(user==""){
+      		var user= "<c:out value="${user}"/>"
+      		/* if(user==""||user==null){
       			Command: toastr["warning"]("로그인시 예약 가능합니다");
       		
       		}else{
 			$("[name=proc]").val("pay");
 			$("[name=number]").val(number);			
 			$("form").submit();
-      		}
+      		} */
+      		$("[name=proc]").val("pay");
+			$("[name=number]").val(number);			
+			$("form").submit();
+      		
 		});
       	
+      	// 문의 남기기 버튼 클릭시, 로그인하지 않았으면 경고창 출력
+      	
+      	var askExit = document.querySelectorAll('.modal__inner--exit');
+      	var modal = document.querySelectorAll('.modal');
+      	var askButton = document.querySelectorAll('button');
+      	
+      	$("#ask--button").click(function(){
+      		var user= "<c:out value="${user}"/>"
+      		if(user==""||user==null){
+				Command: toastr["warning"]("로그인시 이용 가능합니다");
+			}else{
+				askButton[0].addEventListener('click',function(event){
+				    modal[0].style.display = 'block';
+				})
+				askExit[0].addEventListener('click',function(event){
+				    modal[0].style.display = 'none';
+				})
+				
+			}	
+      	})
+      	window.onkeydown = function(event){
+			   if(event.keyCode==27){
+			       modal[0].style.display = 'none';
+			   }
+		};
+      	
+      	// 후기 남기기 버튼 클릭시, 로그인하지 않았으면 경고창 출력
+      	$("#review--button").click(function(){
+      		var user= "<c:out value="${user}"/>"
+      		if(user==""||user==null){
+				Command: toastr["warning"]("로그인시 이용 가능합니다");
+			}else{
+				askButton[1].addEventListener('click',function(event){
+				    modal[1].style.display = 'block';
+				})
+				askExit[0].addEventListener('click',function(event){
+				    modal[1].style.display = 'none';
+				})
+				
+			}	
+      	})
+      	window.onkeydown = function(event){
+		   if(event.keyCode==27){
+		       modal[1].style.display = 'none';
+		   }
+		};
+      	
+      	// 세미나 문의 모달 등록 -- 등록 후 새로 고침
       	var xhr = new XMLHttpRequest();
 		$("#sqSubmit").click(function(){
-			
 			var semiCode = "<c:out value="${param.semiCode}"/>"
 
-			var sqDetail = $("textarea").val();
+			var sqDetail = $("#sqDetail").val();
 			var qnaDetail = "semiCode="+semiCode+"&proc=sqDetail&sqDetail="+sqDetail;
 
 			xhr.open("get","${path}/semina?"+qnaDetail,true);
+			xhr.send();
+			window.location=window.location.pathname+"?semiCode="+semiCode;
+
+		});
 			
 			/*
 			xhr.onreadystatechange=function(){
@@ -84,6 +139,16 @@ String user = (String)session.getAttribute("user");
 			
 			};
 			*/
+			
+				
+			// 이용후기 등록 -- 등록 후 새로고침
+			$("#reviewSubmit").click(function(){
+
+			var semiCode = "<c:out value="${param.semiCode}"/>"
+			
+			var reviewDetail = $("#reviewDetail").val();
+			var reviewDetailUrl = "semiCode="+semiCode+"&proc=reviewDetail&reviewDetail="+reviewDetail;
+			xhr.open("get","${path}/semina?"+reviewDetailUrl,true);
 			xhr.send();
 			window.location=window.location.pathname+"?semiCode="+semiCode;
 		});
@@ -146,7 +211,7 @@ String user = (String)session.getAttribute("user");
             <span class="content--title content__introduce-booking--title">세미나 문의</span>&nbsp;&nbsp;
             <span class="content--title content__introduce-booking--num">3명</span>
             
-            <button class="semi__ask--button ask--button">질문 작성하기</button>
+            <button class="semi__ask--button ask--button" id="ask--button">질문 작성하기</button>
 
             <p class="content__introduce--underline"></p> <!-- 제목 하단 밑줄 -->
             
@@ -182,7 +247,7 @@ String user = (String)session.getAttribute("user");
             <span class="content--title content__introduce-booking--title">이용 후기</span>&nbsp;&nbsp;
             <span class="content--title content__introduce-booking--num">3명</span>
             
-            <button class="semi__ask--button review--button">후기 작성하기</button>
+            <button class="semi__ask--button review--button" id="review--button">후기 작성하기</button>
 
             <p class="content__introduce--underline"></p> <!-- 제목 하단 밑줄 -->
             
@@ -205,8 +270,14 @@ String user = (String)session.getAttribute("user");
 
 
     <!-- 우측 결제정보 사이드바 -->
-    
-        <div class="payment-info">
+    	<c:choose>
+		<c:when test="${seminaInfo.semiCapa-seminaInfo.semiParno == 0}"> 
+			<div class="payment-info" style="height:560px">
+		</c:when>
+		<c:otherwise>
+			<div class="payment-info">
+		</c:otherwise>
+		</c:choose>
             <div style="background-color: #f6f6f6;width : 400px; height : 28px; margin : -20px 0 -6px -11px;">
                 <p class="choice-num">세미나 정보</p>
             </div>
@@ -216,12 +287,12 @@ String user = (String)session.getAttribute("user");
                     <td>주최자</td>
                     <td>${seminaInfo.memId}</td>
                 </tr>
-                <tr><fmt:parseDate value='${seminaInfo.semiDate}' var='date1' pattern="yyyymmdd" scope="page"/>
+                <tr><fmt:parseDate value='${seminaInfo.semiDateS}' var='date1' pattern="yyyy-MM-dd HH:mm:ss" scope="page"/>
                 
                     <td>시간</td>
                     <td>
                     <fmt:formatDate value="${date1}" pattern="yyyy년 MM월 dd일  "/><br>
-                    <fmt:formatDate value="${date1}" pattern="hh시 mm분 "/></td>
+                    <fmt:formatDate value="${date1}" pattern="HH시 mm분 "/></td>
                 </tr>
                 <tr>
                     <td>카테고리</td>
@@ -241,24 +312,49 @@ String user = (String)session.getAttribute("user");
                     	<fmt:formatNumber value="${seminaInfo.semiPrice}" type="currency" pattern="#,###,### 원"/>
 					</td>
                 </tr>
+                <tr>
+                    <td>신청 가능 인원</td>
+                    <td>
+	                    <c:choose>
+						<c:when test="${seminaInfo.semiCapa-seminaInfo.semiParno == 0}"> 
+							<fmt:formatNumber value="${seminaInfo.semiCapa-seminaInfo.semiParno}" pattern="#,###,### 명(신청 마감)"/> 
+						</c:when>
+						<c:otherwise>
+							<fmt:formatNumber value="${seminaInfo.semiCapa-seminaInfo.semiParno}" pattern="#,###,### 명"/>
+						</c:otherwise>
+						</c:choose>
+					</td>
+                </tr>
             </table>
 
     <!-- 인원 선택/결제금액 form -->
-    <p class="choice-num">인원 선택</p>
-            <hr class="decoration--puple-line">        
-            <p class="choice-num">인원 선택</p>
-            <hr class="decoration--puple-line">        
+    
+            <c:choose>
+			<c:when test="${seminaInfo.semiCapa-seminaInfo.semiParno == 0}">
+			<div style="width : 95%; height:100px; border : 3px solid rgb(112,77,228); margin-left:6px;">
+				<span style="position:relative; font-size:20px; font-weight:bold; left:39px; top:38px; color:rgb(112,77,228)">신청이 마감된 세미나입니다</span>
+			</div> 
+			</c:when>
+			<c:otherwise>
+				<p class="choice-num">인원 선택</p>
+	            <hr class="decoration--puple-line"> 
+				<p class="choice-num">인원 선택</p>
+           		<hr class="decoration--puple-line">        
                 <table  class="choice-num__count">
                     <tr>
                         <td class="choice-num__count--minus">-</td> <!-- 선택 인원 1씩 감소 버튼 -->
                         <td class="choice-num__count--number">
                             <input class="number" id="number01" value="1" maxlength="3">
                         </td> <!-- 현재 선택 인원 표시 -->
-                        <td class="choice-num__count--plus">+</td></tr> <!-- 선택 인원 1씩 증가 버튼 -->
+                        <td class="choice-num__count--plus">+</td> <!-- 선택 인원 1씩 증가 버튼 -->
+                    </tr>
                 </table>
                 <input class="result__submit" type="button" id="pay" value="바로 예약하기">
-
+			</c:otherwise>
+			</c:choose>       
+           
         </div>
+       
 
     </article>
     
@@ -278,7 +374,7 @@ String user = (String)session.getAttribute("user");
             <span  class="modal__inner--num">
                 <span class="typing"></span>/200
             </span>
-        <form action="">
+        
             <textarea placeholder="질문을 남겨주세요" class="modal__inner--text" id="sqDetail"></textarea>
             <div class="modal__inner--alert">
             <img src="${path}/gr2_ysh/img/alert.png" style="vertical-align: middle;">질문은 공개 상태로만 등록하실 수 있습니다.
@@ -287,7 +383,7 @@ String user = (String)session.getAttribute("user");
             <button class="modal__inner--button-blue" id="sqSubmit" type="button">등록</button>
             <div class="modal__inner--button-gray">삭제</div>
         </div>
-        </form>
+        
         </div>
         </div>
 
@@ -306,16 +402,16 @@ String user = (String)session.getAttribute("user");
             <span  class="modal__inner--num">
                 <span class="typing"></span>/200
             </span>
-        <form action="">
-            <textarea placeholder="후기를 남겨주세요" class="modal__inner--text"></textarea>
+      
+            <textarea placeholder="후기를 남겨주세요" class="modal__inner--text" id="reviewDetail"></textarea>
             <div class="modal__inner--alert">
             <img src="${path}/gr2_ysh/img/alert.png" style="vertical-align: middle;">후기는 공개 상태로만 등록하실 수 있습니다.
             </div>
         <div class="modal__inner--button" style="display: flex;">
-            <input class="modal__inner--button-blue" type="submit" value="등록">
+            <button class="modal__inner--button-blue" id="reviewSubmit">등록</button>
             <div class="modal__inner--button-gray">삭제</div>
         </div>
-        </form>
+       
         </div>
         
 	 <form method="POST" style="display : none">
