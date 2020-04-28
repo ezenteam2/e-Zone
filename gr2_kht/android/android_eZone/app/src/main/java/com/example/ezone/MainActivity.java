@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     public void makeRequest() {
         // json데이터를 가져오는 주소 입력 text
         // ex) http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=430156241533f1d058c603178cc3ca0e&targetDt=20200421
-        String url = editText.getText().toString();
+        String url = "http://192.168.4.19:6080/jspexp/Ht_user_notice_mobile";
         // StringRequest(get/post,"주소", 응답값을 가져오는 객체, 에러가 났을 때 처리해주는 객체)
         // 1. 익명 클래스에서 바로 정의해서 처리하는 메서드 추가.
         // 		1) protected Map<String, String> getParams():재정의 메서드 처리
