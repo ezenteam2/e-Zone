@@ -1,6 +1,6 @@
 package com.example.ezone;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Qna_VO {
     private int qnaCode;

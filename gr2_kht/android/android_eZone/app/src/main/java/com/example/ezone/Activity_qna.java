@@ -1,60 +1,123 @@
 package com.example.ezone;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class Activity_qna  extends AppCompatActivity {
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 
-    ListView qnaListView;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Activity_qna extends AppCompatActivity {
+    EditText editText;
+    TextView textView;
+
+    static RequestQueue requestQueue;
+
+    RecyclerView recyclerView;
+    Adapter_qna adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ht_user_m_qna);
 
-        qnaListView = (ListView)findViewById(R.id.qnaListView);
+        if (requestQueue == null) {
+            requestQueue = Volley.newRequestQueue(getApplicationContext());
+        }
 
-        dataSettingQna();
+        recyclerView = findViewById(R.id.qnaRecyclerView);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        adapter = new Adapter_qna();
+        recyclerView.setAdapter(adapter);
+        makeRequest();
+
+
     }
 
-    private void dataSettingQna(){
-        Adapter_qna adapter = new Adapter_qna();
 
-        adapter.addItem("공지사항",
-                "CCTV 설치 및 운영에 대한 스페이스클라우드의 권고안을 확인해주세요.",
-                "안녕하세요, 이용자 여러분.\n" +
-                        "스페이스클라우드 팀 입니다.\n" +
-                        "지난 1일, 뉴스 매체를 통해 파티룸 내 CCTV 촬영 갈등 이슈 보도가 있었습니다. \n" +
-                        "이용자의 개인정보보호 이슈와 CCTV 설치 목적 및 위치에 대한 갈등이 제기 되었고, \n" +
-                        "개인정보를 엄중하게 보호하고 운영해야 할 의무를 갖고 있음을 다시 한번 숙지하게 되었습니다.");
-        adapter.addItem("공지사항",
-                "[조치완료] 현재 서비스 내 예약이 불가한 사항이 접수되어 조치중입니다",
-                "안녕하세요, \n" +
-                        "스페이스클라우드 운영팀입니다.\n" +
-                        "현재 스페이스클라우드 서비스 내에서 예약시,\n" +
-                        "예약이 불가한 현상이 발생하여 긴급조치중에 있습니다.\n" +
-                        "감사합니다.");
-        adapter.addItem("공지사항",
-                "[종료] 서버 점검 안내 (1월 21일 20시 30분 ~ 21시 30분)",
-                "안녕하세요, 이용자님.\n" +
-                        "스페이스클라우드 운영팀 입니다.\n" +
-                        "스페이스클라우드의 원활한 서비스 제공을 위해\n" +
-                        "서버 점검이 진행됩니다.\n" +
-                        "일시 : 20년 1월 21일 20시 30분 ~ 21시 30분");
-        adapter.addItem("공지사항",
-                "[공지] eZone 운영정책 일부 개정 안내",
-                "안녕하세요. eZone 운영정책을 일부 개정하게 되어 안내드립니다. ◼︎ 약관 개정 세부 내용 제 5조 쿠폰 항목 신설\n" +
-                        "1) 이용 금액을 할인 받을 수 있는 할인권을 말합니다. 쿠폰 종류 및 내용은 회사의 정책에 따라 달라질 수 있습니다.\n");
-        adapter.addItem("공지사항",
-                "[공지] 법인 카드 결제관련 안내",
-                "안녕하세요, 스페이스클라우드 팀입니다.\n" +
-                        "단체나 기업의 공간 이용 결제에 대한 카드사용(법인카드 결제)에 대해 안내드립니다.\n" +
-                        "(일부 용도 제한 카드는 사용이 불가능할 수 있습니다.)");
+    public void makeRequest() {
+        // json데이터를 가져오는 주소 입력 text
+        // ex) http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=430156241533f1d058c603178cc3ca0e&targetDt=20200421
+        String url = "http://192.168.4.19:6080/jspexp/Ht_user_qna_mobile";
+        // StringRequest(get/post,"주소", 응답값을 가져오는 객체, 에러가 났을 때 처리해주는 객체)
+        // 1. 익명 클래스에서 바로 정의해서 처리하는 메서드 추가.
+        // 		1) protected Map<String, String> getParams():재정의 메서드 처리
+        // 2. 수행 처리 내용..
+        //    익명 클래스로 정의하는 request의 메서드
+        //    request.setShouldCache(false);
+        //    requestQueue.add(request);
+        //
+        StringRequest request = new StringRequest(
+                Request.Method.GET,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        println("응답 -> " + response);
 
-        qnaListView.setAdapter(adapter);
+                        processResponse(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        println("에러 -> " + error.getMessage());
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String,String>();
+
+                return params;
+            }
+        };
+
+        request.setShouldCache(false);
+        requestQueue.add(request);
+        println("요청 보냄.");
     }
 
+    public void println(String data) {
+        Log.d("MainActivity", data);
+    }
+    // json 문자열 데이터를 ArrayList형태로 변환 처리하는 메서드..
+    // 1. Gson api 클래스가.
+    //    1) fromJson(요청json문자열,  ArrayList형 MovieList객체로 전환처리)
+    ///       showRange속성(json)이 있으면 해당데이터는  showRange속성(java)
+    ///      showRange속성(java)로 할당 처리..
+    public void processResponse(String response) {
+        Gson gson = new Gson();
+        Qna_List qnaList = gson.fromJson(response, Qna_List.class);
+
+        println("공지사항 수 : " + qnaList.getQna_Result().size());
+
+        for (int i = 0; i < qnaList.getQna_Result().size(); i++) {
+            // 해당 ArrayList객체에서 단위 데이터를 가져오서..
+            Qna_VO qna = qnaList.getQna_Result().get(i);
+            // adapter에 할당 처리..
+            adapter.addItem(qna);
+        }
+
+        adapter.notifyDataSetChanged();
+    }
 
 }
