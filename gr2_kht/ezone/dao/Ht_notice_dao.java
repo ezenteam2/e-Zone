@@ -8,10 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Repository;
+
 import com.google.gson.Gson;
 
 import ezone.vo.Ht_notice_VO;
 
+@Repository
 public class Ht_notice_dao{
 
 	private Connection con;
