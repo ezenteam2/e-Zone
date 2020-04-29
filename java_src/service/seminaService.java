@@ -19,7 +19,9 @@ public class seminaService {
 		dao = new SeminarDao();
 	}
 	public Seminar infoList(HttpServletRequest request){
+		
 		int semiCode = Integer.parseInt(request.getParameter("semiCode"));
+
 		return dao.getSeminaInfo(semiCode);
 	}
 	public ArrayList<SemiQna> qnaList(HttpServletRequest request) {
@@ -28,14 +30,33 @@ public class seminaService {
 	}
 	public ArrayList<SemiParti> reviewList(HttpServletRequest request) {
 		int semiCode = Integer.parseInt(request.getParameter("semiCode"));
+
 		return dao.getSeminaReview(semiCode);
 	}
 	public void insertParti(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String memId = (String)session.getAttribute("user");
+
 		int semiCode = Integer.parseInt(request.getParameter("semiCode"));
+
 		int partiMcnt= Integer.parseInt(request.getParameter("partiMcnt"));
 		int partiPrice= Integer.parseInt(request.getParameter("partiPrice"));
 		dao.insertSemiParti(new SemiParti(semiCode, memId, partiMcnt, partiPrice));
+	}
+	public void insertQna(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String memId = (String)session.getAttribute("user");
+		int semiCode = Integer.parseInt(request.getParameter("semiCode"));
+
+		String sqDetail = request.getParameter("sqDetail");
+		dao.insertSemiQna(new SemiQna(semiCode, memId, sqDetail));
+	}
+	public void insertReview(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String memId = (String)session.getAttribute("user");
+		int semiCode = Integer.parseInt(request.getParameter("semiCode"));
+
+		String reviewDetail = request.getParameter("reviewDetail");
+		dao.insertReview(new SemiParti(reviewDetail, semiCode, memId));
 	}
 }
