@@ -1,0 +1,48 @@
+1. src/resource/properties/info => DB 접속 정보 파일
+
+2. dispatcher-servlet => <context:property-placeholder location="classpath:-----"/> DB 접속 정보 파일 주소
+
+3. dispatcher-servlet => <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> ----- </bean>
+=> DB 접속 연결 처리
+
+4. dispatcher-servlet => <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+=> mybatis 모듈 사용
+
+5. resource/mybatis/spring.xml & empMapper.xml
+=> 공통 파일 & 개별 파일
+
+6. <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+=> Repository단 interface의 패키지 위치 선언
+
+----------------------------------------------------------------------------------------------------------
+1. SQL 작성
+2. 입력과 RETURN 기반의 VO 클래스 선언
+3. Repository 패키지에 interface 선언
+	1) interface 명
+	2) 메서드 return값
+	3) 메서드명
+	4) 입력 매개 객체/변수
+		=> 실제 mybatis에서 sql과 연동하는 정보
+4. spring.xml에
+	1) VO클래스 alias명으로 등록
+	2) xxxMapper.xml 선언
+5. xxxMapper.xml
+	1) interface에서 선언된 내용과 연결
+		- interface 명 	=> namespace로 선언
+		- 메서드 return값 	=> resultType, resultMap과 연결
+		- 메서드명 			=> 각 sql의 id
+		- 입력 매개 객체/변수 	=> parameterType, parameterMap
+----------------------------------------------------------------------------------------------------------		
+	
+
+7. springweb/a03_mvc/a02_service/A03_EmpService.java
+
+8. springweb/a03_mvc/a01_controller/A02_EmpCtrl.java
+
+9. WebContent/WEB-INF/views/a03_mvc/a02_emp.jsp
+
+		
+# 웹화면 구현
+1. Repository단 Service에서 호출
+2. Service단 Controller에서 호출
+3. Controller에서 model로 설정 화면 출력
