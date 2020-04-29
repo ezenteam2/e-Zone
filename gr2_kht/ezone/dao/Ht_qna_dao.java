@@ -297,5 +297,117 @@ public class Ht_qna_dao {
 			}
 		}
 	}
+	
+	//형준
+	
+	//마이페이지에서 내가 문의한 것 찾기
+	public ArrayList<Ht_qna_VO> qnaList(String id, int page){
+		ArrayList<Ht_qna_VO> qnaList = new ArrayList<Ht_qna_VO>();
+		
+		try {
+			setCon();
+			
+			String sql = "SELECT * FROM (SELECT a.*, rownum rn FROM (SELECT * FROM p5qna WHERE mem_id=? ORDER BY qna_date DESC) a WHERE rownum<=?) WHERE rn>?";
+			pstmt = con.prepareStatement(sql);
+			System.out.println(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, page*10);
+			pstmt.setInt(3, (page-1)*10);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				qnaList.add(new Ht_qna_VO(
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getDate(4),
+						rs.getString(5),
+						rs.getString(6),
+						rs.getString(7),
+						rs.getString(8),
+						rs.getDate(9),
+						rs.getString(10)
+						));
+			}
+			rs.close();
+			pstmt.close();
+			con.close();
+			System.out.println("qnaList 완료");
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("qnaList 실패");
+			System.out.println(e.getMessage());
+		}
+		
+		return qnaList;
+	}
+	
+	//모바일용
+		public ArrayList<Map<String, String>> mobileYong(int page){
+			ArrayList<Map<String, String>> qnaList = new ArrayList<Map<String, String>>();
+			
+			try {
+				setCon();
+				
+				String sql = "SELECT qna_title, qna_date FROM (SELECT a.*, rownum rn FROM (SELECT * FROM p5qna) a WHERE rownum<=?) WHERE rn>?";
+				pstmt = con.prepareStatement(sql);
+				System.out.println(sql);
+				pstmt.setInt(1, page*10);
+				pstmt.setInt(2, (page-1)*10);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					Map<String, String> map = new HashMap<String, String>();
+					map.put("date", rs.getString(2));
+					map.put("title", rs.getString(1));
+					qnaList.add(map);
+				}
+				rs.close();
+				pstmt.close();
+				con.close();
+				System.out.println("qnaList 완료");
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				System.out.println("qnaList 실패");
+				System.out.println(e.getMessage());
+			}
+			
+			return qnaList;
+		}
+		
+		public ArrayList<Map<String, String>> mobileYong2(int page){
+			ArrayList<Map<String, String>> qnaList = new ArrayList<Map<String, String>>();
+			
+			try {
+				setCon();
+				
+				String sql = "SELECT sq_detail, sq_date FROM (SELECT a.*, rownum rn FROM (SELECT * FROM p5semiqna) a WHERE rownum<=?) WHERE rn>?";
+				pstmt = con.prepareStatement(sql);
+				System.out.println(sql);
+				pstmt.setInt(1, page*10);
+				pstmt.setInt(2, (page-1)*10);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					Map<String, String> map = new HashMap<String, String>();
+					map.put("date", rs.getString(2));
+					map.put("title", rs.getString(1));
+					qnaList.add(map);
+				}
+				rs.close();
+				pstmt.close();
+				con.close();
+				System.out.println("qnaList 완료");
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				System.out.println("qnaList 실패");
+				System.out.println(e.getMessage());
+			}
+			
+			return qnaList;
+		}
 }
 	

@@ -6,6 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import ezone.dao.*;
 import ezone.vo.*;
 import java.util.*;
@@ -77,6 +81,16 @@ public class SemiListHost extends HttpServlet {
 		if(type.equals("cnt")) {
 			int cnt =dao.getCount(user);
 			response.getWriter().print("{\"count\":"+cnt+"}");
+		}
+		
+		if(type.equals("mobile")) {
+			ArrayList<Seminar> array = dao.getList("host", Integer.parseInt(pageStr), "himan123");
+			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+			String json=gson.toJson(array);
+			System.out.println(json);
+			response.getWriter().print("{\"seminarList\":");
+			response.getWriter().print(json);
+			response.getWriter().print("}");
 		}
 	}
 }

@@ -55,6 +55,13 @@ public class MyPage extends HttpServlet {
 			RequestDispatcher dis = request.getRequestDispatcher(page);
 			dis.forward(request, response);
 		}
+		
+		if(proc!=null&&proc.equals("comm")) {
+			String page= "my\\e-Zone\\gr2_lhj\\jsp\\hj_user_w_myPage_comm.jsp";
+			RequestDispatcher dis = request.getRequestDispatcher(page);
+			dis.forward(request, response);
+		}
+		
 		if(proc!=null&&proc.equals("edit")) {
 			request.setAttribute("memInfo", dao.getMemInfo((String)session.getAttribute("user")));
 			String page= "my\\e-Zone\\gr2_lhj\\jsp\\hj_user_w_myPage_profileEdit.jsp";
