@@ -35,36 +35,7 @@
                 <span>후기등록여부</span>
             </div>
             <ul>
-                <li><span>인공지능개요</span>
-                <span>금강관</span>
-                <span>2020-04-08</span>
-                <span>16:00</span>
-                <span>30/30</span>
-                <span>미등록</span></li>
-                <li><span>1인미디어총론</span>
-                    <span>백두관</span>
-                    <span>2020-04-09</span>
-                    <span>15:00</span>
-                    <span>21/30</span>
-                    <span>미등록</span></li>
-                <li><span>자바웹개발기초</span>
-                    <span>한라관</span>
-                    <span>2020-04-08</span>
-                    <span>11:00</span>
-                    <span>25/30</span>
-                    <span>미등록</span></li>
-                <li><span>스프링/자바 웹개발</span>
-                    <span>태백관</span>
-                    <span>2020-04-08</span>
-                    <span>19:00</span>
-                    <span>28/30</span>
-                    <span>미등록</span></li>
-                <li><span>오라클 기초</span>
-                    <span>금강관</span>
-                    <span>2020-04-10</span>
-                    <span>16:00</span>
-                    <span>29/30</span>
-                    <span>미등록</span></li>
+                
             </ul>
         </div>
         <div class="page-nation">
@@ -90,7 +61,7 @@
             <button>저장</button>
         </div>
     </div>
-
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="${path }/my/e-Zone/gr2_lhj/js/hj_user_w_myPage_comm.js"></script>
 </body>
 </html>
