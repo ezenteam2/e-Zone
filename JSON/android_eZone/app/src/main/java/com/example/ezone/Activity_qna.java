@@ -5,22 +5,22 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Activity_notice  extends AppCompatActivity {
+public class Activity_qna  extends AppCompatActivity {
 
-    ListView noticeListView;
+    ListView qnaListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ht_user_m_notice);
+        setContentView(R.layout.ht_user_m_qna);
 
-        noticeListView = (ListView)findViewById(R.id.noticeListView);
+        qnaListView = (ListView)findViewById(R.id.qnaListView);
 
-        dataSettingNotice();
+        dataSettingQna();
     }
 
-    private void dataSettingNotice(){
-        Adapter_notice adapter = new Adapter_notice();
+    private void dataSettingQna(){
+        Adapter_qna adapter = new Adapter_qna();
 
         adapter.addItem("공지사항",
                 "CCTV 설치 및 운영에 대한 스페이스클라우드의 권고안을 확인해주세요.",
@@ -53,7 +53,7 @@ public class Activity_notice  extends AppCompatActivity {
                         "단체나 기업의 공간 이용 결제에 대한 카드사용(법인카드 결제)에 대해 안내드립니다.\n" +
                         "(일부 용도 제한 카드는 사용이 불가능할 수 있습니다.)");
 
-        noticeListView.setAdapter(adapter);
+        qnaListView.setAdapter(adapter);
     }
 
 
