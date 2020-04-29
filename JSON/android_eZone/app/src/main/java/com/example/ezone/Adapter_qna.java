@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Adapter_notice extends BaseAdapter {
+public class Adapter_qna extends BaseAdapter {
 
-    private ArrayList<LVModule_notice> arr = new ArrayList<LVModule_notice>();
+    private ArrayList<LVModule_qna> arr = new ArrayList<LVModule_qna>();
 
     @Override
     public int getCount() {
@@ -19,7 +19,7 @@ public class Adapter_notice extends BaseAdapter {
     }
 
     @Override
-    public LVModule_notice getItem(int position) {
+    public LVModule_qna getItem(int position) {
         return arr.get(position);
     }
 
@@ -36,21 +36,21 @@ public class Adapter_notice extends BaseAdapter {
         /* 'listview_custom' Layout을 inflate하여 convertView 참조 획득 */
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.unit_notice, parent, false);
+            convertView = inflater.inflate(R.layout.unit_qna, parent, false);
         }
 
         /* 'listview_custom'에 정의된 위젯에 대한 참조 획득 */
-        TextView noti_cate = (TextView)convertView.findViewById(R.id.noti_cate);
-        TextView noti_title = (TextView)convertView.findViewById(R.id.noti_title) ;
-        TextView noti_detail = (TextView)convertView.findViewById(R.id.noti_detail) ;
+        TextView qna_cate = (TextView)convertView.findViewById(R.id.qna_cate);
+        TextView qna_title = (TextView)convertView.findViewById(R.id.qna_title) ;
+        TextView qna_detail = (TextView)convertView.findViewById(R.id.qna_detail) ;
 
         /* 각 리스트에 뿌려줄 아이템을 받아오는데 mMyItem 재활용 */
-        LVModule_notice f1 = getItem(position);
+        LVModule_qna f1 = getItem(position);
         System.out.println(position+"getView실행");
         /* 각 위젯에 세팅된 아이템을 뿌려준다 */
-        noti_cate.setText(f1.getNoti_cate());
-        noti_title.setText(f1.getNoti_title());
-        noti_detail.setText(f1.getNoti_detail());
+        qna_cate.setText(f1.getQna_cate());
+        qna_title.setText(f1.getQna_title());
+        qna_detail.setText(f1.getQna_detail());
 
         /* (위젯에 대한 이벤트리스너를 지정하고 싶다면 여기에 작성하면된다..)  */
 
@@ -59,10 +59,10 @@ public class Adapter_notice extends BaseAdapter {
     }
 
     /* 아이템 데이터 추가를 위한 함수. 자신이 원하는대로 작성 */
-    public void addItem(String noti_cate, String noti_title, String noti_detail) {
+    public void addItem(String qna_cate, String qna_title, String qna_detail) {
 
         System.out.println("add Item실행");
-        LVModule_notice f1 = new LVModule_notice(noti_cate, noti_title, noti_detail);
+        LVModule_qna f1 = new LVModule_qna(qna_cate, qna_title, qna_detail);
 
         /* mItems에 MyItem을 추가한다. */
         arr.add(f1);

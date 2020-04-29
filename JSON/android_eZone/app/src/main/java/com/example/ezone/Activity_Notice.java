@@ -23,7 +23,7 @@ import com.google.gson.Gson;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class Activity_Notice extends AppCompatActivity {
     EditText editText;
     TextView textView;
 
@@ -37,18 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ht_user_m_notice_db);
 
-        editText = findViewById(R.id.editText);
-        textView = findViewById(R.id.textView);
-
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                makeRequest();
-            }
-        });
-
-        if (requestQueue == null) {
+      if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
 
@@ -59,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new Adapter_DB_Notice();
         recyclerView.setAdapter(adapter);
+        makeRequest();
+
 
     }
 
@@ -66,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     public void makeRequest() {
         // json데이터를 가져오는 주소 입력 text
         // ex) http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=430156241533f1d058c603178cc3ca0e&targetDt=20200421
-        String url = editText.getText().toString();
+        String url = "http://192.168.4.19:6080/jspexp/Ht_user_notice_mobile";
         // StringRequest(get/post,"주소", 응답값을 가져오는 객체, 에러가 났을 때 처리해주는 객체)
         // 1. 익명 클래스에서 바로 정의해서 처리하는 메서드 추가.
         // 		1) protected Map<String, String> getParams():재정의 메서드 처리
@@ -118,15 +109,14 @@ public class MainActivity extends AppCompatActivity {
         Gson gson = new Gson();
         Notice_List noticeList = gson.fromJson(response, Notice_List.class);
 
-//        println("공지사항 수 : " + noticeList.getNotice_Result().getNotice_Result().size());
-//
-//       Log.d("개수",""+noticeList.getNotice_Result().getNotice_Result().size());
-//        for (int i = 0; i < noticeList.getNotice_Result().getNotice_Result().size(); i++) {
-//            // 해당 ArrayList객체에서 단위 데이터를 가져오서..
-//            Notice_VO notice = noticeList.getNotice_Result().getNotice_Result().get(i);
-//            // adapter에 할당 처리..
-//            adapter.addItem(notice);
-//        }
+        println("공지사항 수 : " + noticeList.getNotice_Result().size());
+
+        for (int i = 0; i < noticeList.getNotice_Result().size(); i++) {
+            // 해당 ArrayList객체에서 단위 데이터를 가져오서..
+            Notice_VO notice = noticeList.getNotice_Result().get(i);
+            // adapter에 할당 처리..
+            adapter.addItem(notice);
+        }
 
         adapter.notifyDataSetChanged();
     }
