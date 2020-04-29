@@ -24,6 +24,12 @@ public class Seminar {
 	
 	
 	
+	public String getSemiDateS() {
+		return semiDateS;
+	}
+	public void setSemiDateS(String semiDateS) {
+		this.semiDateS = semiDateS;
+	}
 	public String getSzTitle() {
 		return szTitle;
 	}

@@ -9,10 +9,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import ezone.vo.Ht_notice_VO;
 import ezone.vo.Ht_qna_VO;
 
-public class Ht_qna_dao {
+public class Ht_qna_dao2 {
 
 	private Connection con;
 	private PreparedStatement pstmt;
@@ -181,43 +180,36 @@ public class Ht_qna_dao {
 			e.printStackTrace();
 		}
 		
-		int page = 0;
-		if(cnt%10==0){
-			page = cnt/10;
-		} else {
-			page = (cnt/10)+1;
-		}
-		
-		return page;
+		return cnt;
 	}
 	
 	public int getCnt(String id) {
-		
-		int cnt=0;
-		try {
-			setCon();
 			
-			String sql = "SELECT count(*) cnt FROM P5QNA where mem_id = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, id);
-
-			rs = pstmt.executeQuery();
-					
-			if(rs.next()) {
-				cnt=rs.getInt(1);
+			int cnt=0;
+			try {
+				setCon();
+				
+				String sql = "SELECT count(*) cnt FROM P5QNA where mem_id = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, id);
+	
+				rs = pstmt.executeQuery();
+						
+				if(rs.next()) {
+					cnt=rs.getInt(1);
+				}
+				
+				rs.close();
+				pstmt.close();
+				con.close();
+							
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			
-			rs.close();
-			pstmt.close();
-			con.close();
-						
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return cnt;
 		}
-		
-		return cnt;
-	}
 	
 	public void deleteQna(int qnaCode) {
 		
@@ -327,8 +319,6 @@ public class Ht_qna_dao {
 			}
 		}
 	}
-	
-	//형준
 	
 	//마이페이지에서 내가 문의한 것 찾기
 	public ArrayList<Ht_qna_VO> qnaList(String id, int page){
