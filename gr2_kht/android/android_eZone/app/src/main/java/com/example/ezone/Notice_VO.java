@@ -1,11 +1,11 @@
 package com.example.ezone;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Notice_VO {
     private int noti_code;
     private String ad_id;
-    private Date noti_date;
+    private String noti_date;
     private String noti_title;
     private String noti_detail;
     private String noti_img;
@@ -27,11 +27,11 @@ public class Notice_VO {
         this.ad_id = ad_id;
     }
 
-    public Date getNoti_date() {
+    public String getNoti_date() {
         return noti_date;
     }
 
-    public void setNoti_date(Date noti_date) {
+    public void setNoti_date(String noti_date) {
         this.noti_date = noti_date;
     }
 

@@ -1,12 +1,12 @@
 package com.example.ezone;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Qna_VO {
     private int qnaCode;
     private String qnaCate;
     private String memId;
-    private Date qnaDate;
+    private String qnaDate;
     private String qnaTitle;
     private String qnaDetail;
     private String qnaOpen;
@@ -38,11 +38,11 @@ public class Qna_VO {
         this.memId = memId;
     }
 
-    public Date getQnaDate() {
+    public String getQnaDate() {
         return qnaDate;
     }
 
-    public void setQnaDate(Date qnaDate) {
+    public void setQnaDate(String qnaDate) {
         this.qnaDate = qnaDate;
     }
 
