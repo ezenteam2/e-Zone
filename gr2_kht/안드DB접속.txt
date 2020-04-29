@@ -1,0 +1,15 @@
+build.gradle(Module:app) - 필요한 라이브러리 파일을 자동으로 다운 받을 수 있도록 설정
+res - xml 폴더 (network_security_config.xml) 넣고
+Manifest - networkSecurityConfig 설정
+
+java/com.example.movielist - VO 생성		- 1단계 VO (배열안의 단위 데이터)
+java/com.example.movielist - BoxOfficeResult	- 2단계 VO (배열의 VO)
+java/com.example.movielist - MovieList	- 3단계 VO (전체 VO)
+
+layout 구성 - res/layout/unit_notice.xml, res/layout/Activity_Notice.xml
+
+Adapter_DB_Notice
+MainActivity
+Manifest
+movie.png(이미지파일)
+
