@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="#656565"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        android:text="문의사항 리스트" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp">
+
+        <TextView
+            android:id="@+id/button"
+            android:layout_width="170dp"
+            android:layout_height="35dp"
+            android:textSize="23dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="15dp"
+            android:textColor="#fff"
+            android:background="#704de4"
+            android:textAlignment="center"
+            android:text="세미나" />
+
+        <TextView
+            android:id="@+id/button2"
+            android:layout_width="170dp"
+            android:layout_height="35dp"
+            android:textSize="23dp"
+            android:textColor="#fff"
+            android:background="#704de4"
+            android:textAlignment="center"
+            android:text="세미나존" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="#FFD014"
+                android:paddingTop="5dp"
+                android:text="제목"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="#FFD014"
+                android:paddingTop="5dp"
+                android:text="날짜"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/recyclerView" />
+
+</LinearLayout>

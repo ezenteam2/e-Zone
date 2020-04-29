@@ -179,7 +179,14 @@ public class Ht_qna_dao {
 			e.printStackTrace();
 		}
 		
-		return cnt;
+		int page = 0;
+		if(cnt%10==0){
+			page = cnt/10;
+		} else {
+			page = (cnt/10)+1;
+		}
+		
+		return page;
 	}
 	
 	public void deleteQna(int qnaCode) {

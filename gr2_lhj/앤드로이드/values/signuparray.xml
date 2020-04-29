@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="관심카테고리">
+        <item>IT기술</item>
+        <item>스포츠</item>
+        <item>건강</item>
+        <item>음식</item>
+        <item>음악</item>
+        <item>가족</item>
+        <item>언어/문화</item>
+        <item>영상제작</item>
+        <item>기타</item>
+    </string-array>
+</resources>
