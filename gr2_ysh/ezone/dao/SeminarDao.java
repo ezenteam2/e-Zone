@@ -301,7 +301,7 @@ public class SeminarDao {
 			Seminar semina = new Seminar();
 			try {
 				setCon();
-				String sql = "SELECT b.semi_code,b.MEM_ID,b.ZONE_CODE,b.SEMI_TITLE,b.SEMI_SUBTITLE,b.SEMI_DATE, b.SEMI_STIME, b.SEMI_FTIME, b.SEMI_CATE, b.semi_img, b.SEMI_DETAIL, b.SEMI_CAPA, b.SEMI_PRICE, sz_title \r\n" + 
+				String sql = "SELECT b.semi_code,b.MEM_ID,b.ZONE_CODE,b.SEMI_TITLE,b.SEMI_SUBTITLE,b.SEMI_DATE, b.SEMI_STIME, b.SEMI_FTIME, b.SEMI_CATE, b.semi_img, b.SEMI_DETAIL, b.SEMI_CAPA, b.SEMI_PRICE, sz_title, b.SEMI_PARNO \r\n" + 
 							 "FROM P5SEMIBOOK b \r\n" + 
 							 "LEFT JOIN P5SEMIZONE z ON b.ZONE_CODE=z.SZ_CODE WHERE b.SEMI_CODE =?";
 				pstmt=con.prepareStatement(sql);
@@ -314,8 +314,13 @@ public class SeminarDao {
 					semina.setMemId(rs.getString(2));
 					semina.setZoneCode(rs.getInt(3));
 					semina.setSemiTitle(rs.getString(4));
+				
 					semina.setSemiSubtitle(rs.getString(5));
-					semina.setSemiDate(rs.getDate(6));
+					
+					java.sql.Timestamp SemiDateSTmp=rs.getTimestamp(6);
+					String SemiDateS=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(SemiDateSTmp.getTime()));
+					semina.setSemiDateS(SemiDateS);
+					
 					java.sql.Timestamp semiStimeTmp=rs.getTimestamp(7);
 					String semiStime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(semiStimeTmp.getTime()));
 					semina.setSemiStime(semiStime);
@@ -328,6 +333,8 @@ public class SeminarDao {
 					semina.setSemiCapa(rs.getInt(12));
 					semina.setSemiPrice(rs.getInt(13));
 					semina.setSzTitle(rs.getString(14));
+					semina.setSemiParno(rs.getInt(15));
+					
 				}
 				rs.close();
 				pstmt.close();
@@ -343,9 +350,10 @@ public class SeminarDao {
 			ArrayList<SemiQna> semiQnaList = new ArrayList<SemiQna>();
 			try {
 				setCon();
-				String sql = "SELECT s.*, m.MEM_NICK, m.MEM_PROF FROM P5SEMIQNA s LEFT JOIN P5MEMBER m ON s.MEM_ID = m.MEM_ID WHERE semi_code = ?";
+				String sql = "SELECT s.*, m.MEM_NICK, m.MEM_PROF FROM P5SEMIQNA s LEFT JOIN P5MEMBER m ON s.MEM_ID = m.MEM_ID WHERE semi_code = ? order by SQ_DATE desc";
 				pstmt=con.prepareStatement(sql);
-				pstmt.setInt(1, semiCode);	
+				pstmt.setInt(1, semiCode);
+
 				rs=pstmt.executeQuery();
 				SemiQna semiQna = null;
 				while(rs.next()){
@@ -354,6 +362,7 @@ public class SeminarDao {
 					semiQna.setQnatype(rs.getString(2));
 					semiQna.setSemiCode(rs.getInt(3));
 					semiQna.setMemId(rs.getString(4));
+
 					
 					java.sql.Timestamp SqDateTmp=rs.getTimestamp(5);
 					String SqDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(SqDateTmp.getTime()));
@@ -362,10 +371,17 @@ public class SeminarDao {
 					semiQna.setSqDetail(rs.getString(6));
 					semiQna.setQnaAnsId(rs.getString(7));
 					semiQna.setSqAnswer(rs.getString(8));
-					
+
 					java.sql.Timestamp QnaAnsdateTmp=rs.getTimestamp(9);
-					String QnaAnsdate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(QnaAnsdateTmp.getTime()));
-					semiQna.setSqDate(QnaAnsdate);
+
+					String QnaAnsdate;
+					if(QnaAnsdateTmp==null) {
+						QnaAnsdate="1970-01-01 00:00:00";
+					} else {
+						QnaAnsdate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(QnaAnsdateTmp.getTime()));
+					}
+					
+					semiQna.setQnaAnsdate(QnaAnsdate);
 					
 					semiQna.setMemNick(rs.getString(10));
 					semiQna.setMemProf(rs.getString(11));
@@ -394,21 +410,36 @@ public class SeminarDao {
 							semiParti = new SemiParti();
 							semiParti.setPartiCode(rs.getInt(1));
 							semiParti.setSemiCode(rs.getInt(2));
-							
+						
 							java.sql.Timestamp PartiBookDateTmp=rs.getTimestamp(9);
-							String PartiBookDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(PartiBookDateTmp.getTime()));
-							semiParti.setPartiBookDate(PartiBookDate);
 							
+							String PartiBookDate;
+							if(PartiBookDateTmp==null) {
+								PartiBookDate="1970-01-01 00:00:00";
+							} else {
+								PartiBookDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(PartiBookDateTmp.getTime()));
+							}
+							
+							
+							semiParti.setPartiBookDate(PartiBookDate);
+		
 							semiParti.setMemId(rs.getString(4));
 							semiParti.setPartiMcnt(rs.getInt(5));
 							semiParti.setPartiPrice(rs.getInt(6));
 							semiParti.setPartiCurr(rs.getString(7));
 							semiParti.setPartiComm(rs.getString(8));
-							
+				
 							java.sql.Timestamp PartiCommDateTmp=rs.getTimestamp(9);
-							String PartiCommDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(PartiCommDateTmp.getTime()));
-							semiParti.setPartiCommDate(PartiCommDate);
 							
+							String PartiCommDate;
+							if(PartiCommDateTmp==null) {
+								PartiCommDate="1970-01-01 00:00:00";
+							} else {
+								PartiCommDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.sql.Date(PartiCommDateTmp.getTime()));
+							}
+							
+							semiParti.setPartiCommDate(PartiCommDate);
+
 							semiParti.setMemNick(rs.getString(10));
 							semiParti.setMemProf(rs.getString(11));
 							semiReviewList.add(semiParti);
@@ -453,7 +484,7 @@ public class SeminarDao {
 				public void insertSemiQna(SemiQna ins) {
 					try {
 						setCon();
-						String sql = "INSERT INTO P5SEMIQNA values(sq_code_seq.nextval,'세미나',?,?,sysdate,?문의내용,NULL,NULL,null)";
+						String sql = "INSERT INTO P5SEMIQNA values(sq_code_seq.nextval,'세미나',?,?,sysdate,?,NULL,NULL,null)";
 						con.setAutoCommit(false);
 						pstmt = con.prepareStatement(sql);
 						pstmt.setInt(1, ins.getSemiCode());
@@ -473,7 +504,35 @@ public class SeminarDao {
 						}
 					} catch (Exception e) {
 						System.out.println(e.getMessage());
+						System.out.println("insertSemiQna 중 에러 발생");
 					}
 				}
+				// 세미나 상세페이지 - 후기 등록
+				public void insertReview(SemiParti ins) {
+					try {
+						setCon();
+						String sql = "UPDATE P5SEMIPARTI SET PARTI_COMM=?, PARTI_COMM_DATE=SYSDATE WHERE SEMI_CODE = ? AND MEM_ID = ?";
+						con.setAutoCommit(false);
+						pstmt = con.prepareStatement(sql);
+						pstmt.setString(1, ins.getPartiComm());
+						pstmt.setInt(2, ins.getSemiCode());
+						pstmt.setString(3, ins.getMemId());
+						pstmt.executeUpdate();
+						con.commit();
+						pstmt.close();
+						con.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+						System.out.println(e.getMessage());
+						try {
+							con.rollback();
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+					} catch (Exception e) {
+						System.out.println(e.getMessage());
+						System.out.println("insertReview 중 에러 발생");
+					}
+				}		
 		
 }

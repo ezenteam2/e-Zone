@@ -32,32 +32,35 @@ public class seminaController extends HttpServlet {
 		String page = null;
 		
 		if(proc==null||proc.equals("")) {
-		page = "gr2_ysh\\jsp\\sh_user_w_semiDetail.jsp";
 		request.setAttribute("seminaInfo", service.infoList(request));
 		request.setAttribute("qnaList", service.qnaList(request));
 		request.setAttribute("reviewList", service.reviewList(request));
-
+		page = "jsp\\sh_user_w_semiDetail.jsp";
+		
+	
 		
 		}else if(proc.equals("qnaMore")) {
-			page="gr2_ysh\\jsp\\sh_user_w_semiDetail_detail.jsp";
+			page="jsp\\sh_user_w_semiDetail_detail.jsp";
 			request.setAttribute("list", service.qnaList(request));
 		}else if(proc.equals("reviewMore")) {
-			page="gr2_ysh\\jsp\\sh_user_w_semiDetail_detail.jsp";
+			page="jsp\\sh_user_w_semiDetail_detail.jsp";
 			request.setAttribute("list2", service.reviewList(request));
 			
 		}else if(proc.equals("pay")) {
 			HttpSession session = request.getSession();
 			String user = (String)session.getAttribute("user");
-			System.out.println(user);
-			page = "gr2_ysh\\jsp\\sh_user_w_semiPay.jsp";
+			page = "jsp\\sh_user_w_semiPay.jsp";
 			String number = request.getParameter("number");
 			request.setAttribute("seminaInfo", service.infoList(request));
 			request.setAttribute("number", number);
 			
 		}else if(proc.equals("apply")) {
 			service.insertParti(request);
-			page = "gr2_ysh\\jsp\\sh_user_w_semiPay_last.jsp";
-			System.out.println("등록성공");
+			page = "jsp\\sh_user_w_semiPay_last.jsp";
+		}else if(proc.equals("sqDetail")) {
+			service.insertQna(request);
+		}else if(proc.equals("reviewDetail")) {
+			service.insertReview(request);
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(page);

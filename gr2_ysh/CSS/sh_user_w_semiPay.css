@@ -1,0 +1,251 @@
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.article {
+  width: 900px;
+  margin-left: 350px;
+  background-color: #f6f6f6;
+}
+
+.article__content--left {
+  font-weight: bold;
+  font-size: 15px;
+  font-size: 18px;
+}
+
+.article__content--right {
+  font-weight: bold;
+  font-size: 15px;
+  color: #704de4;
+  float: right;
+  padding-top: 5px;
+}
+
+.article__content--more-right {
+  font-weight: bold;
+  font-size: 15px;
+  font-size: 13px;
+  color: gray;
+  float: right;
+  margin-left: 8px;
+  padding-top: 8px;
+}
+
+.article__payment-info {
+  width: 330px;
+  height: 600px;
+  position: fixed;
+  right: 260px;
+  bottom: 200px;
+  font-size: 13px;
+}
+
+.article__payment-info--main {
+  background-color: white;
+  border-top: 2px solid #704de4;
+}
+
+.article__payment-info--table {
+  border-bottom: 2px solid #704de4;
+  width: 90%;
+  padding: 25px 5px;
+  margin: 0 auto;
+  font-size: 10px;
+  margin-bottom: 15px;
+}
+
+.article__payment-info--table td {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 35px;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 5px;
+}
+
+.article__payment-info--table td:nth-child(1), .article__payment-info--table td:nth-child(4), .article__payment-info--table td:nth-child(6) {
+  font-weight: bold;
+  color: gray;
+}
+
+.article__payment-info--table td:nth-child(3) {
+  border: none;
+  color: #704de4;
+  font-weight: bolder;
+}
+
+.article__payment-info--8361 {
+  color: #704de4;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.article__payment-info--num {
+  color: #704de4;
+  font-weight: bolder;
+  font-size: 20px;
+  float: right;
+}
+
+.article__payment-info--result {
+  padding: 5px 20px 20px;
+}
+
+.article__payment-info__submit {
+  width: 70%;
+  height: 55px;
+  background-color: #704de4;
+  border: none;
+  color: #fbca4a;
+  font-size: 15px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+}
+
+.article .content__main {
+  border-top: 2px solid #704de4;
+  padding: 20px 20px;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.article .content__title--img {
+  width: 200px;
+}
+
+.article .content__title td:nth-child(1) {
+  vertical-align: top;
+}
+
+.article .content__title td:nth-child(2) {
+  font-size: 23px;
+  font-weight: bold;
+  border-bottom: 2px solid #f2f2f2;
+  padding: 0 15px 15px;
+}
+
+.article .content__title td:nth-child(2n+1) {
+  font-size: 15px;
+  padding: 15px 15px;
+  line-height: 25px;
+}
+
+.article .content__kind {
+  margin-left: 15px;
+  border-top: 1px solid #f2f2f2;
+  margin-top: 15px;
+}
+
+.article .content__kind td {
+  font-size: 15px;
+  padding-right: 15px;
+  line-height: 25px;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 10px;
+}
+
+.article .content__kind td:nth-child(2n+1) {
+  font-weight: bold;
+}
+
+.article .content__kind td:nth-child(2n) {
+  width: 730px;
+}
+
+.article .booking-info {
+  background-color: white;
+  border-top: 2px solid #704de4;
+}
+
+.article .booking-info--title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 55px;
+}
+
+.article .booking-info--table td {
+  padding: 20px 20px;
+  font-size: 15px;
+}
+
+.article .booking-info--table td:nth-child(2n+1) {
+  font-weight: bold;
+}
+
+.article .booking-info--table td:nth-child(2n) {
+  text-align: right;
+  width: 730px;
+  color: gray;
+  font-weight: bold;
+}
+
+.article .notice {
+  margin-top: 55px;
+  width: 900px;
+  border: 1px solid #f2f2f2;
+}
+
+.article .notice__title {
+  background-color: #ebebeb;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px;
+  padding-left: 25px;
+}
+
+.article .notice__title--table td:first-child {
+  padding-right: 631px;
+}
+
+.article .notice__title--table td:nth-child(3) {
+  color: gray;
+  text-align: left;
+}
+
+.article .notice__main {
+  background-color: white;
+}
+
+.article .notice--inner {
+  line-height: 25px;
+  padding: 20px;
+  width: 100%;
+}
+
+.article .notice--inner td {
+  padding: 10px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.article .notice--inner td:nth-child(1), .article .notice--inner td:nth-child(3), .article .notice--inner td:nth-child(6) {
+  width: 30px;
+}
+
+.article .notice__personal {
+  font-size: 12px;
+  font-weight: lighter;
+  color: gray;
+}
+
+.none, .all__none {
+  cursor: pointer;
+  width: 35px;
+}
+
+.block, .all__block {
+  cursor: pointer;
+  width: 35px;
+}
+
+[type=checkbox] {
+  display: none;
+}
+
+.up, .down {
+  width: 15px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=sh_user_w_semiPay.css.map */

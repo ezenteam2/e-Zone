@@ -1,0 +1,222 @@
+.main{
+    display: flex;
+}
+.article{
+
+    width : 900px;
+    margin-left : 350px; 
+
+    background-color: #f6f6f6;
+    &__content{
+        @mixin top(){
+            font-weight: bold;
+            font-size: 15px;
+        }
+        &--left{
+            @include top();
+            font-size: 18px;
+        }
+        &--right{
+            @include top();
+            color : rgb(112,77,228);
+            float: right;
+            padding-top : 5px;
+        }
+        &--more-right{
+            @include top();
+            font-size: 13px;
+            color : gray;
+            float: right;
+            margin-left: 8px;
+            padding-top : 8px;
+        }
+    }
+    &__payment-info{
+
+        width : 330px;
+        height : 600px;
+        position : fixed;
+        right : 260px;
+        bottom : 200px;
+        font-size : 13px;
+        &--main{
+            background-color: white;
+            border-top : 2px solid rgb(112,77,228);
+        }
+        &--table{
+            border-bottom : 2px solid rgb(112,77,228);
+            width : 90%;
+            padding : 25px 5px;
+            margin : 0 auto;
+            font-size: 10px;
+            margin-bottom: 15px;
+            td{
+                font-size: 14px;
+                font-weight: bold;
+                line-height: 35px;
+                border-bottom: 1px solid #f2f2f2;
+                padding : 5px;
+            }
+            td:nth-child(1),td:nth-child(4),td:nth-child(6){
+                font-weight: bold;
+                color : gray;
+            }
+            td:nth-child(3){
+                border : none;
+                color : rgb(112,77,228);
+                font-weight: bolder;
+            }
+        }
+        @mixin result(){
+            color : rgb(112,77,228);
+            font-weight: bolder;
+            font-size: 20px;
+        }
+        &--8361{
+            @include result();
+        }
+        &--num{
+            @include result();
+            float : right;
+        }
+        &--result{
+            padding : 5px 20px 20px;
+        }
+        &__submit{
+            width : 70%;
+            height : 55px;
+            background-color: rgb(112,77,228);
+            border: none;
+            color : rgb(251,202,74);
+            font-size: 15px;
+            font-weight: bold;
+            width : 100%;
+            cursor: pointer;
+        }
+    }
+    .content{
+        &__main{
+            border-top : 2px solid rgb(112,77,228);
+            padding : 20px 20px;
+            background-color: white;
+            margin-top: 10px;
+        }
+        &__title{
+            &--img{
+                width : 200px;
+            }
+            td:nth-child(1){
+                vertical-align: top;
+            }
+            td:nth-child(2){
+                font-size: 23px;
+                font-weight: bold;
+                border-bottom: 2px solid #f2f2f2;
+                padding : 0 15px 15px;
+            }
+            td:nth-child(2n+1){
+                font-size: 15px;
+                padding : 15px 15px;
+                line-height: 25px;
+            }    
+        }
+        &__kind{
+            margin-left : 15px;
+            border-top : 1px solid #f2f2f2;
+            margin-top: 15px;
+            td{
+                font-size: 15px;
+                padding-right: 15px;
+                line-height: 25px;
+                border-bottom: 1px solid #f2f2f2;
+                padding : 10px;
+            }
+            td:nth-child(2n+1){
+                font-weight: bold;
+            }
+            td:nth-child(2n){
+                width : 730px;
+            }
+        }
+    }
+    .booking-info{
+        background-color: white;
+        border-top: 2px solid rgb(112,77,228);
+        &--title{
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 55px;
+        }
+        &--table{
+            td{
+                padding : 20px 20px;
+                font-size: 15px;
+            }
+            td:nth-child(2n+1){
+                font-weight: bold;
+            }
+            td:nth-child(2n){
+                text-align: right;
+                width : 730px;
+                color: gray;
+                font-weight: bold;
+            }
+        }
+    }
+    .notice{
+        margin-top: 55px;
+        width: 900px;
+        border: 1px solid #f2f2f2;
+        &__title{
+            background-color: #ebebeb;
+            font-size: 18px;
+            font-weight: bold;
+            padding : 15px;
+            padding-left : 25px;
+            &--table{
+                td:first-child{
+                    padding-right : 631px;
+                }
+                td:nth-child(3){
+                    color : gray;
+                    text-align: left;
+                }
+            }
+        }
+        &__main{
+            background-color: white;
+        }
+        &--inner{
+            line-height: 25px;
+            padding : 20px;
+            width: 100%;
+            td{
+                padding : 10px;
+                border-bottom: 1px solid #f2f2f2 ;
+            }
+            td:nth-child(1),td:nth-child(3),td:nth-child(6){
+                width : 30px;
+            }
+        }
+        &__personal{
+            font-size: 12px;
+            font-weight: lighter;
+            color : gray;
+        }
+    }
+}
+.none,.all__none{
+    cursor: pointer;   
+    width : 35px;
+}
+.block,.all__block{
+    cursor: pointer;   
+    width : 35px;
+}
+[type=checkbox]{
+    display: none;
+}
+.up,.down{
+    width : 15px;
+    cursor: pointer;
+}
