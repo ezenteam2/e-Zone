@@ -26,7 +26,7 @@ minus.addEventListener('click',function(event){
 number.addEventListener('change',function(event){
     if(Number(number.value)<=0){
         number.value=1;
-
+Z
     }else if(Number(number.value)>partiNum()){
         number.value=partiNum();
         Command: toastr["warning"]("최대 신청 가능 인원은"+partiNum()+"명 입니다");

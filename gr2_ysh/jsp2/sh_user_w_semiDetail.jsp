@@ -11,14 +11,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="${path}/CSS/sh_user_w_semiDetail.css">
-    <link rel="stylesheet" href="${path}/CSS/toastr.css">
-    <link rel="stylesheet" href="${path}/CSS/style.css">
+    <link rel="stylesheet" href="${path}/gr2_ysh/css/sh_user_w_semiDetail.css">
+    <link rel="stylesheet" href="${path}/gr2_ysh/css/toastr.css">
+    <link rel="stylesheet" href="${path}/gr2_ysh/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <title>e-Zone :: 지식 공유 플랫폼</title>
-    <link href="${path}/img/icon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="${path}/gr2_ysh/img/icon.png" rel="shortcut icon" type="image/x-icon">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<script src="${path}/js/toastr.js"></script>
+<script src="${path}/gr2_ysh/js/toastr.js"></script>
     <script>
     // 세미나별 현재 신청가능 인원
     function partiNum(){
@@ -155,7 +155,6 @@
    
 </head>
 <body>
-
  <table id="show"></table>
     <article>
         <div class="content">
@@ -217,7 +216,7 @@
             <table class="semi__ask">
 <c:forEach var="qna" items="${qnaList}" begin="0" end="2" step="1">
 				<td colspan="3"><hr class="table--hr"></td></tr>
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/${qna.memProf}" alt=""></td><td class="semi__ask--td2">${qna.memNick}</td></tr>
+                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/gr2_ysh/img/${qna.memProf}" alt=""></td><td class="semi__ask--td2">${qna.memNick}</td></tr>
                 <tr><td class="semi__ask--td3">${qna.sqDetail}</td></tr>
                 <tr><td class="semi__ask--td4">${qna.sqDate}</td></tr>
                 <tr><td colspan="3"></td></tr>
@@ -226,7 +225,7 @@
 
                 <!-- 호스트 답글 -->
                 <tr>
-                    <td rowspan="3"><img  class="semi__ask--img" src="${path}/img/${qna.memProf}" alt="" style="opacity: 0;"></td>
+                    <td rowspan="3"><img  class="semi__ask--img" src="${path}/gr2_ysh/img/${qna.memProf}" alt="" style="opacity: 0;"></td>
                     <td class="semi__ask--td2" style="color : rgb(112,77,228)">호스트의 답글</td>
                 </tr>
                 <tr><td class="semi__ask--td3">${qna.sqAnswer}</td></tr>
@@ -252,8 +251,8 @@
 
             <table class="semi__ask">
 <c:forEach var="rev" items="${reviewList}" begin="0" end="3" step="1">
-				<tr><td colspan="3"><hr class="table--hr"></td></tr>
-                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/img/${rev.memProf}" alt=""></td><td class="semi__ask--td2">${rev.memNick}</td></tr>
+				<td colspan="3"><hr class="table--hr"></td></tr>
+                <tr><td rowspan="3"><img  class="semi__ask--img" src="${path}/gr2_ysh/img/${rev.memProf}" alt=""></td><td class="semi__ask--td2">${rev.memNick}</td></tr>
                 <tr><td class="semi__ask--td3">${rev.partiComm}</td></tr>
                 <tr><td class="semi__ask--td4">${rev.partiCommDate}</td></tr>
 
@@ -376,7 +375,7 @@
         
             <textarea placeholder="질문을 남겨주세요" class="modal__inner--text" id="sqDetail"></textarea>
             <div class="modal__inner--alert">
-            <img src="${path}/img/alert.png" style="vertical-align: middle;">질문은 공개 상태로만 등록하실 수 있습니다.
+            <img src="${path}/gr2_ysh/img/alert.png" style="vertical-align: middle;">질문은 공개 상태로만 등록하실 수 있습니다.
             </div>
         <div class="modal__inner--button" style="display: flex;">
             <button class="modal__inner--button-blue" id="sqSubmit" type="button">등록</button>
@@ -404,7 +403,7 @@
       
             <textarea placeholder="후기를 남겨주세요" class="modal__inner--text" id="reviewDetail"></textarea>
             <div class="modal__inner--alert">
-            <img src="${path}/img/alert.png" style="vertical-align: middle;">후기는 공개 상태로만 등록하실 수 있습니다.
+            <img src="${path}/gr2_ysh/img/alert.png" style="vertical-align: middle;">후기는 공개 상태로만 등록하실 수 있습니다.
             </div>
         <div class="modal__inner--button" style="display: flex;">
             <button class="modal__inner--button-blue" id="reviewSubmit">등록</button>
@@ -421,6 +420,6 @@
      </form>
      
     </div>
-    <script src="${path}/js/sh_user_w_semiDetail.js"></script>    
+    <script src="${path}/gr2_ysh/js/sh_user_w_semiDetail.js"></script>    
 </body>
 </html>

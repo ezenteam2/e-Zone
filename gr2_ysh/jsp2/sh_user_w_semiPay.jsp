@@ -13,12 +13,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="${path}/CSS/style.css">
-    <link rel="stylesheet" href="${path}/CSS/sh_user_w_semiPay.css">
+    <link rel="stylesheet" href="${path}/gr2_ysh/css/style.css">
+    <link rel="stylesheet" href="${path}/gr2_ysh/css/sh_user_w_semiPay.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="${path}/CSS/toastr.css">
+        <link rel="stylesheet" href="${path}/gr2_ysh/css/toastr.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="${path}/js/toastr.js"></script>
+<script src="${path}/gr2_ysh/js/toastr.js"></script>
 <script>
 	$(document).ready(function(){
 		
@@ -39,10 +39,9 @@
 	});
 </script>
     <title>e-Zone :: 지식 공유 플랫폼</title>
-    <link href="${path}/img/icon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="${path}/gr2_ysh/img/icon.png" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
-
 	<div class="main">
     <article class="article">
             <div class="article__content">
@@ -51,7 +50,7 @@
                 <span class="article__content--right">&#8361;<fmt:formatNumber value="${seminaInfo.semiPrice}" type="currency" pattern="#,###,###"/></span>
                 <div class="content__main">
                     <table class="content__title">
-                        <tr><td rowspan="2"><img class="content__title--img" src="${path}/img/semina.png" alt=""></td><td>${seminaInfo.semiTitle}</td></tr>
+                        <tr><td rowspan="2"><img class="content__title--img" src="${path}/gr2_ysh/img/semina.png" alt=""></td><td>${seminaInfo.semiTitle}</td></tr>
                         <tr><td>
                              <c:choose>
 					           	<c:when test="${fn:length(seminaInfo.semiDetail) > 300}">
@@ -95,8 +94,8 @@
                         <td class="notice__title">서비스 동의</td>
                         <td style="background-color: #ebebeb;">
                             <input id="all" type="checkbox">
-                            <img class="all__none" src="${path}/img/check1.png" alt="">
-                            <img class="all__block" src="${path}/img/check2.png" alt="">
+                            <img class="all__none" src="${path}/gr2_ysh/img/check1.png" alt="">
+                            <img class="all__block" src="${path}/gr2_ysh/img/check2.png" alt="">
                         </td>    
                         <td class="notice__title">전체 동의</td>
                         </tr></table>
@@ -106,8 +105,8 @@
                         <tr>
                             <td>
                                 <input id="first" type="checkbox">
-                                <img class="none" src="${path}/img/check1.png" alt="">
-                               <img class="block" src="${path}/img/check2.png" alt="">
+                                <img class="none" src="${path}/gr2_ysh/img/check1.png" alt="">
+                               <img class="block" src="${path}/gr2_ysh/img/check2.png" alt="">
                             </td>
                             <td colspan="2">
                                 예약조건 확인 및 결제진행 동의<span style="color : red;">(필수)</span>
@@ -119,14 +118,14 @@
                         <tr>
                             <td>
                                 <input id="first" type="checkbox">
-                                <img class="none" src="${path}/img/check1.png" alt="">
-                                <img class="block" src="${path}/img/check2.png" alt="">
+                                <img class="none" src="${path}/gr2_ysh/img/check1.png" alt="">
+                                <img class="block" src="${path}/gr2_ysh/img/check2.png" alt="">
                             </td>
                             <td>개인정보 제3자 제공 동의 <span style="color : red;">(필수)</span>
                             </td>
                             <td>
-                                <img class="down" src="${path}/img/down-arrow.png" alt="">
-                                <img class="up" src="${path}/img/up-arrow.png" alt="">
+                                <img class="down" src="${path}/gr2_ysh/img/down-arrow.png" alt="">
+                                <img class="up" src="${path}/gr2_ysh/img/up-arrow.png" alt="">
                             </td>
                         </tr>
                         <tr>
@@ -145,14 +144,14 @@
                         <tr>
                             <td>
                             <input id="first" type="checkbox">
-                            <img class="none" src="${path}/img/check1.png" alt="">
-                            <img class="block" src="${path}/img/check2.png" alt="">
+                            <img class="none" src="${path}/gr2_ysh/img/check1.png" alt="">
+                            <img class="block" src="${path}/gr2_ysh/img/check2.png" alt="">
                             </td>
                             <td>개인정보 수집 및 이용 동의 <span style="color : red;">(필수)</span>
                             </td>
                             <td>
-                                <img class="down" src="${path}/img/down-arrow.png" alt="">
-                                <img class="up" src="${path}/img/up-arrow.png" alt="">
+                                <img class="down" src="${path}/gr2_ysh/img/down-arrow.png" alt="">
+                                <img class="up" src="${path}/gr2_ysh/img/up-arrow.png" alt="">
                             </td>
                         </tr>
                         <tr>
@@ -203,7 +202,7 @@
     <input type="hidden" name="partiPrice">
    
     </form>
-    <script src="${path}/js/sh_user_w_semiPay.js"></script>
+    <script src="${path}/gr2_ysh/js/sh_user_w_semiPay.js"></script>
     </div>
 </body>
 </html>

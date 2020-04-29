@@ -9,6 +9,13 @@ public class SemiParti {
 	private int partiPrice; // 참가 비용
 	private String partiCurr; // 결제 상태
 	private String partiComm; // 이용후기
+	public SemiParti(String partiComm, int semiCode,  String memId) {
+		super();
+		this.semiCode = semiCode;
+		this.memId = memId;
+		this.partiComm = partiComm;
+	}
+
 	private String partiCommDate; // 이용후기 날짜
 	
 	private String memNick; // 참가자 닉네임
