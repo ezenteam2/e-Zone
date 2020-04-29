@@ -11,6 +11,7 @@ public class Member {
 	private String memCate;
 	private String memProf;
 	private java.sql.Date active;
+	private String activeStr;
 	
 	public Member() {
 		super();
@@ -96,6 +97,15 @@ public class Member {
 		this.active = active;
 	}
 
+	public String getActiveStr() {
+		return activeStr;
+	}
+
+	public void setActiveStr(String activeStr) {
+		this.activeStr = activeStr;
+	}
+	
+	
 	
 	
 	

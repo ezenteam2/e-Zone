@@ -5,9 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+
 import ezone.vo.*;
 public class MemberDao {
-	
+	ArrayList<Member> mlist;
 	private Connection con;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
@@ -230,5 +232,57 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 		return check;
+	}
+	
+	public ArrayList<Member> getAdminMember(String id, String name){
+		mlist = new ArrayList<Member>();
+		Member mem;
+		try {
+			setCon();
+			String Query="SELECT MEM_ID , MEM_NAME , active FROM p5member WHERE MEM_ID LIKE '%'||?||'%' \r\n" + 
+					"AND mem_name LIKE '%'||?||'%'";
+			pstmt = con.prepareStatement(Query);
+			pstmt.setString(1,  id);
+			pstmt.setString(2,  name);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				mem = new Member();
+				mem.setMemId(rs.getString(1));
+				mem.setMemName(rs.getString(2));
+				mem.setActiveStr(rs.getString(3));
+				mlist.add(mem);
+			}
+			rs.close();
+			pstmt.close();
+			con.close();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return mlist;
+	}
+	
+	public void UptMemberActive(String id, String date) {
+		try {
+			setCon();
+			String Query = "update p5member set active=to_date(?, yyyy-mm-dd) where id = ?";
+			pstmt = con.prepareStatement(Query);
+			pstmt.setString(1, date);
+			pstmt.setString(2, id);
+			
+			con.setAutoCommit(false);
+			pstmt.executeUpdate();
+			con.commit();
+			
+			pstmt.close();
+			con.close();
+		} catch(Exception e) {
+			try {
+				con.rollback();
+			} catch(Exception el) {
+				el.printStackTrace();
+			}
+		}
 	}
 }
