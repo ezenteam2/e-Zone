@@ -2,7 +2,7 @@ package com.example.ezone;
 
 import java.sql.Date;
 
-public class SeminarVO {
+public class SeminarVO_sh {
     private int semiCode;
     private String memId;
     private int zoneCode;

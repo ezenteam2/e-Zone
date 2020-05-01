@@ -1,20 +1,17 @@
 package com.example.ezone;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.net.URL;
 import java.util.ArrayList;
 
-public class Adapter_seminaInfo extends RecyclerView.Adapter<Adapter_seminaInfo.ViewHolder> {
-    ArrayList<SeminarVO> items = new ArrayList<SeminarVO>();
+public class Adapter_seminaInfo_sh extends RecyclerView.Adapter<Adapter_seminaInfo_sh.ViewHolder> {
+    ArrayList<SeminarVO_sh> items = new ArrayList<SeminarVO_sh>();
 
     @NonNull
     @Override
@@ -27,7 +24,7 @@ public class Adapter_seminaInfo extends RecyclerView.Adapter<Adapter_seminaInfo.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        SeminarVO item = items.get(position);
+        SeminarVO_sh item = items.get(position);
         viewHolder.setItem(item);
     }
 
@@ -36,15 +33,15 @@ public class Adapter_seminaInfo extends RecyclerView.Adapter<Adapter_seminaInfo.
         return items.size();
     }
 
-    public void addItem(SeminarVO item) {
+    public void addItem(SeminarVO_sh item) {
         items.add(item);
     }
 
-    public void setItems(ArrayList<SeminarVO> items) {
+    public void setItems(ArrayList<SeminarVO_sh> items) {
         this.items = items;
     }
 
-    public SeminarVO getItem(int position) {
+    public SeminarVO_sh getItem(int position) {
         return items.get(position);
     }
 
@@ -68,7 +65,7 @@ public class Adapter_seminaInfo extends RecyclerView.Adapter<Adapter_seminaInfo.
 
         }
 
-        public void setItem(SeminarVO item) {
+        public void setItem(SeminarVO_sh item) {
             title.setText(item.getSemiTitle());
             subtitle.setText(item.getSemiSubtitle());
             subtitle_clone.setText(item.getSemiSubtitle());
